@@ -1,5 +1,6 @@
 \documentclass{amsart}
-\usepackage{amsmath,amssymb,latexsym}
+\usepackage{amsmath,amssymb,enumerate,latexsym}
+\usepackage[margin=1.75in]{geometry}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -12,6 +13,7 @@
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\bfv}{\mathbf{v}}
 \newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
 \newcommand{\bfX}{\mathbf{X}}
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cF}{\mathcal{F}}
@@ -21,9 +23,20 @@
 \newcommand{\diag}{\operatorname{diag}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\half}{{\frac{1}{2}}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\ZZ}{\mathbb{Z}}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+   {\csname the#1\endcsname\quad}%       default
+   {\csname #1@cntformat\endcsname}}%    enable individual control
+\newcommand\section@cntformat{}
+\makeatother
+
+\newenvironment{enumeratea}{\begin{enumerate}[\upshape (a)]}{\end{enumerate}}
 
 \title{Some consequences of categorification}
 \author[Rupel]{Dylan Rupel}
@@ -35,111 +48,207 @@ USA}
 \email{drupel@nd.edu}
 
 \begin{document}
-\maketitle
+  \begin{abstract}
+    Several conjectures on acyclic skew-symmetrizable cluster algebras are proven as direct consequences of their categorification via valued quivers.  These include conjectures of Fomin-Zelevinsky, Reading-Speyer, and Reading-Stella related to $d$-vectors, $g$-vectors, and $F$-polynomials.
+  \end{abstract}
+  \maketitle
 
- Consider an $n\times n$ skew-symmetrizable matrix $B$ and write $\tilde B=\left[\begin{array}{c}B\\ I_n\end{array}\right]$ for the corresponding principalized exchange matrix.  Fix a choice of diagonal symmetrizing matrix $D=\diag(d_1,\ldots,d_n)$ with $d_i\in\ZZ_{>0}$, i.e. such that $DB$ is skew-symmetric.  Let $\Lambda$ be a skew-symmetric $2n\times2n$ matrix compatible with $\tilde B$, e.g. we may take $\Lambda=\left[\begin{array}{cc}\boldsymbol{0} & -D\\ D & -DB\end{array}\right]$ so that $\tilde B^T\Lambda=\big[\,D\ \boldsymbol{0}\,\big]$.  
+  \subsection{Introduction}
+  The categorification of skew-symmetric cluster algebras using representations of quivers was initiated by Marsh, Reineke, and Zelevinsky \cite{marsh-reineke-zelevinsky} for Dynkin quivers.  
+  With the advent of cluster characters \cite{caldero-chapoton}, the subject has exploded as an industry all its own, leading to the publication of numerous articles including \cite{caldero-chapoton-schiffler,buan-marsh-reineke-reiten-todorov,derksen-weyman-zelevinsky,geiss-leclerc-schroer,caldero-keller,caldero-keller2,plamondon,palu,rupel1,qin,rupel2} just to name a few.  
 
- Let $v$ be a formal variable.  We will work inside the $2n$-dimensional quantum torus algebra $\cT:=\cT_{\Lambda,v}$ with a $\ZZ[v^{\pm1}]$-basis consisting of vectors $X^\bfa$ for $\bfa\in\ZZ^{2n}$ and multiplication given by $X^\bfa X^{\bfa'}=v^{\Lambda(\bfa,\bfa')}X^{\bfa+\bfa'}$ for $\bfa,\bfa'\in\ZZ^{2n}$, where we abuse notation slightly and write $\Lambda:\ZZ^{2n}\times\ZZ^{2n}\to\ZZ$ for the associated bilinear form.  The compatibility condition guarantees that $X^{\bfb^k}$ and $X_\ell:=X^{\varepsilon_\ell}$ commute for $k\ne\ell$, where $\bfb^k$ denotes the $k^{th}$ column of $\tilde B$ and $\varepsilon_\ell$ denotes the standard basis vector of $\ZZ^{2n}$.  Write $\bfb^k=\bfb^k_+-\bfb^k_-$ for minimal positive vectors $\bfb^k_+,\bfb^k_-\in\ZZ^{2n}$.
+  The main idea is to interpret the combinatorics of cluster mutations in terms of the category of representations, and in particular to obtain an interpretation of the initial cluster Laurent expansions of non-initial cluster variables as generating functions for certain geometric invariants (e.g. Euler characteristics, point counts over finite fields, Poincar\'e polynomials, etc.) of varieties of subrepresentations in a given quiver representation.
+  
+  In the case of skew-symmetric cluster algebras, the rich structure present in the cluster characters defining the categorification has led to proofs of many conjectures relating to the structure of cluster algebras \cite{cerulliirelli-keller-labardinifragoso-plamondon} and the resolution of conjectures describing the internal structure of individual cluster variables as well as providing a tool which governs the combinatorics of mutations.
+  The main goal of this note is to observe that the categorification of acyclic skew-symmetrizable (quantum) cluster algebras \cite{rupel1,rupel2} naturally leads to proofs of many of the same conjectures as well as providing proofs of some conjectures not obtainable with the standard quiver (with potential) approach.  
 
- The pair $\Sigma=(\bfX,\tilde B)$ where $\bfX=(X_1,\ldots,X_{2n})$ is called a \emph{quantum seed}.  For each $1\le k\le n$, we may define a new quantum seed $\mu_k\Sigma=(\bfX',\tilde B')$ by \emph{mutation in direction $k$}, where $X'_i=X_i$ for $i\ne k$ while $X'_k$ is given by the \emph{exchange relation}:
- \[X'_k=X^{\bfb_+^k-\varepsilon_k}+X^{\bfb_-^k-\varepsilon_k}\]
- and $\tilde B'=(b'_{ij})$ is given by
- \[b'_{ij}=\begin{cases}-b_{ij} & \text{if $i=k$ or $j=k$;}\\ b_{ij}+b_{ik}[b_{kj}]_++[-b_{ik}]_+b_{kj} & \text{otherwise.}\end{cases}\]
- Call quantum seeds $\Sigma$ and $\Sigma'$ \emph{mutation equivalent} if one can be obtained from the other by a sequence of mutations.
+  Some of these already proven in \cite{demonet}...
 
- Since $\cT$ is an Ore domain it has a well-defined skew-field of fractions $\cF$.  Clearly the exchange relations imply that each quantum cluster variable $X'_i$ is contained in $\cF$ where $X'_i$ belongs to a quantum seed $\Sigma'=(\bfX',\tilde B')$ mutation equivalent to $\Sigma$.  The \emph{quantum cluster algebra} $\cA(\bfX,\tilde B)\subset\cF$ is the $\ZZ[v^{\pm1}]$-subalgebra generated by all quantum cluster variables belonging to quantum seeds mutation equivalent to $\Sigma=(\bfX,\tilde B)$.
+  \subsection{Cluster  Algebras and Quantum Cluster Algebras} Let $\cA(\bfx,\tilde B)$ be an acyclic cluster algebra \cite{berenstein-fomin-zelevinsky}, i.e. the principal submatrix of $\tilde B$ is acyclic.  
+  When the exchange matrix $\tilde B$ has full rank, the algebra $\cA(\bfx,\tilde B)$ admits a Poisson structure compatible with mutations \cite{gekhtman-shapiro-vainshtein} and one may obtain a quantum cluster algebra via the naive quantization.  
+  More intuitively, for an indeterminate $q$, the definition of the quantum cluster algebra $\cA_q(\bfX,\tilde B)$ can be obtained from that of $\cA(\bfx,\tilde B)$ via the following modifications:
+  \begin{itemize}
+    \item The initial cluster $\bfX$ consists of $q$-commuting variables, i.e. there exists a skew-symmetric matrix $\Lambda=(\lambda_{ij})$ so that $X_iX_j=q^{\lambda_{ij}}X_jX_i$.  
+    Denote by $\cT_\Lambda$ the quantum torus algebra generated by $X_i^{\pm1}:1\le i\le m$ over the ring $\ZZ[q^{\pm\half}]$.
+    \item To decide how to incorporate $q$ into the exchange relations, we note that the algebra $\cT$ admits an anti-involution (called the \emph{bar-involution}) fixing each $X_i$ and interchanging $q$ with $q^{-1}$.
+    Every non-initial cluster variable should also be ``bar-invariant'' and this uniquely determines the power of $q^\half$ by which to multiply each exchange monomial.  
+    More precisely, using the bar-invariant monomial basis $X^\bfa:\bfa\in\ZZ^m$ of $\cT$ given by
+    \[X^\bfa=q^{-\half\sum\limits_{i<j}\lambda_{ij}a_ia_j}X_1^{a_1}\cdots X_m^{a_m},\]
+    we may write the exchange relation as $X'_k=X^{\bfb_+^k-\varepsilon_k}+X^{\bfb_-^k-\varepsilon_k}$ where $\varepsilon_k$ denotes the standard basis vector of $\ZZ^m$ and the $k^{th}$ column of $\tilde B$ decomposes as $\bfb^k=\bfb^k_+-\bfb^k_-$ for minimal positive vectors $\bfb^k_+,\bfb^k_-\in\ZZ_{\ge0}^m$.
+    \item Each cluster $\bfX'$ obtainable from $\bfX$ by a sequence of mutations should again generate a quantum torus, i.e. consist of $q$-commuting variables, and this forces a compatibility condition (see below) of the commutation matrix $\Lambda$ with the exchange matrix $\tilde B$.
+    This compatibility naturally reproduces under mutations.
+  \end{itemize}
+  Note that the final compatibility condition is identical to the conditions necessary for a compatible Poisson structure.
+  
+  By work of Berenstein and Zelevinsky \cite{berenstein-zelevinsky}, the famous Laurent phenomenon holds in this adapted setting and one may ask how to describe the initial cluster Laurent expansions of non-initial quantum cluster variables.  
+  The answer will be given using the representation theory of valued quivers in the following section.
 
- The first important structural result on quantum cluster algebras is the \emph{Quantum Laurent Phenomenon}.
- \begin{theorem}\cite{berenstein-zelevinsky}
-  $\cA(\bfX,\tilde B)\subset\cT$
- \end{theorem}
- This raises the natural question: how can one describe the Laurent expansions of the cluster variables.  To answer this question we assume from now on that $B$ is \emph{acyclic}, i.e. if $i<j$ then $b_{ij}<0$.  In other words the associated quiver $Q:=Q_{\tilde B}$ with vertices $\{1,\ldots,n\}$ and $\gcd(b_{ij},b_{ji})$ arrows $i\longrightarrow j$ whenever $b_{ij}<0$ has no oriented cycles.  We will need the principalized quiver $\tilde Q$ obtained from $Q$ by attaching to each vertex $i$ an additional vertex $n+i$ via a single arrow $i\to n+i$.  Then the Laurent expansions of non-initial quantum cluster variables can be described in terms of the representation theory of the valued quiver $(\tilde Q,\tilde D)$ where $\tilde D=\left[\begin{array}{cc}D&0\\0&D\end{array}\right]$.
+  Following work of Tran \cite{tran}, it suffices to consider the principal coefficients case defined as follows.  
+  Consider an $n\times n$ skew-symmetrizable matrix $B$ and write $\tilde B=\left[\begin{array}{c}B\\ I_n\end{array}\right]$ for the corresponding principalized exchange matrix.  
+  Fix a choice of diagonal symmetrizing matrix $D=\diag(d_1,\ldots,d_n)$ with $d_i\in\ZZ_{>0}$, i.e. such that $DB$ is skew-symmetric.
+  Let $\Lambda$ be a skew-symmetric $2n\times2n$ matrix compatible with $\tilde B$, e.g. given any $n\times n$ skew-symmetric matrix $\Lambda_0$ we may take $\Lambda=\left[\begin{array}{cc}\Lambda_0 & -\Lambda_0B-D\\ -B^T\Lambda_0+D & B^T\Lambda_0B+B^TD\end{array}\right]$ so that $\tilde B^T\Lambda=\big[\,D\ \boldsymbol{0}\,\big]$ (this is the required compatibility condition).
 
- Write $\FF_q$ for the finite field with $q$ elements and specialize $v=\sqrt{q}$.  Choose an algebraic closure $\overline{\FF}_q$ and write $\FF_{q^d}$ for the degree $d$ extension of $\FF_q$ inside $\overline{\FF}_q$.  Note that this provides a canonical identification of $\FF_{q^d}$ as an $\FF_{q^g}$-vector space whenever $g|d$.  A representation $V=(V_i,V_a)$ of $(Q,D)$ consists of an $\FF_{q^{d_i}}$-vector space $V_i$ for each vertex $i$ of $Q$ and an $\FF_{q^{\gcd{d_i,d_j}}}$-linear map $V_a:V_i\to V_j$ for each arrow $a:i\to j$ (i.e. when $b_{ij}<0$).  The finite-dimensional representations of $(Q,D)$ form a hereditary abelian category denoted by $\rep_{\FF_q}\!(Q,D)$.  The category $\rep_{\FF_q}\!(Q,D)$ naturally embeds into the category $\rep_{\FF_d}\!(\tilde Q,\tilde D)$, it is this subcategory that we will be interested in and thus always consider $\rep_{\FF_q}\!(Q,D)$ to be this subcategory of $\rep_{\FF_d}\!(\tilde Q,\tilde D)$.  
+  \subsection{Quantum Cluster Characters}
+  Define a quiver $Q_B$ with vertices $\{1,\ldots,n\}$ and $\gcd(b_{ij},b_{ji})$ arrows $i\longrightarrow j$ whenever $b_{ij}<0$, we assume this quiver to be acyclic.
+  Write $\tilde Q$ for the quiver obtained from $Q_B$ by attaching to each vertex $i$ an additional vertex $n+i$ via a single arrow $i\to n+i$.  
+  The Laurent expansions of non-initial quantum cluster variables can be described in terms of the representation theory of the valued quiver $(\tilde Q,\tilde D)$ where $\tilde D=\left[\begin{array}{cc}D&0\\0&D\end{array}\right]$.
 
- Write $\tilde\cQ$ for the Grothendieck group of $\rep_{\FF_q}\!(\tilde Q,\tilde D)$ and let $\cQ\subset\tilde\cQ$ denote the Grothendieck group of $\rep_{\FF_q}\!(Q,D)$.  Then since $\tilde Q$ is acyclic, the Euler-Ringel form $\langle V,W\rangle:=\dim_{\FF_q}\Hom(V,W)-\dim_{\FF_q}\Ext(V,W)$ only depends on the classes of $V$ and $W$ in $\tilde\cQ$ and thus may be given on the classes $\alpha_i=[S_i]$ of the vertex-simple representations by
- \[\langle\alpha_i,\alpha_j\rangle=\begin{cases} d_i & \text{if $i=j$;}\\d_ib_{ij} & \text{if $b_{ij}<0$;}\\-d_i & \text{if $j=n+i$;}\\0 & \text{otherwise.}\end{cases}\]
- For $\bfe\in\cQ$ define ${}^*\bfe=\sum\limits_{i=1}^{2n}\frac{1}{d_i}\langle\alpha_i,\bfe\rangle\cdot\alpha_i$ and $\bfe^*=\sum\limits_{j=1}^{2n}\frac{1}{d_j}\langle\bfe,\alpha_j\rangle\cdot\alpha_j$.  Then the \emph{quantum cluster character} of a representation $V\in\rep_{\FF_q}(Q,D)$ with $[V]=:\bfv$ is given by
- \[X_V=\sum\limits_{\bfe\in\cQ} v^{\langle\bfe,\bfv-\bfe\rangle}\big|\Gr_\bfe(V)\big|X^{\tilde B\bfe-{}^*\bfv}\in\cT\]
- where $\Gr_\bfe(V)$ denotes the set of all submodules $E\subset V$ with isomorphism class $[E]=\bfe$.  Note that $\tilde B\bfe={}^*\bfe-\bfe^*$ and for $1\le j\le n$ we have ${}^*\alpha_j=\alpha_j+\sum\limits_{i:b_{ij}<0}b_{ij}\alpha_i$.
-
- A representation $V$ is called \emph{rigid} if $\Ext(V,V)=0$.
- \begin{theorem}\cite{qin,rupel2}
-  For each rigid indecomposable $V\in\rep_{\FF_q}(Q,D)$, the quantum cluster character $X_V$ is a quantum cluster variable of $\cA(\bfX,\tilde B)$.  Moreover, every non-initial cluster variable of $\cA(\bfX,\tilde B)$ arises in this way.
- \end{theorem}
-
- The connection between the representation theory of $(Q,D)$ and the cluster algebra is actually much stronger.  For a source (resp. sink) vertex $k$ in $Q$, write $\Sigma_k^-:\rep_{\FF_q}(Q,D)\to\rep_{\FF_q}(\mu_kQ,D)$ (resp. $\Sigma_k^+:\rep_{\FF_q}(Q,D)\to\rep_{\FF_q}(\mu_kQ,D)$) for the reflection functor as defined in \cite[Sec. 2]{dlab-ringel}.  We will drop the adornment and simply write $\Sigma_k$ for both reflection functors, which functor to apply will be clear from context.
- \begin{theorem}\cite{rupel1}\label{th:reflection functor}
-  Let $k$ be a sink or a source in $Q$ and write $(\bfX',\tilde B')=\mu_k(\bfX,\tilde B)$.  For any representation $V\in\rep_{\FF_q}(Q,D)$ we have $X_V=X'_{\Sigma_kV}$ inside $\cF$, where $X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_{\FF_q}(\mu_kQ,D)$ in the variables $\bfX'$.
- \end{theorem}
-
- \begin{proposition}
-  The denominator vector of $X_V$ is precisely the dimension vector $\bfv$ of $V$.
- \end{proposition}
- \begin{proof}
-  The proof is identical to that of \cite[Sec. 4, Cor. 2]{caldero-keller} with appropriate modifications in the valued quiver setting, we recall the details here for convenience of the reader.  
-
-  First note that for any representation $W$ with $[W]=\bfw$ we have $\frac{1}{d_i}\langle W,I_i\rangle=w_i=\frac{1}{d_i}\langle P_i,W\rangle$ where $I_i$ and $P_i$ denote respectively the injective hull and projective cover of the vertex simple $S_i$.  Next using the injective resolution of $S_i$ we see that $\langle W,S_i\rangle\le\langle W,I_i\rangle$ while using the projective resolution gives $\langle S_i,W\rangle\le\langle P_i,W\rangle$.  Now consider a subrepresentation $E\subset V$ with $[E]=\bfe$, applying the above considerations we see that the $i^{th}$ component of $\bfe^*+{}^*(\bfv-\bfe)$ is bounded by the $i^{th}$ component of $\bfv$:
-  \[\frac{1}{d_i}\langle E,S_i\rangle+\frac{1}{d_i}\langle S_i,V/E\rangle\le\frac{1}{d_i}\langle E,I_i\rangle+\frac{1}{d_i}\langle P_i,V/E\rangle=e_i+(v_i-e_i)=v_i.\]
-
-  To finish the proof, for each $1\le i\le n$ we must exhibit a subrepresentation $E\subset V$ which realizes this bound.  To construct such a subrepresentation, let $J_{i\to j}$ be the set of all vertices $j$ in $Q$ for which there exists a path (possibly trivial) beginning at $i$ and ending at $j$.  Now set $E_j=V_j$ for $j\in J_{i\to j}$ and $E_j=0$ for $j\notin J_{i\to j}$.  Recall that in an injective resolution $0\longrightarrow S_i\longrightarrow I_i\longrightarrow I\longrightarrow 0$ the injective representation $I$ has nonzero components only at vertices $j$ which admit a nontrivial path \emph{to} vertex $i$, that is while in a projective resolution $0\longrightarrow P\longrightarrow P_i\longrightarrow S_i\longrightarrow 0$ the projective representation $P$ has nonzero components only at vertices $j$ which admit a nontrivial path \emph{from} vertex $i$.  It follows that $\langle E,S_i\rangle=\langle E,I_i\rangle-\langle E,I\rangle=\langle E,I_i\rangle$ and $\langle S_i,V/E\rangle=\langle P_i,V/E\rangle-\langle P,V/E\rangle=\langle P_i,V/E\rangle$ and thus 
-  \[\frac{1}{d_i}\langle E,S_i\rangle+\frac{1}{d_i}\langle S_i,V/E\rangle=\frac{1}{d_i}\langle E,I_i\rangle+\frac{1}{d_i}\langle P_i,V/E\rangle=e_i+(v_i-e_i)=v_i\]
-  as desired.
- \end{proof}
-
- \begin{corollary}
-  The mutation of the initial cluster at a sink or a source vertex transforms denomiator vectors according to the simple reflection associated to that vertex.
- \end{corollary}
- \begin{proof}
-  By Theorem~\ref{th:reflection functor}, the initial cluster mutation at a sink or a source vertex transforms quantum cluster characters according to the associated reflection functor on $\rep_{\FF_q}(Q,D)$.  The result then follows from \cite[Prop. 2.1]{dlab-ringel}.
- \end{proof}
-
- Let $E=(e_{ij})$ be the matrix given by
- \[e_{ij}=\begin{cases} -1 & \text{if $i=j$;}\\ [-b_{ij}]_+ & \text{if $i\ne j$.}\end{cases}\]
- \begin{theorem}
-  Let $\bfd_i^t\in\ZZ^n$ be a denominator vector for a cluster variable of $\cA(\bfX,\tilde B)$ and write $\bfg_i^t$ for the $g$-vector of that cluster variable.  Then $\bfg_i^t=E\bfd_i^t$.
- \end{theorem}
- \begin{proof}
-  Notice that the $g$-vector of the cluster variable $X_V$ is given by $-{}^*\bfv$ where $\bfv=[V]$.  The result then immediately follows from the definitions of $E$ and the ${}^*(-)$ operator.
- \end{proof}
-
- \section{Possible other directions}
- \begin{itemize}
-   \item Can I use categorification to prove any part of Conj. 7.4 from [FZ4]?
- \end{itemize}
+  Let $\FF$ be a finite field and choose an algebraic closure $\overline{\FF}$ of $\FF$.  
+  Write $\FF_{\langle d\rangle}$ for the degree $d$ extension of $\FF$ inside $\overline{\FF}$.
+  Note that this provides a canonical identification of $\FF_{\langle d\rangle}$ as a vector space over $\FF_{\langle g\rangle}$ whenever $g|d$.  
+  A representation $V=(V_i,V_a)$ of $(Q,D)$ consists of an $\FF_{\langle d_i\rangle}$-vector space $V_i$ for each vertex $i$ and an $\FF_{\langle\gcd(d_i,d_j)\rangle}$-linear map $V_a:V_i\to V_j$ for each arrow $a:i\to j$ (i.e. when $b_{ij}<0$).  
+  The finite-dimensional representations of $(Q,D)$ form a hereditary abelian category denoted by $\rep_\FF(Q,D)$.  
+  The category $\rep_\FF(Q,D)$ naturally embeds into the category $\rep_\FF(\tilde Q,\tilde D)$, it is this subcategory that we will be interested in and thus always consider $\rep_\FF(Q,D)$ to be this subcategory of $\rep_\FF(\tilde Q,\tilde D)$.  
 
 
-\begin{thebibliography}{99}
+  Write $\tilde\cQ$ for the Grothendieck group of $\rep_\FF(\tilde Q,\tilde D)$ and let $\cQ\subset\tilde\cQ$ denote the Grothendieck group of $\rep_\FF(Q,D)$.
+  Since $\tilde Q$ is acyclic, there is an identification $\tilde\cQ\cong\ZZ^{2n}$ by taking classes $\alpha_i=[S_i]$ of the vertex-simple representations as a basis and the Euler-Ringel form $\langle V,W\rangle:=\dim_\FF\Hom(V,W)-\dim_\FF\Ext(V,W)$ only depends on the classes of $V$ and $W$ in $\tilde\cQ$.  
+  More precisely, the Euler-Ringel form may be given in the vertex-simple basis by
+  \[\langle\alpha_i,\alpha_j\rangle=\begin{cases} d_i & \text{if $i=j$;}\\d_ib_{ij} & \text{if $b_{ij}<0$;}\\-d_i & \text{if $j=n+i$;}\\0 & \text{otherwise.}\end{cases}\]
+  For $\bfe\in\cQ$, define ${}^*\bfe=\sum\limits_{i=1}^{2n}\frac{1}{d_i}\langle\alpha_i,\bfe\rangle\cdot\alpha_i\in\cQ$ and $\bfe^*=\sum\limits_{j=1}^{2n}\frac{1}{d_j}\langle\bfe,\alpha_j\rangle\cdot\alpha_j\in\tilde\cQ$, noting that these do not depend on the choice of symmetrizing matrix $D$. 
+  Then the \emph{quantum cluster character} of a representation $V\in\rep_\FF(Q,D)$ with $[V]=:\bfv$ is given by \[X_V=\sum\limits_{\bfe\in\cQ} |\FF|^{-\half\langle\bfe,\bfv-\bfe\rangle}\big|\!\Gr_\bfe(V)\big|X^{\tilde B\bfe-{}^*\bfv}\in\cT_\Lambda,\] where $\Gr_\bfe(V)$ denotes the set of all subrepresentations $E\subset V$ with isomorphism class $[E]=\bfe$.  
+  Note that $\tilde B\bfe={}^*\bfe-\bfe^*$ and for $1\le j\le n$ we have ${}^*\alpha_j=\alpha_j+\sum\limits_{i:b_{ij}<0}b_{ij}\alpha_i$.
 
-\bibitem[BZ]{berenstein-zelevinsky}
-A. Berenstein and A. Zelevinsky, ``Quantum cluster algebras.''   {\em Advances in Mathematics}, vol. 195, {\bf 2} (2005), pp.~405--455.
+  A representation $V$ is called \emph{rigid} if $\Ext(V,V)=0$.  
+  \begin{theorem}\cite{rupel2}\label{th:quantum cluster characters}\mbox{}
+    \begin{enumeratea}
+      \item For each rigid indecomposable $V\in\rep_\FF(Q,D)$, the quantum cluster character $X_V$ is a quantum cluster variable of $\cA_{|\FF|}(\bfX,\tilde B)$.  
+      Moreover, every non-initial cluster variable of $\cA_{|\FF|}(\bfX,\tilde B)$ arises in this way.
+      \item For each $\bfe\in\cQ$ and each positive root $\bfv\in\cQ$, there exists a polynomial $P_{\bfv,\bfe}(q)$ such that for any rigid indecomposable $V\in\rep_\FF(Q,D)$ with isomorphism class $\bfv$, we have $\big|\!Gr_\bfe(V)\big|=P_{\bfv,\bfe}\big(|\FF|\big)$.  These polynomials give a ``generic'' quantum cluster character 
+      \[X_\bfv=\sum\limits_{\bfe\in\cQ} q^{-\half\langle\bfe,\bfv-\bfe\rangle}P_{\bfv,\bfe}(q)X^{\tilde B\bfe-{}^*\bfv}\]
+      which computes the cluster variables of $\cA_q(\bfX,\tilde B)$ with arbitrary parameter $q$.
+    \end{enumeratea}
+  \end{theorem}
+  An analogous result was obtained for acyclic skew-symmetric quantum cluster algebras by Qin \cite{qin} using representations of acyclic quivers and with counting polynomials replaced by Poincar\'e polynomials.  Setting $q=1$ in Theorem~\ref{th:quantum cluster characters}(b) gives the following result from which we will deduce the main results of this note.
+  \begin{corollary}\label{cor:classical cluster characters}
+    All non-initial cluster variables of the cluster algebra $\cA(\tilde B)$ are computed by the cluster characters
+    \[x_\bfv=x^{-{}^*\bfv}\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)x^{\tilde B\bfe}\]
+    as $\bfv$ ranges over all positive roots in the root system of the Cartan companion of $B$.
+    In particular, the $g$-vector is given by $-{}^*\bfv$ and the $F$-polynomial is $\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)y^\bfe$.
+    Moreover, $F$-polynomials have constant term 1 and all coefficients are positive.
+  \end{corollary}
+  \begin{proof}
+    The final claim follows from the results of \cite{wolf}.
+  \end{proof}
 
- \bibitem[BMRRT]{bmrrt}
- A. Buan, R. Marsh, I. Reiten, M. Reineke, G. Todorov, ``Tilting theory and cluster combinatorics.'' {\em Adv. Math.} \textbf{204} (2006), no. 2, pp.~572–-618.
+  The connection between the representation theory of $(Q,D)$ and the cluster algebra is actually much stronger.  For a source (resp. sink) vertex $k$ in $Q$, write $\Sigma_k^-:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$ (resp. $\Sigma_k^+:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$) for the reflection functor as defined in \cite[Sec. 2]{dlab-ringel}.  
+  We will drop the adornment and simply write $\Sigma_k$ for both reflection functors, which functor to apply should be clear from context.
+  \begin{theorem}\cite{rupel1}\label{th:reflection functor}
+    Let $k$ be a sink or a source in $Q$ and write $(\bfX',\tilde B')=\mu_k(\bfX,\tilde B)$.  
+    For any representation $V\in\rep_\FF(Q,D)$ we have $X_V=X'_{\Sigma_kV}$, where $X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_\FF(\mu_kQ,D)$ in the variables $\bfX'$.
+  \end{theorem}
 
- \bibitem[CC]{caldero-chapoton}
- P. Caldero and F. Chapoton, ``Cluster algebras as Hall algebras of quiver representations.'' {\em Comment. Math. Helv.} \textbf{81} (2006), no. 3, pp.~595--616.
+  \subsection{Deducing the Conjectures}
+  Introduce $g$-vectors and $F$-polynomials?
 
- \bibitem[CK]{caldero-keller}
- P. Caldero and B. Keller, ``From triangulated categories to cluster algebras.''  {\em Invent. Math.} \textbf{172} (2008), no. 1, pp.~169-–211.
+  The following, in particular, proves \cite[Conj. 1.9]{reading-stella} in the case of an acyclic initial exchange matrix.
+  \begin{proposition}
+    The denominator vector of $X_V$ is precisely the dimension vector $\bfv$ of $V$.
+  \end{proposition}
+  \begin{proof}
+    The proof is identical to that of \cite[Sec. 4, Cor. 2]{caldero-keller} with appropriate modifications in the valued quiver setting, we recall the details here for convenience of the reader.  
 
- \bibitem[DR]{dlab-ringel}
- V. Dlab and C. Ringel, ``Indecomposable Representations of Graphs and Algebras.'' {\em Mem.~Amer. Math. Soc.} \textbf{173} (1976).
+    First note that for any representation $W$ with $[W]=\bfw$ we have $\frac{1}{d_i}\langle W,I_i\rangle=w_i=\frac{1}{d_i}\langle P_i,W\rangle$ where $I_i$ and $P_i$ denote respectively the injective hull and projective cover of the vertex simple $S_i$.  Next using the injective resolution of $S_i$ we see that $\langle W,S_i\rangle\le\langle W,I_i\rangle$ while using the projective resolution gives $\langle S_i,W\rangle\le\langle P_i,W\rangle$.  Now consider a subrepresentation $E\subset V$ with $[E]=\bfe$, applying the above considerations we see that the $i^{th}$ component of $\bfe^*+{}^*(\bfv-\bfe)$ is bounded by the $i^{th}$ component of $\bfv$:
+    \[\frac{1}{d_i}\langle E,S_i\rangle+\frac{1}{d_i}\langle S_i,V/E\rangle\le\frac{1}{d_i}\langle E,I_i\rangle+\frac{1}{d_i}\langle P_i,V/E\rangle=e_i+(v_i-e_i)=v_i.\]
 
- \bibitem[Q]{qin}
- F. Qin, ``Quantum cluster variables via Serre polynomials.''  {\em J. Reine Angew. Math.} \textbf{668} (2012), pp.~149--190.
+    To finish the proof, for each $1\le i\le n$ we must exhibit a subrepresentation $E\subset V$ which realizes this bound.  To construct such a subrepresentation, let $J_{i\to j}$ be the set of all vertices $j$ in $Q$ for which there exists a path (possibly trivial) beginning at $i$ and ending at $j$.  Now set $E_j=V_j$ for $j\in J_{i\to j}$ and $E_j=0$ for $j\notin J_{i\to j}$.  Recall that in an injective resolution $0\longrightarrow S_i\longrightarrow I_i\longrightarrow I\longrightarrow 0$ the injective representation $I$ has nonzero components only at vertices $j$ which admit a nontrivial path \emph{to} vertex $i$, that is while in a projective resolution $0\longrightarrow P\longrightarrow P_i\longrightarrow S_i\longrightarrow 0$ the projective representation $P$ has nonzero components only at vertices $j$ which admit a nontrivial path \emph{from} vertex $i$.  It follows that $\langle E,S_i\rangle=\langle E,I_i\rangle-\langle E,I\rangle=\langle E,I_i\rangle$ and $\langle S_i,V/E\rangle=\langle P_i,V/E\rangle-\langle P,V/E\rangle=\langle P_i,V/E\rangle$ and thus 
+    \[\frac{1}{d_i}\langle E,S_i\rangle+\frac{1}{d_i}\langle S_i,V/E\rangle=\frac{1}{d_i}\langle E,I_i\rangle+\frac{1}{d_i}\langle P_i,V/E\rangle=e_i+(v_i-e_i)=v_i\]
+    as desired.
+  \end{proof}
 
- \bibitem[RSp]{reading-speyer}
- N. Reading and D. Speyer, ``Cambrian fans.'' {\em J. Eur. Math. Soc.} \textbf{11} (2009), no. 2, pp.~407--447.
+  With this we obtain a proof of \cite[Conj. 1.8]{reading-stella} and hence, following \cite[Prop. 1.10]{reading-stella}, a proof of \cite[Conj. 1.7]{reading-stella}.
+  \begin{corollary}
+    The mutation of the initial cluster at a sink or a source vertex transforms denominator vectors according to the simple reflection associated to that vertex.
+  \end{corollary}
+  \begin{proof}
+    By Theorem~\ref{th:reflection functor}, the initial cluster mutation at a sink or a source vertex transforms quantum cluster characters according to the associated reflection functor on $\rep_{\FF_q}(Q,D)$.  The result then follows from \cite[Prop. 2.1]{dlab-ringel}.
+  \end{proof}
 
- \bibitem[RSt]{reading-stella}
- N. Reading and S. Stella, ``Initial-seed recursions and dualities for $d$-vectors.'' Preprint: arXiv:1409.4723.
+  Let $E=(e_{ij})$ be the matrix given by
+  \[e_{ij}=\begin{cases} -1 & \text{if $i=j$;}\\ [-b_{ij}]_+ & \text{if $i\ne j$.}\end{cases}\]
+  The following result establishes \cite[Conj. 3.21]{reading-speyer}.
+  \begin{theorem}\label{th:d to g}
+    Let $\bfd_i^t\in\ZZ^n$ be a denominator vector for a cluster variable of $\cA(\bfX,\tilde B)$ and write $\bfg_i^t$ for the $g$-vector of that cluster variable.  Then $\bfg_i^t=E\bfd_i^t$.
+  \end{theorem}
+  \begin{proof}
+    Since the $g$-vector of the cluster variable $x_\bfv$ is given by $-{}^*\bfv$, the result follows immediately from the definitions of $E$ and the operator ${}^*(-)$.
+  \end{proof}
+  Does \cite[Conj. 6.13]{FZ} follow?
+
+  \cite[Conj. 7.17]{FZ} is immediate from Corollary~\ref{cor:classical cluster characters}, this immediately implies \cite[Conj. 6.11]{FZ} using \cite[Prop. 7.16]{FZ}.  Thus we obtain the somewhat surprising fact that the $F$-polynomial determines the $g$-vector for acyclic cluster algebras (of full rank?).
+
+  Proofs of \cite[Conj. 5.4 and 5.5]{FZ}...\\
+  Proof of \cite[Con. 7.6]{FZ}, this then implies \cite[Conj. 7.10]{FZ}(1) using Theorem~\ref{th:d to g}.\\
+  Proof of \cite[Conj. 7.10]{FZ}, then following \cite[Rem. 7.11]{FZ} we obtain \cite[Con. 7.2]{FZ}.
+  
+  \cite[Conj. 3.22]{reading-speyer} follows from known facts above partial tilting representations.
+
+
+  \section{Possible other directions}
+  \begin{itemize}
+    \item Can I use categorification to prove any part of Conj. 7.4 from [FZ4]?  Probably, follow Assem-Schifler-Schramchenko.
+    \item Can I do anything with \cite[Conj. 3.9]{reading-speyer}
+  \end{itemize}
+
+  \subsection*{Acknowledgments}
+  The author would like to thank Salvatore Stella and Nathan Reading for directing him towards their conjectures and encouraging him to write this note. 
+
+  \begin{thebibliography}{99}
+
+  \bibitem[BFZ]{berenstein-fomin-zelevinsky}
+
+  \bibitem[BZ]{berenstein-zelevinsky}
+  A. Berenstein and A. Zelevinsky, ``Quantum cluster algebras.''   {\em Advances in Mathematics}, vol. 195, {\bf 2} (2005), pp.~405--455.
+
+  \bibitem[BMRRT]{buan-marsh-reineke-reiten-todorov}
+  A. Buan, R. Marsh, I. Reiten, M. Reineke, G. Todorov, ``Tilting theory and cluster combinatorics.'' {\em Adv. Math.} \textbf{204} (2006), no. 2, pp.~572–-618.
+
+  \bibitem[CC]{caldero-chapoton}
+  P. Caldero and F. Chapoton, ``Cluster algebras as Hall algebras of quiver representations.'' {\em Comment. Math. Helv.} \textbf{81} (2006), no. 3, pp.~595--616.
+
+  \bibitem[CCS]{caldero-chapoton-schiffler}
+
+  \bibitem[CK]{caldero-keller}
+  P. Caldero and B. Keller, ``From triangulated categories to cluster algebras.''  {\em Invent. Math.} \textbf{172} (2008), no. 1, pp.~169-–211.
+
+  \bibitem[CK2]{caldero-keller2}
+
+  \bibitem[CKLP]{cerulliirelli-keller-labardinifragoso-plamondon}
+
+  \bibitem[D]{demonet}
+
+  \bibitem[DWZ]{derksen-weyman-zelevinsky}
+
+  \bibitem[DR]{dlab-ringel}
+  V. Dlab and C. Ringel, ``Indecomposable Representations of Graphs and Algebras.'' {\em Mem.~Amer. Math. Soc.} \textbf{173} (1976).
+
+  \bibitem[FZ]{fomin-zelevinsky4}
+
+  \bibitem[GSV]{gekhtman-shapiro-vainshtein}
+
+  \bibitem[MRZ]{marsh-reineke-zelevinsky}
+
+  \bibitem[Pa]{palu}
+
+  \bibitem[Pl]{plamondon}
+
+  \bibitem[Q]{qin}
+  F. Qin, ``Quantum cluster variables via Serre polynomials.''  {\em J. Reine Angew. Math.} \textbf{668} (2012), pp.~149--190.
+
+  \bibitem[RSp]{reading-speyer}
+  N. Reading and D. Speyer, ``Cambrian fans.'' {\em J. Eur. Math. Soc.} \textbf{11} (2009), no. 2, pp.~407--447.
+
+  \bibitem[RSt]{reading-stella}
+  N. Reading and S. Stella, ``Initial-seed recursions and dualities for $d$-vectors.'' Preprint: arXiv:1409.4723.
    
- \bibitem[R1]{rupel1}
- D. Rupel, ``On a quantum analogue of the Caldero-Chapoton formula.'' {\em Int. Math. Res. Not.} (2011), no. 14, pp.~3207--3236.
+  \bibitem[R1]{rupel1}
+  D. Rupel, ``On a quantum analogue of the Caldero-Chapoton formula.'' {\em Int. Math. Res. Not.} (2011), no. 14, pp.~3207--3236.
 
- \bibitem[R2]{rupel2}
- D. Rupel, ``Quantum cluster characters.'' {\em Trans. Amer. Math. Soc.} (2015). DOI: 10.1090/S0002-9947-2015-06251-5.
+  \bibitem[R2]{rupel2}
+  D. Rupel, ``Quantum cluster characters.'' {\em Trans. Amer. Math. Soc.} (2015). DOI: 10.1090/S0002-9947-2015-06251-5.
+
+  \bibitem[W]{wolf}
+  S. Wolf, ``A geometric version of BGP reflection functors''
 
 \end{thebibliography}
 \end{document}
