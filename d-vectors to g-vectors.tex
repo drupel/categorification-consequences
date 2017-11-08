@@ -53,7 +53,51 @@ USA}
   \end{abstract}
   \maketitle
 
-  \subsection{Introduction}
+  \section{TODO list}
+  \begin{itemize}
+    \item
+      Track down the conjectures we will prove:
+		
+		\begin{itemize}
+		  \item CAIV
+        \begin{itemize}
+          \item C 5.4	F-polynomials have constant term = 1 (follows from sign coherence)
+          \item C 5.5	F-polynomial max deg term
+          \item C 6.10	initial mutation of g-vectors
+          \item C 6.11	g-vectors from F-poly
+          \item C 6.13	sign coherence g-vectors
+          \item C 7.2	lin ind of cluster monomials
+          \item C 7.4	non initial d-vectors are non-negative; d-vector = 0 iff compatible; 	d-vector componentrs depends only on 2 vars
+          \item C 7.5	(follows from 7.4)
+          \item C 7.6	cluster monomials are parametrized by d-vectors
+          \item C 7.10	g-vectors parametrize cluster monomials and form Z-basis
+        \end{itemize}
+      
+      \item RSp framework for cluster algebras
+        \begin{itemize}
+          \item   C 3.9		seeds containing one cluster variable form a connected graph
+          \item   C 3.10		seeds containing given set of c.v. form a connected graph
+          \item   C 3.11 3.12	seed determined by c-vectors
+          \item   C 3.21		The one we want!
+        \end{itemize}
+    \end{itemize}
+
+
+To say:
+	d-vectors form a Z-basis (use titling)
+	therefore g-vectors form a Z-basis (use RSp 3.21)
+
+
+
+    \item
+      Write result needed in [RSW]
+
+    \item
+      Decide on how much background to give
+
+  \end{itemize}
+
+  \section{Introduction}
   The categorification of skew-symmetric cluster algebras using representations of quivers was initiated by Marsh, Reineke, and Zelevinsky \cite{marsh-reineke-zelevinsky} for Dynkin quivers.  
   With the advent of cluster characters \cite{caldero-chapoton}, the subject has exploded as an industry all its own, leading to the publication of numerous articles including \cite{caldero-chapoton-schiffler,buan-marsh-reineke-reiten-todorov,derksen-weyman-zelevinsky,geiss-leclerc-schroer,caldero-keller,caldero-keller2,plamondon,palu,rupel1,qin,rupel2} just to name a few.  
 
@@ -64,7 +108,7 @@ USA}
 
   Some of these already proven in \cite{demonet}...
 
-  \subsection{Cluster  Algebras and Quantum Cluster Algebras} Let $\cA(\bfx,\tilde B)$ be an acyclic cluster algebra \cite{berenstein-fomin-zelevinsky}, i.e. the principal submatrix of $\tilde B$ is acyclic.  
+  \section{Cluster  Algebras and Quantum Cluster Algebras} Let $\cA(\bfx,\tilde B)$ be an acyclic cluster algebra \cite{berenstein-fomin-zelevinsky}, i.e. the principal submatrix of $\tilde B$ is acyclic.  
   When the exchange matrix $\tilde B$ has full rank, the algebra $\cA(\bfx,\tilde B)$ admits a Poisson structure compatible with mutations \cite{gekhtman-shapiro-vainshtein} and one may obtain a quantum cluster algebra via the naive quantization.  
   More intuitively, for an indeterminate $q$, the definition of the quantum cluster algebra $\cA_q(\bfX,\tilde B)$ can be obtained from that of $\cA(\bfx,\tilde B)$ via the following modifications:
   \begin{itemize}
@@ -88,7 +132,7 @@ USA}
   Fix a choice of diagonal symmetrizing matrix $D=\diag(d_1,\ldots,d_n)$ with $d_i\in\ZZ_{>0}$, i.e. such that $DB$ is skew-symmetric.
   Let $\Lambda$ be a skew-symmetric $2n\times2n$ matrix compatible with $\tilde B$, e.g. given any $n\times n$ skew-symmetric matrix $\Lambda_0$ we may take $\Lambda=\left[\begin{array}{cc}\Lambda_0 & -\Lambda_0B-D\\ -B^T\Lambda_0+D & B^T\Lambda_0B+B^TD\end{array}\right]$ so that $\tilde B^T\Lambda=\big[\,D\ \boldsymbol{0}\,\big]$ (this is the required compatibility condition).
 
-  \subsection{Quantum Cluster Characters}
+  \section{Quantum Cluster Characters}
   Define a quiver $Q_B$ with vertices $\{1,\ldots,n\}$ and $\gcd(b_{ij},b_{ji})$ arrows $i\longrightarrow j$ whenever $b_{ij}<0$, we assume this quiver to be acyclic.
   Write $\tilde Q$ for the quiver obtained from $Q_B$ by attaching to each vertex $i$ an additional vertex $n+i$ via a single arrow $i\to n+i$.  
   The Laurent expansions of non-initial quantum cluster variables can be described in terms of the representation theory of the valued quiver $(\tilde Q,\tilde D)$ where $\tilde D=\left[\begin{array}{cc}D&0\\0&D\end{array}\right]$.
@@ -138,7 +182,7 @@ USA}
     For any representation $V\in\rep_\FF(Q,D)$ we have $X_V=X'_{\Sigma_kV}$, where $X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_\FF(\mu_kQ,D)$ in the variables $\bfX'$.
   \end{theorem}
 
-  \subsection{Deducing the Conjectures}
+  \section{Deducing the Conjectures}
   Introduce $g$-vectors and $F$-polynomials?
 
   The following, in particular, proves \cite[Conj. 1.9]{reading-stella} in the case of an acyclic initial exchange matrix.
@@ -190,7 +234,7 @@ USA}
     \item Can I do anything with \cite[Conj. 3.9]{reading-speyer}
   \end{itemize}
 
-  \subsection*{Acknowledgments}
+  \section*{Acknowledgments}
   The author would like to thank Salvatore Stella and Nathan Reading for directing him towards their conjectures and encouraging him to write this note. 
 
   \begin{thebibliography}{99}
