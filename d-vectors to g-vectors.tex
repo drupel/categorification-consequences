@@ -202,6 +202,22 @@ To say:
   \section{Deducing the Conjectures}
   Introduce $g$-vectors and $F$-polynomials?
 
+  \begin{proposition}
+    \label{prop:principal F-polynomials}
+    Let $B$ be an $n\times n$ acyclic exchange matrix.
+    Assume $k$ is a sink for $B$ and write $B'=\mu_k B$ for the mutation in direction $k$.
+    Consider the tropical evaluation of the $F$-polynomials for $(B')_{prin}$ at the frozen variables corresponding to $c$-vectors of $\mu_k B_{prin}$.
+    This evaluation gives the value 1 for all $F$-polynomials except for the one obtained by mutating in direction $k$.
+  \end{proposition}
+  \begin{proof}
+    The terms of the $F$-polynomial are labeled by subrepresentations of the given rigid representation and the claim is that each of these monomials produces only non-negative exponents when evaluated at the given frozen variables.
+    By definition of the $c$-vectors for $\mu_k B_{prin}$, it is only the exponent of $y_k$ that could end up being negative.
+    However, observe that the total exponent is given by applying the simple reflection $s_k$ to the dimension vector of the subrepresentation.
+    Since vertex 1 is a source, the simple $S_k$ cannot be a summand of any subrepresentation (assuming we were not talking about $x_{k;t_0}$).
+    It follows that applying the simple reflection on dimension vectors corresponds to applying the corresponding reflection functor on quiver representations, in particular the reflected dimension vector is still a dimension vector and thus a negative exponent will never appear.
+    This gives the claim.
+  \end{proof}
+
   The following, in particular, proves \cite[Conj. 1.9]{reading-stella} in the case of an acyclic initial exchange matrix.
   \begin{proposition}
     \label{prop:denominators}
