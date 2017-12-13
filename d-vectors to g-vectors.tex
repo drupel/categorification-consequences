@@ -3,6 +3,11 @@
 \usepackage{amsmath,amssymb,enumerate,latexsym}
 \usepackage[margin=1.75in]{geometry}
 
+% Commands for marginal notes below
+\usepackage[draft]{say}
+\newcommand{\sayD}[1]{\say[D]{#1}}
+\newcommand{\sayS}[1]{\say[S]{#1}}
+
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -83,7 +88,7 @@ Haifa}
       
       \item RSp framework for cluster algebras
         \begin{itemize}
-          \item   C 3.9		seeds containing one cluster variable form a connected graph
+          \item   C 3.9		seeds containing one cluster variable form a connected graph  (This should be the same as Corollary 3 of Caldero-Keller)
           \item   C 3.10		seeds containing given set of c.v. form a connected graph
           \item   C 3.11 3.12	seed determined by c-vectors
           \item   C 3.21		The one we want!
@@ -117,7 +122,7 @@ To say:
   Some of these are already proven in \cite{demonet}...
 
   \section{Cluster  Algebras and Quantum Cluster Algebras} Let $\cA(\bfx,\tilde B)$ be an acyclic cluster algebra \cite{berenstein-fomin-zelevinsky}, i.e. the principal submatrix of $\tilde B$ is acyclic.  
-  When the exchange matrix $\tilde B$ has full rank, the algebra $\cA(\bfx,\tilde B)$ admits a Poisson structure compatible with mutations \cite{gekhtman-shapiro-vainshtein} and one may obtain a quantum cluster algebra via the naive quantization.  
+  When the exchange matrix $\tilde B$ has full rank, the algebra $\cA(\bfx,\tilde B)$ admits a log-canonical Poisson structure compatible with mutations \cite{gekhtman-shapiro-vainshtein} and one may obtain a quantum cluster algebra via a remarkably simple deformation quantization.  
   More intuitively, for an indeterminate $q$, the definition of the quantum cluster algebra $\cA_q(\bfX,\tilde B)$ can be obtained from that of $\cA(\bfx,\tilde B)$ via the following modifications:
   \begin{itemize}
     \item The initial cluster $\bfX$ consists of $q$-commuting variables, i.e. there exists a skew-symmetric matrix $\Lambda=(\lambda_{ij})$ so that $X_iX_j=q^{\lambda_{ij}}X_jX_i$.  
@@ -130,39 +135,42 @@ To say:
     \item Each cluster $\bfX'$ obtainable from $\bfX$ by a sequence of mutations should again generate a quantum torus, i.e. consist of $q$-commuting variables, and this forces a compatibility condition (see below) of the commutation matrix $\Lambda$ with the exchange matrix $\tilde B$.
     This compatibility naturally reproduces under mutations.
   \end{itemize}
-  Note that the final compatibility condition is identical to the conditions necessary for a compatible Poisson structure.
+  Note that the final compatibility condition is identical to the condition required of a compatible Poisson structure.
   
   By work of Berenstein and Zelevinsky \cite{berenstein-zelevinsky}, the famous Laurent phenomenon holds in this adapted setting and one may ask how to describe the initial cluster Laurent expansions of non-initial quantum cluster variables.  
   The answer will be given using the representation theory of valued quivers in the following section.
 
-  Following work of Tran \cite{tran}, it suffices to consider the principal coefficients case defined as follows.  
+  By work of Tran \cite{tran} which extends the theory of $F$-polynomials from \cite{fomin-zelevinsky4} to the quantum case, it suffices to consider the principal coefficients cluster algebras defined as follows.  
   Consider an $n\times n$ skew-symmetrizable matrix $B$ and write $\tilde B=\left[\begin{array}{c}B\\ I_n\end{array}\right]$ for the corresponding principalized exchange matrix.  
   Fix a choice of diagonal symmetrizing matrix $D=\diag(d_1,\ldots,d_n)$ with $d_i\in\ZZ_{>0}$, i.e. such that $DB$ is skew-symmetric.
   Let $\Lambda$ be a skew-symmetric $2n\times2n$ matrix compatible with $\tilde B$, e.g. given any $n\times n$ skew-symmetric matrix $\Lambda_0$ we may take $\Lambda=\left[\begin{array}{cc}\Lambda_0 & -\Lambda_0B-D\\ -B^T\Lambda_0+D & B^T\Lambda_0B+B^TD\end{array}\right]$ so that $\tilde B^T\Lambda=\big[\,D\ \boldsymbol{0}\,\big]$ (this is the required compatibility condition).
 
+  \sayD{Add something about $F$-polynomials and $g$-vectors here.}
+
   \section{Quantum Cluster Characters}
   Define a quiver $Q_B$ with vertices $\{1,\ldots,n\}$ and $\gcd(b_{ij},b_{ji})$ arrows $i\longrightarrow j$ whenever $b_{ij}<0$, we assume this quiver to be acyclic.
   Write $\tilde Q$ for the quiver obtained from $Q_B$ by attaching to each vertex $i$ an additional vertex $n+i$ via a single arrow $i\to n+i$.  
-  The Laurent expansions of non-initial quantum cluster variables can be described in terms of the representation theory of the valued quiver $(\tilde Q,\tilde D)$ where $\tilde D=\left[\begin{array}{cc}D&0\\0&D\end{array}\right]$.
+  The Laurent expansions of non-initial quantum cluster variables can be described in terms of the representation theory of the valued quiver $(\tilde Q,\tilde D)$ with $\tilde D=\left[\begin{array}{cc}D&0\\0&D\end{array}\right]$.
 
-  Let $\FF$ be a finite field and choose an algebraic closure $\overline{\FF}$ of $\FF$.  
+  Let $\FF$ be a finite field and fix an algebraic closure $\overline{\FF}$ of $\FF$.  
   Write $\FF^{\langle d\rangle}$ for the degree $d$ extension of $\FF$ inside $\overline{\FF}$.
   Note that this provides a canonical identification of $\FF^{\langle d\rangle}$ as a vector space over $\FF^{\langle g\rangle}$ whenever $g|d$.  
   A representation $V=(V_i,V_a)$ of $(Q,D)$ consists of an $\FF^{\langle d_i\rangle}$-vector space $V_i$ for each vertex $i$ and an $\FF^{\langle\gcd(d_i,d_j)\rangle}$-linear map $V_a:V_i\to V_j$ for each arrow $a:i\to j$ (i.e. when $b_{ij}<0$).  
   The finite-dimensional representations of $(Q,D)$ form a hereditary abelian category denoted by $\rep_\FF(Q,D)$.  
-  The category $\rep_\FF(Q,D)$ naturally embeds into the category $\rep_\FF(\tilde Q,\tilde D)$, it is this subcategory that we will be interested in and thus always consider $\rep_\FF(Q,D)$ to be this subcategory of $\rep_\FF(\tilde Q,\tilde D)$.  
+  The category $\rep_\FF(Q,D)$ naturally embeds into the category $\rep_\FF(\tilde Q,\tilde D)$, it is this subcategory that we will be interested in and thus always consider $\rep_\FF(Q,D)$ to be this full subcategory of $\rep_\FF(\tilde Q,\tilde D)$.  
 
 
   Write $\tilde\cQ$ for the Grothendieck group of $\rep_\FF(\tilde Q,\tilde D)$ and let $\cQ\subset\tilde\cQ$ denote the Grothendieck group of $\rep_\FF(Q,D)$.
-  Since $\tilde Q$ is acyclic, there is an identification $\tilde\cQ\cong\ZZ^{2n}$ by taking classes $\alpha_i=[S_i]$ of the vertex-simple representations as a basis and the Euler-Ringel form $\langle V,W\rangle:=\dim_\FF\Hom(V,W)-\dim_\FF\Ext(V,W)$ only depends on the classes of $V$ and $W$ in $\tilde\cQ$.  
-  More precisely, the Euler-Ringel form may be given in the vertex-simple basis by
+  Since $\tilde Q$ is acyclic, there is an identification $\tilde\cQ\cong\ZZ^{2n}$ by taking classes $\alpha_i=[S_i]$ of the vertex-simple representations as a basis.
+  The Euler-Ringel form $\langle V,W\rangle:=\dim_\FF\Hom(V,W)-\dim_\FF\Ext(V,W)$ only depends on the classes of $V$ and $W$ in $\tilde\cQ$.  
+  More precisely, the Euler-Ringel form may be computed in the basis of vertex-simples by
   \[\langle\alpha_i,\alpha_j\rangle=\begin{cases} d_i & \text{if $i=j$;}\\d_ib_{ij} & \text{if $b_{ij}<0$;}\\-d_i & \text{if $j=n+i$;}\\0 & \text{otherwise.}\end{cases}\]
   For $\bfe\in\cQ$, define ${}^*\bfe=\sum\limits_{i=1}^n\frac{1}{d_i}\langle\alpha_i,\bfe\rangle\cdot\alpha_i\in\cQ$ and $\bfe^*=\sum\limits_{j=1}^{2n}\frac{1}{d_j}\langle\bfe,\alpha_j\rangle\cdot\alpha_j\in\tilde\cQ$, noting that these do not depend on the choice of symmetrizing matrix $D$. 
   Then the \emph{quantum cluster character} of a representation $V\in\rep_\FF(Q,D)$ with $[V]=:\bfv$ is given by \[X_V=\sum\limits_{\bfe\in\cQ} |\FF|^{-\half\langle\bfe,\bfv-\bfe\rangle}\big|\!\Gr_\bfe(V)\big|X^{\tilde B\bfe-{}^*\bfv}\in\cT_\Lambda,\] where $\Gr_\bfe(V)$ denotes the set of all subrepresentations $E\subset V$ with isomorphism class $[E]=\bfe$.  
-  Note that $\tilde B\bfe={}^*\bfe-\bfe^*$ and for $1\le j\le n$ we have ${}^*\alpha_j=\alpha_j+\sum\limits_{i:b_{ij}<0}b_{ij}\alpha_i$.
+  Note that $\tilde B\bfe={}^*\bfe-\bfe^*$ and, for $1\le j\le n$, we have ${}^*\alpha_j=\alpha_j+\sum\limits_{i:b_{ij}<0}b_{ij}\alpha_i$.
 
   A representation $V$ is called \emph{rigid} if $\Ext(V,V)=0$.  
-  \begin{theorem}\cite{rupel2}
+  \begin{theorem}\cite{rupel1,rupel2}
     \label{th:quantum cluster characters}\mbox{}
     \begin{enumeratea}
       \item For each rigid indecomposable $V\in\rep_\FF(Q,D)$, the quantum cluster character $X_V$ is a quantum cluster variable of $\cA_{|\FF|}(\bfX,\tilde B)$.  
@@ -181,9 +189,6 @@ To say:
     In particular, the $g$-vector is given by $-{}^*\bfv$ and the $F$-polynomial is $\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)y^\bfe$.
     %Moreover, $F$-polynomials have constant term 1 and all coefficients are positive.
   \end{corollary}
-  \begin{proof}
-    %The final claim follows from the results of \cite{wolf} (not for valued quivers).
-  \end{proof}
   \begin{remark}
     It immediately follows that the $F$-polynomials have constant term 1 since $P_{\bfv,0}\equiv1$ for any $\bfv\in\cQ$.
     This proves \cite[Conj. 5.4]{fomin-zelevinsky4}.
