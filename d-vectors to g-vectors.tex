@@ -1,7 +1,33 @@
-\documentclass{amsart}
-\usepackage{hyperref}
-\usepackage{amsmath,amssymb,enumerate,latexsym}
-\usepackage[margin=1.75in]{geometry}
+\documentclass[12pt]{amsart}
+% this is here to force arXiv to produce a nice output
+\pdfoutput=1
+
+% Commands for marginal notes below
+\usepackage[draft]{say}
+\newcommand{\sayD}[1]{\say[D]{#1}}
+\newcommand{\sayS}[1]{\say[S]{#1}}
+\newcommand{\sayH}[1]{\say[H]{#1}}
+
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amstext}
+\usepackage{amsopn}
+\usepackage{enumerate}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{verbatim}
+\usepackage[margin=1in,marginparwidth=0.8in, marginparsep=0.1in]{geometry}
+\renewcommand{\baselinestretch}{1.2} % changes page formatting
+\usepackage[pagebackref, bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
+\usepackage{newtxtext} % changes font appearance, replaces times
+\usepackage{stmaryrd}
+\usepackage{accents}
+\usepackage{bbm}
+\usepackage{tikz}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -31,13 +57,13 @@
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\ZZ}{\mathbb{Z}}
 
-\renewcommand{\thesubsection}{\arabic{subsection}}
-\makeatletter
-\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
-   {\csname the#1\endcsname\quad}%       default
-   {\csname #1@cntformat\endcsname}}%    enable individual control
-\newcommand\section@cntformat{}
-\makeatother
+%\renewcommand{\thesubsection}{\arabic{subsection}}
+%\makeatletter
+%\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+%   {\csname the#1\endcsname\quad}%       default
+%   {\csname #1@cntformat\endcsname}}%    enable individual control
+%\newcommand\section@cntformat{}
+%\makeatother
 
 \newenvironment{enumeratea}{\begin{enumerate}[\upshape (a)]}{\end{enumerate}}
 
@@ -52,58 +78,19 @@ USA}
 
 \author[Stella]{Salvatore Stella}
 \address[Salvatore Stella]{
-Haifa}
-\email{}
+University of Haifa\newline
+Departments of Mathematics and Computer Sciences\newline
+Haifa, Mount Carmel, 31905\newline
+Israel
+}
+\email{stella@math.haifa.ac.il}
 
 \begin{document}
-  \begin{abstract}
-    Several conjectures on acyclic skew-symmetrizable cluster algebras are proven as direct consequences of their categorification via valued quivers.  These include conjectures of Fomin-Zelevinsky, Reading-Speyer, and Reading-Stella related to $d$-vectors, $g$-vectors, and $F$-polynomials.
-  \end{abstract}
-  \maketitle
-
-  \section{TODO list}
-  \begin{itemize}
-    \item
-      Track down the conjectures we will prove:
-		
-		\begin{itemize}
-		  \item CAIV
-        \begin{itemize}
-          \item C 5.4	F-polynomials have constant term = 1 (follows from sign coherence)
-          \item C 5.5	F-polynomial max deg term
-          \item C 6.10	initial mutation of g-vectors
-          \item C 6.11	g-vectors from F-poly
-          \item C 6.13	sign coherence g-vectors
-          \item C 7.2	lin ind of cluster monomials
-          \item C 7.4	non initial d-vectors are non-negative; d-vector = 0 iff compatible; 	d-vector componentrs depends only on 2 vars
-          \item C 7.5	(follows from 7.4)
-          \item C 7.6	cluster monomials are parametrized by d-vectors
-          \item C 7.10	g-vectors parametrize cluster monomials and form Z-basis
-        \end{itemize}
-      
-      \item RSp framework for cluster algebras
-        \begin{itemize}
-          \item   C 3.9		seeds containing one cluster variable form a connected graph
-          \item   C 3.10		seeds containing given set of c.v. form a connected graph
-          \item   C 3.11 3.12	seed determined by c-vectors
-          \item   C 3.21		The one we want!
-        \end{itemize}
-    \end{itemize}
-
-
-To say:
-	d-vectors form a Z-basis (use titling)
-	therefore g-vectors form a Z-basis (use RSp 3.21)
-
-
-
-    \item
-      Write result needed in [RSW]
-
-    \item
-      Decide on how much background to give
-
-  \end{itemize}
+\begin{abstract}
+  Several conjectures on acyclic skew-symmetrizable cluster algebras are proven as direct consequences of their categorification via valued quivers.
+  These include conjectures of Fomin-Zelevinsky, Reading-Speyer, and Reading-Stella related to $\bfd$-vectors, $\bfg$-vectors, and $F$-polynomials.
+\end{abstract}
+\maketitle
 
   \section{Introduction}
   The categorification of skew-symmetric cluster algebras using representations of quivers was initiated by Marsh, Reineke, and Zelevinsky \cite{marsh-reineke-zelevinsky} for Dynkin quivers.  
@@ -219,7 +206,7 @@ To say:
   \end{proof}
 
   The following, in particular, proves \cite[Conj. 1.9]{reading-stella} in the case of an acyclic initial exchange matrix.
-  \begin{proposition}
+   \begin{proposition}
     \label{prop:denominators}
     The denominator vector of $X_V$ is precisely the dimension vector $\bfv$ of $V$.
   \end{proposition}
@@ -239,6 +226,7 @@ To say:
   \end{proof}
 
   With this we obtain a proof of \cite[Conj. 1.8]{reading-stella} and hence, following \cite[Prop. 1.10]{reading-stella}, a proof of \cite[Conj. 1.7]{reading-stella}.
+  \sayS{Check the references here, something is fishy}
   \begin{corollary}
     The mutation of the initial cluster at a sink or a source vertex transforms denominator vectors according to the simple reflection associated to that vertex.
   \end{corollary}
@@ -272,6 +260,13 @@ To say:
     \item Other conjectures from \cite{reading-speyer}?
   \end{itemize}
 
+
+% bibliography
+\bibliographystyle{amsalpha}
+\bibliography{bibliography}
+
+
+
 \section{Conjectures in the wild}
 
 \begin{conjecture}
@@ -289,7 +284,7 @@ To say:
   I am not sure this follows from categorification.
 \end{proof}
 
-\begin{conjecture}[{\cite[Conjecture 4.7]{FZ07}}]
+\begin{conjecture}[{\cite[Conjecture 4.7]{fomin-zelevinsky4}}]
   In a cluster algebra with principal coefficients any cluster is uniquely determined by its exchange matrix and $c$-vectors.
 \end{conjecture}
 \begin{proof}
@@ -297,112 +292,161 @@ To say:
   Then use the fact that cluster monomials are parametrized by $g$-vectors.
 \end{proof}
 
-\begin{conjecture}[{\cite[Conjecture 4.8]{FZ07}}]
+\begin{conjecture}[{\cite[Conjecture 4.8]{fomin-zelevinsky4}}]
   The cluster algebra associated to an exchange matrix $B$ is of finite type if and only if the mutation class of the principal extension of $B$ is finite.
 \end{conjecture}
 \begin{proof}
   The ``if'' part is the only one still open and I do not think we can say anything sensible here
 \end{proof}
 
-\begin{conjecture}[{\cite[Conjecture 5.4]{FZ07}}]
+\begin{conjecture}[{\cite[Conjecture 5.4]{fomin-zelevinsky4}}]
   $F$-polynomials have constant term 1.
 \end{conjecture}
 \begin{proof}
   The constant term is given by the empty subrepresentation.
 \end{proof}
 \begin{corollary}
-  By \cite[Proposition 5.6]{FZ07} $c$-vectors are sign-coherent.
+  By \cite[Proposition 5.6]{fomin-zelevinsky4} $c$-vectors are sign-coherent.
 \end{corollary}
 \begin{corollary}
   This implies most of the conjectures we care about: see \cite[Proposition 4.2]{NZ12}.
 \end{corollary}
 
-\begin{conjecture}[{\cite[Conjecture 5.5]{FZ07}}]
+\begin{conjecture}[{\cite[Conjecture 5.5]{fomin-zelevinsky4}}]
   $F$-polynomials have  a unique monomial of maximal degree. 
   Furthermore, this monomial has coefficient 1, and it is divisible by all the other occurring monomials.
 \end{conjecture}
 \begin{proof}
   The maximal term is given by the full representaton.
-  Note that this is equivalent to the previous conjecture in view of \cite[Proposition 5.3]{FZ07}.
+  Note that this is equivalent to the previous conjecture in view of \cite[Proposition 5.3]{fomin-zelevinsky4}.
 \end{proof}
 
-\begin{conjecture}[{\cite[Conjecture 6.10]{FZ07}}]
+\begin{conjecture}[{\cite[Conjecture 6.10]{fomin-zelevinsky4}}]
   About certain integer in the initial-seed mutation formula for $g$-vectors.
 \end{conjecture}
 \begin{proof}
   Follows from sign coherence of $c$-vectors as in \cite[Proposition 4.2]{NZ12}.
 \end{proof}
 
-\begin{conjecture}[{\cite[Conjectures 6.11 and 7.17]{FZ07}}]
+\begin{conjecture}[{\cite[Conjectures 6.11 and 7.17]{fomin-zelevinsky4}}]
   Formula for $g$-vectors and $d$-vectors in terms of $F$-polynomials.
 \end{conjecture}
 
-
-  \begin{thebibliography}{99}
-
-  \bibitem[BFZ]{berenstein-fomin-zelevinsky}
-
-  \bibitem[BZ]{berenstein-zelevinsky}
-  A. Berenstein and A. Zelevinsky, ``Quantum cluster algebras.''   {\em Advances in Mathematics}, vol. 195, {\bf 2} (2005), pp.~405--455.
-
-  \bibitem[BMRRT]{buan-marsh-reineke-reiten-todorov}
-  A. Buan, R. Marsh, I. Reiten, M. Reineke, G. Todorov, ``Tilting theory and cluster combinatorics.'' {\em Adv. Math.} \textbf{204} (2006), no. 2, pp.~572–-618.
-
-  \bibitem[CC]{caldero-chapoton}
-  P. Caldero and F. Chapoton, ``Cluster algebras as Hall algebras of quiver representations.'' {\em Comment. Math. Helv.} \textbf{81} (2006), no. 3, pp.~595--616.
-
-  \bibitem[CCS]{caldero-chapoton-schiffler}
-
-  \bibitem[CK]{caldero-keller}
-  P. Caldero and B. Keller, ``From triangulated categories to cluster algebras.''  {\em Invent. Math.} \textbf{172} (2008), no. 1, pp.~169-–211.
-
-  \bibitem[CK2]{caldero-keller2}
-
-  \bibitem[CKLP]{cerulliirelli-keller-labardinifragoso-plamondon}
-
-  \bibitem[D]{demonet}
-
-  \bibitem[DWZ]{derksen-weyman-zelevinsky}
-
-  \bibitem[DR]{dlab-ringel}
-  V. Dlab and C. Ringel, ``Indecomposable Representations of Graphs and Algebras.'' {\em Mem.~Amer. Math. Soc.} \textbf{173} (1976).
-
-  \bibitem[FZ03]{FZ03} S. Fomin and A. Zelevinsky, ``Cluster algebras: Notes for the CDM-03 conference'', in: {\em CDM 2003: Current Developments in Mathematics}, International Press (2004).
-
-  \bibitem[FZ07]{FZ07} S. Fomin and A. Zelevinsky. ``Cluster algebras. IV. Coefficients.`` {\em Compos. Math.}, \textbf{143}(1):112–164 (2007).
+  \section{TODO list}
+  \begin{itemize}
+    \item
+      Track down the conjectures we will prove:
+		
+		\begin{itemize}
+		  \item CAIV
+        \begin{itemize}
+          \item C 5.4	F-polynomials have constant term = 1 (follows from sign coherence)
+          \item C 5.5	F-polynomial max deg term
+          \item C 6.10	initial mutation of g-vectors
+          \item C 6.11	g-vectors from F-poly
+          \item C 6.13	sign coherence g-vectors
+          \item C 7.2	lin ind of cluster monomials
+          \item C 7.4	non initial d-vectors are non-negative; d-vector = 0 iff compatible; 	d-vector componentrs depends only on 2 vars
+          \item C 7.5	(follows from 7.4)
+          \item C 7.6	cluster monomials are parametrized by d-vectors
+          \item C 7.10	g-vectors parametrize cluster monomials and form Z-basis
+        \end{itemize}
+      
+      \item RSp framework for cluster algebras
+        \begin{itemize}
+          \item   C 3.9		seeds containing one cluster variable form a connected graph
+          \item   C 3.10		seeds containing given set of c.v. form a connected graph
+          \item   C 3.11 3.12	seed determined by c-vectors
+          \item   C 3.21		The one we want!
+        \end{itemize}
+    \end{itemize}
 
 
-  \bibitem[FZ]{fomin-zelevinsky4}
+To say:
+	d-vectors form a Z-basis (use titling)
+	therefore g-vectors form a Z-basis (use RSp 3.21)
 
-  \bibitem[GLS]{geiss-leclerc-schroer}
 
-  \bibitem[GSV]{gekhtman-shapiro-vainshtein}
 
-  \bibitem[MRZ]{marsh-reineke-zelevinsky}
+    \item
+      Write result needed in [RSW]
 
-  \bibitem[NZ12]{NZ12} T. Nakanishi and A. Zelevinsky. ``On tropical dualities in cluster algebras''. In {\em Algebraic groups and quantum groups}, volume 565 of {\em Contemp. Math.}, pages 217–226. Amer. Math. Soc., Providence, RI, (2012).
+    \item
+      Decide on how much background to give
 
-  \bibitem[Pa]{palu}
+  \end{itemize}
 
-  \bibitem[Pl]{plamondon}
 
-  \bibitem[Q]{qin}
-  F. Qin, ``Quantum cluster variables via Serre polynomials.''  {\em J. Reine Angew. Math.} \textbf{668} (2012), pp.~149--190.
 
-  \bibitem[RSp]{reading-speyer}
-  N. Reading and D. Speyer, ``Cambrian fans.'' {\em J. Eur. Math. Soc.} \textbf{11} (2009), no. 2, pp.~407--447.
+%  \begin{thebibliography}{99}
+%
+%  \bibitem[BFZ]{berenstein-fomin-zelevinsky}
+%
+%  \bibitem[BZ]{berenstein-zelevinsky}
+%  A. Berenstein and A. Zelevinsky, ``Quantum cluster algebras.''   {\em Advances in Mathematics}, vol. 195, {\bf 2} (2005), pp.~405--455.
+%
+%  \bibitem[BMRRT]{buan-marsh-reineke-reiten-todorov}
+%  A. Buan, R. Marsh, I. Reiten, M. Reineke, G. Todorov, ``Tilting theory and cluster combinatorics.'' {\em Adv. Math.} \textbf{204} (2006), no. 2, pp.~572–-618.
+%
+%  \bibitem[CC]{caldero-chapoton}
+%  P. Caldero and F. Chapoton, ``Cluster algebras as Hall algebras of quiver representations.'' {\em Comment. Math. Helv.} \textbf{81} (2006), no. 3, pp.~595--616.
+%
+%  \bibitem[CCS]{caldero-chapoton-schiffler}
+%
+%  \bibitem[CK]{caldero-keller}
+%  P. Caldero and B. Keller, ``From triangulated categories to cluster algebras.''  {\em Invent. Math.} \textbf{172} (2008), no. 1, pp.~169-–211.
+%
+%  \bibitem[CK2]{caldero-keller2}
+%
+%  \bibitem[CKLP]{cerulliirelli-keller-labardinifragoso-plamondon}
+%
+%  \bibitem[D]{demonet}
+%
+%  \bibitem[DWZ]{derksen-weyman-zelevinsky}
+%
+%  \bibitem[DR]{dlab-ringel}
+%  V. Dlab and C. Ringel, ``Indecomposable Representations of Graphs and Algebras.'' {\em Mem.~Amer. Math. Soc.} \textbf{173} (1976).
+%
+%  \bibitem[FZ03]{FZ03} S. Fomin and A. Zelevinsky, ``Cluster algebras: Notes for the CDM-03 conference'', in: {\em CDM 2003: Current Developments in Mathematics}, International Press (2004).
+%
+%  \bibitem[FZ07]{fomin-zelevinsky4} S. Fomin and A. Zelevinsky. ``Cluster algebras. IV. Coefficients.`` {\em Compos. Math.}, \textbf{143}(1):112–164 (2007).
+%
+%
+%  \bibitem[FZ]{fomin-zelevinsky4}
+%
+%  \bibitem[GLS]{geiss-leclerc-schroer}
+%
+%  \bibitem[GSV]{gekhtman-shapiro-vainshtein}
+%
+%  \bibitem[MRZ]{marsh-reineke-zelevinsky}
+%
+%  \bibitem[NZ12]{NZ12} T. Nakanishi and A. Zelevinsky. ``On tropical dualities in cluster algebras''. In {\em Algebraic groups and quantum groups}, volume 565 of {\em Contemp. Math.}, pages 217–226. Amer. Math. Soc., Providence, RI, (2012).
+%
+%  \bibitem[Pa]{palu}
+%
+%  \bibitem[Pl]{plamondon}
+%
+%  \bibitem[Q]{qin}
+%  F. Qin, ``Quantum cluster variables via Serre polynomials.''  {\em J. Reine Angew. Math.} \textbf{668} (2012), pp.~149--190.
+%
+%  \bibitem[RSp]{reading-speyer}
+%  N. Reading and D. Speyer, ``Cambrian fans.'' {\em J. Eur. Math. Soc.} \textbf{11} (2009), no. 2, pp.~407--447.
+%
+%  \bibitem[RSt]{reading-stella}
+%  N. Reading and S. Stella, ``Initial-seed recursions and dualities for $d$-vectors.'' Preprint: arXiv:1409.4723.
+%   
+%  \bibitem[R1]{rupel1}
+%  D. Rupel, ``On a quantum analogue of the Caldero-Chapoton formula.'' {\em Int. Math. Res. Not.} (2011), no. 14, pp.~3207--3236.
+%
+%  \bibitem[R2]{rupel2}
+%  D. Rupel, ``Quantum cluster characters.'' {\em Trans. Amer. Math. Soc.} (2015). DOI: 10.1090/S0002-9947-2015-06251-5.
+%
+%  \bibitem[W]{wolf}
+%  S. Wolf, ``A geometric version of BGP reflection functors''
+%
+%\end{thebibliography}
 
-  \bibitem[RSt]{reading-stella}
-  N. Reading and S. Stella, ``Initial-seed recursions and dualities for $d$-vectors.'' Preprint: arXiv:1409.4723.
-   
-  \bibitem[R1]{rupel1}
-  D. Rupel, ``On a quantum analogue of the Caldero-Chapoton formula.'' {\em Int. Math. Res. Not.} (2011), no. 14, pp.~3207--3236.
 
-  \bibitem[R2]{rupel2}
-  D. Rupel, ``Quantum cluster characters.'' {\em Trans. Amer. Math. Soc.} (2015). DOI: 10.1090/S0002-9947-2015-06251-5.
 
-  \bibitem[W]{wolf}
-  S. Wolf, ``A geometric version of BGP reflection functors''
 
-\end{thebibliography}
 \end{document}
