@@ -211,7 +211,7 @@ Israel
     This gives the claim.
   \end{proof}
 
-  The following, in particular, proves \cite[Conj. 1.9]{reading-stella} in the case of an acyclic initial exchange matrix.
+  The following, in particular, proves \cite[Conj. 2.9]{reading-stella} in the case of an acyclic initial exchange matrix.
    \begin{proposition}
     \label{prop:denominators}
     The denominator vector of $X_V$ is precisely the dimension vector $\bfv$ of $V$.
@@ -231,14 +231,13 @@ Israel
     as desired.
   \end{proof}
 
-  With this we obtain a proof of \cite[Conj. 1.8]{reading-stella} and hence, following \cite[Prop. 1.10]{reading-stella}, a proof of \cite[Conj. 1.7]{reading-stella}.
-  \sayS{Check the references here, something is fishy}
   \begin{corollary}
     The mutation of the initial cluster at a sink or a source vertex transforms denominator vectors according to the simple reflection associated to that vertex.
   \end{corollary}
   \begin{proof}
     By Theorem~\ref{th:reflection functor}, the initial cluster mutation at a sink or a source vertex transforms quantum cluster characters according to the associated reflection functor on $\rep_{\FF_q}(Q,D)$.  The result then follows from \cite[Prop. 2.1]{dlab-ringel}.
   \end{proof}
+  This corollary proves \cite[Conj. 2.8]{reading-stella} and hence, following \cite[Prop. 2.10]{reading-stella}, also \cite[Conj. 2.7]{reading-stella}.
 
   Let $E=(e_{ij})$ be the matrix given by
   \[e_{ij}=\begin{cases} -1 & \text{if $i=j$;}\\ [-b_{ij}]_+ & \text{if $i\ne j$.}\end{cases}\]
@@ -251,19 +250,55 @@ Israel
     Since the $g$-vector of the cluster variable $x_\bfv$ is given by $-{}^*\bfv$, the result follows immediately from the definitions of $E$ and the operator ${}^*(-)$.
   \end{proof}
 
-  Here are some (possible) further results:
   \begin{itemize}
-    \item Does \cite[Conj. 6.13]{fomin-zelevinsky4} follow from Theorem~\ref{th:d to g} in the acyclic case?
-    \item \cite[Conj. 7.17]{fomin-zelevinsky4} is immediate from Corollary~\ref{cor:classical cluster characters}, this immediately implies \cite[Conj. 6.11]{fomin-zelevinsky4} using \cite[Prop. 7.16]{fomin-zelevinsky4}.  
-      Thus we obtain the somewhat surprising fact that the $F$-polynomial determines the $g$-vector for acyclic cluster algebras (of full rank?).
-    \item It seems that \cite[Con. 7.6]{fomin-zelevinsky4}/\cite[Conj. 3.22]{reading-speyer} follows from known representation theoretic statements.
+    \item
+      Try to prove \cite[Conj. 6.13]{fomin-zelevinsky4} (sign coherence of $\bfg$-vectors) by showing that two non sign coherent $\bfg$-vectors correspond to modules with an extension.
+    
+    \item
+      \cite[Conj. 7.17]{fomin-zelevinsky4} is immediate from Corollary~\ref{cor:classical cluster characters}, this immediately implies \cite[Conj. 6.11]{fomin-zelevinsky4} using \cite[Prop. 7.16]{fomin-zelevinsky4}.  
+   
+    \item
+      \cite[Con. 7.6]{fomin-zelevinsky4}/\cite[Conj. 3.22]{reading-speyer} ($\bfd$-vectors are a basis) follows from known representation theoretic statements.
       This then implies \cite[Conj. 7.10]{fomin-zelevinsky4} using Theorem~\ref{th:d to g}.
       Then following \cite[Rem. 7.11]{fomin-zelevinsky4}, we obtain \cite[Con. 7.2]{fomin-zelevinsky4}.
-    \item Does any part of \cite[Conj. 7.4]{fomin-zelevinsky4} follow?  
-      Probably, maybe use Assem-Schifler-Schramchenko.
-      Rigidity of cluster tilting objects together with Proposition~\ref{prop:denominators} should prove part 2 and possibly part 3.
-    \item It seems like \cite[Conj. 3.9]{reading-speyer} should follow from known tilting theory.
-    \item Other conjectures from \cite{reading-speyer}?
+    
+    \item
+      \cite[Conj. 7.4]{fomin-zelevinsky4} (about $\bfd$-vectors) follows easily and implies \cite[Conj. 7.5]{fomin-zelevinsky4}
+
+    \item
+      \cite[Conj. 3.9]{reading-speyer} (subgraph containing given cluster variable is connected)  should follow from known tilting theory (see \cite[Cor. 3]{caldero-keller2}).
+
+    \item
+      \cite[Conjecture 5.4]{fomin-zelevinsky4} ($F$-polynomials have constant term 1)
+      The constant term is given by the empty subrepresentation.
+      \begin{corollary}
+        By \cite[Proposition 5.6]{fomin-zelevinsky4} $c$-vectors are sign-coherent.
+      \end{corollary}
+      \begin{corollary}
+        This implies most of the conjectures we care about: see \cite[Proposition 4.2]{NZ12}.
+      \end{corollary}
+      \begin{conjecture}[{\cite[Conjecture 5.5]{fomin-zelevinsky4}}]
+        $F$-polynomials have  a unique monomial of maximal degree. 
+        Furthermore, this monomial has coefficient 1, and it is divisible by all the other occurring monomials.
+      \end{conjecture}
+      \begin{proof}
+        The maximal term is given by the full representaton.
+        Note that this is equivalent to the previous conjecture in view of \cite[Proposition 5.3]{fomin-zelevinsky4}.
+      \end{proof}
+
+    \item
+      \begin{conjecture}[{\cite[Conjecture 6.10]{fomin-zelevinsky4}}]
+        About certain integer in the initial-seed mutation formula for $g$-vectors.
+      \end{conjecture}
+      \begin{proof}
+        Follows from sign coherence of $c$-vectors as in \cite[Proposition 4.2]{NZ12}.
+      \end{proof}
+
+    \item
+      Cluster monomials are parametrized by $\bfd$-vectors \cite[Conjecture 7.6]{fomin-zelevinsky4} (use moduli spaces and dense subsets).
+      \cite[Conjecture 7.10]{fomin-zelevinsky4} follows from the previous one.
+      \cite[Conjecture 7.2]{fomin-zelevinsky4} follows by degree (i.e. $\bfg$-vector) considerations
+
   \end{itemize}
 
 
@@ -275,20 +310,6 @@ Israel
 
 \section{Conjectures in the wild}
 
-\begin{conjecture}
-  Cluster variables are Laurent polynomials with positive coefficients.
-\end{conjecture}
-\begin{proof}
-  I am not sure this is really a conjecture: it misses the ``when expanded in every cluster'' part.
-  In any case this is obvious in the acyclic initial cluster we fixed because the coefficients in the quantum cluster character are cardinalities.
-\end{proof}
-
-\begin{conjecture}[{\cite[Conjecture 4.14(1)]{FZ03}}]
-  The exchange graph of a cluster algebra depends only on its exchange matrix and not on choice of coefficients.
-\end{conjecture}
-\begin{proof}
-  I am not sure this follows from categorification.
-\end{proof}
 
 \begin{conjecture}[{\cite[Conjecture 4.7]{fomin-zelevinsky4}}]
   In a cluster algebra with principal coefficients any cluster is uniquely determined by its exchange matrix and $c$-vectors.
@@ -298,45 +319,6 @@ Israel
   Then use the fact that cluster monomials are parametrized by $g$-vectors.
 \end{proof}
 
-\begin{conjecture}[{\cite[Conjecture 4.8]{fomin-zelevinsky4}}]
-  The cluster algebra associated to an exchange matrix $B$ is of finite type if and only if the mutation class of the principal extension of $B$ is finite.
-\end{conjecture}
-\begin{proof}
-  The ``if'' part is the only one still open and I do not think we can say anything sensible here
-\end{proof}
-
-\begin{conjecture}[{\cite[Conjecture 5.4]{fomin-zelevinsky4}}]
-  $F$-polynomials have constant term 1.
-\end{conjecture}
-\begin{proof}
-  The constant term is given by the empty subrepresentation.
-\end{proof}
-\begin{corollary}
-  By \cite[Proposition 5.6]{fomin-zelevinsky4} $c$-vectors are sign-coherent.
-\end{corollary}
-\begin{corollary}
-  This implies most of the conjectures we care about: see \cite[Proposition 4.2]{NZ12}.
-\end{corollary}
-
-\begin{conjecture}[{\cite[Conjecture 5.5]{fomin-zelevinsky4}}]
-  $F$-polynomials have  a unique monomial of maximal degree. 
-  Furthermore, this monomial has coefficient 1, and it is divisible by all the other occurring monomials.
-\end{conjecture}
-\begin{proof}
-  The maximal term is given by the full representaton.
-  Note that this is equivalent to the previous conjecture in view of \cite[Proposition 5.3]{fomin-zelevinsky4}.
-\end{proof}
-
-\begin{conjecture}[{\cite[Conjecture 6.10]{fomin-zelevinsky4}}]
-  About certain integer in the initial-seed mutation formula for $g$-vectors.
-\end{conjecture}
-\begin{proof}
-  Follows from sign coherence of $c$-vectors as in \cite[Proposition 4.2]{NZ12}.
-\end{proof}
-
-\begin{conjecture}[{\cite[Conjectures 6.11 and 7.17]{fomin-zelevinsky4}}]
-  Formula for $g$-vectors and $d$-vectors in terms of $F$-polynomials.
-\end{conjecture}
 
   \section{TODO list}
   \begin{itemize}
@@ -344,20 +326,6 @@ Israel
       Track down the conjectures we will prove:
 		
 		\begin{itemize}
-		  \item CAIV
-        \begin{itemize}
-          \item C 5.4	F-polynomials have constant term = 1 (follows from sign coherence)
-          \item C 5.5	F-polynomial max deg term
-          \item C 6.10	initial mutation of g-vectors
-          \item C 6.11	g-vectors from F-poly
-          \item C 6.13	sign coherence g-vectors
-          \item C 7.2	lin ind of cluster monomials
-          \item C 7.4	non initial d-vectors are non-negative; d-vector = 0 iff compatible; 	d-vector componentrs depends only on 2 vars
-          \item C 7.5	(follows from 7.4)
-          \item C 7.6	cluster monomials are parametrized by d-vectors
-          \item C 7.10	g-vectors parametrize cluster monomials and form Z-basis
-        \end{itemize}
-      
       \item RSp framework for cluster algebras
         \begin{itemize}
           \item   C 3.9		seeds containing one cluster variable form a connected graph
