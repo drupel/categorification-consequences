@@ -36,6 +36,7 @@
 
 \newcommand{\bfa}{\mathbf{a}}
 \newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfc}{\mathbf{c}}
 \newcommand{\bfd}{\mathbf{d}}
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bfg}{\mathbf{g}}
@@ -197,6 +198,17 @@
     This gives the claim.
   \end{proof}
 
+  The following establishes \cite[Conjecture 7.17]{fomin-zelevinsky4}
+  \begin{proposition}
+    The denominator vector of $x_V$ is the exponent vector of the monomial obtained evaluating tropically the corresponding $F$-polynomial at $y_k^{-1}$.
+  \end{proposition}
+  \begin{proof}
+    It is enough to observe that the $F$-polynomial has a unique monomial of maximal degree and this monomial is divisible by all other monomials.
+    Indeed this is the monomial corresponding to the full subrepresentation.
+  \end{proof}
+  This immediately implies \cite[Conj. 6.11]{fomin-zelevinsky4} using \cite[Prop. 7.16]{fomin-zelevinsky4}.  
+   
+
   The following, in particular, proves \cite[Conj. 2.9]{reading-stella} in the case of an acyclic initial exchange matrix.
    \begin{proposition}
     \label{prop:denominators}
@@ -240,9 +252,6 @@
     \item
       Try to prove \cite[Conj. 6.13]{fomin-zelevinsky4} (sign coherence of $\bfg$-vectors) by showing that two non sign coherent $\bfg$-vectors correspond to modules with an extension.
     
-    \item
-      \cite[Conj. 7.17]{fomin-zelevinsky4} is immediate from Corollary~\ref{cor:classical cluster characters}, this immediately implies \cite[Conj. 6.11]{fomin-zelevinsky4} using \cite[Prop. 7.16]{fomin-zelevinsky4}.  
-   
     \item
       \cite[Con. 7.6]{fomin-zelevinsky4}/\cite[Conj. 3.22]{reading-speyer} ($\bfd$-vectors are a basis) follows from known representation theoretic statements.
       This then implies \cite[Conj. 7.10]{fomin-zelevinsky4} using Theorem~\ref{th:d to g}.
@@ -297,6 +306,8 @@
         See also \cite[Conjectures 3.11 and 3.12]{reading-speyer}
       \end{proof}
 
+    \item
+      Try to prove that $\bfc$-vectors are roots following the same procedure of Najera-Chavez
   \end{enumerate}
 
 
