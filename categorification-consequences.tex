@@ -174,15 +174,18 @@
     In particular, the $g$-vector is given by $-{}^*\bfv$ and the $F$-polynomial is $\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)y^\bfe$.
     %Moreover, $F$-polynomials have constant term 1 and all coefficients are positive.
   \end{corollary}
+  {\color{lightgray}
   \begin{remark}
     It immediately follows that the $F$-polynomials have constant term 1 since $P_{\bfv,0}\equiv1$ for any $\bfv\in\cQ$.
     This proves \cite[Conj. 5.4]{fomin-zelevinsky4}.
     It immediately follows also that \cite[Conj. 5.5]{fomin-zelevinsky4} holds for acyclic initial seeds.
   \end{remark}
+}
   \begin{proposition}
     \label{prop:g index}
     The $\bfg$-vector $-{}^*\bfv$ of the cluster variable $x_\bfv$ is precisely the index of the rigid representation $V$ with dimension vector $\bfv$.
   \end{proposition}
+  {\color{lightgray}
   \begin{theorem}
     Let $V$ and $V'$ be rigid representations of $(Q,D)$.
     If $V\oplus V'$ is rigid, then the $\bfg$-vectors $-{}^*\bfv$ and $-{}^*\bfv'$ are sign-coherent.
@@ -213,7 +216,7 @@
       \xymatrix{ & & 0\ar[d] & 0\ar[d] &\\ 0\ar[r]& V'\ar[r]\ar@{=}[d]& \tilde E\ar[d]\ar[r]\ar@{}[dr]|<{\lrcorner}& V\ar[d]^{\iota_0}\ar[r]& 0\\ 0\ar[r]& V'\ar[r]& E\ar[r]\ar[d]& J_0\ar[r]\ar[d]& 0\\ & & J_1\ar[d]\ar@{=}[r] & J_1\ar[d] &\\ & & 0 & 0 &.}
     \end{equation}
   \end{proof}
-
+}
 
   The connection between the representation theory of $(Q,D)$ and the cluster algebra is actually much stronger.  For a source (resp. sink) vertex $k$ in $Q$, write $\Sigma_k^-:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$ (resp. $\Sigma_k^+:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$) for the reflection functor as defined in \cite[Sec. 2]{dlab-ringel}.  
   In what follows, we will drop the adornment and simply write $\Sigma_k$ for both reflection functors, which functor to apply should be clear from context.
@@ -319,8 +322,6 @@
 
   \begin{enumerate}
     \item
-      Try to prove \cite[Conj. 6.13]{fomin-zelevinsky4} (sign coherence of $\bfg$-vectors) by showing that two non sign coherent $\bfg$-vectors correspond to modules with an extension.
-    \item
       \cite[Con. 7.6]{fomin-zelevinsky4}/\cite[Conj. 3.22]{reading-speyer} ($\bfd$-vectors are a basis) follows from known representation theoretic statements.
       This then implies \cite[Conj. 7.10]{fomin-zelevinsky4} using Theorem~\ref{th:d to g}.
       Then following \cite[Rem. 7.11]{fomin-zelevinsky4}, we obtain \cite[Con. 7.2]{fomin-zelevinsky4}.
@@ -330,32 +331,6 @@
 
     \item
       \cite[Conj. 3.9, 3.10]{reading-speyer} (subgraph containing given cluster variable(s) is connected)  should follow from known tilting theory (see \cite[Cor. 3]{caldero-keller2}).
-
-    \item
-      \cite[Conjecture 5.4]{fomin-zelevinsky4} ($F$-polynomials have constant term 1)
-      The constant term is given by the empty subrepresentation.
-      \begin{corollary}
-        By \cite[Proposition 5.6]{fomin-zelevinsky4} $c$-vectors are sign-coherent.
-      \end{corollary}
-      \begin{corollary}
-        This implies most of the conjectures we care about: see \cite[Proposition 4.2]{NZ12}.
-      \end{corollary}
-      \begin{conjecture}[{\cite[Conjecture 5.5]{fomin-zelevinsky4}}]
-        $F$-polynomials have  a unique monomial of maximal degree. 
-        Furthermore, this monomial has coefficient 1, and it is divisible by all the other occurring monomials.
-      \end{conjecture}
-      \begin{proof}
-        The maximal term is given by the full representaton.
-        Note that this is equivalent to the previous conjecture in view of \cite[Proposition 5.3]{fomin-zelevinsky4}.
-      \end{proof}
-
-    \item
-      \begin{conjecture}[{\cite[Conjecture 6.10]{fomin-zelevinsky4}}]
-        About certain integer in the initial-seed mutation formula for $g$-vectors.
-      \end{conjecture}
-      \begin{proof}
-        Follows from sign coherence of $c$-vectors as in \cite[Proposition 4.2]{NZ12}.
-      \end{proof}
 
     \item
       
