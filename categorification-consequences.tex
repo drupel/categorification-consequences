@@ -234,6 +234,30 @@
     as desired.
   \end{proof}
 
+  From the fact that cluster monomials are parametrized by rigid representations we deduce \cite[Conjecture 7.6]{fomin-zelevinsky4} as follows.
+  \begin{proposition}
+    Suppose two cluster monomials have the same denominator vector.
+    Then the cluster monomials lie in the same cluster and are equal.
+  \end{proposition}
+  \begin{proof}
+    By Theorem~\ref{th:quantum cluster characters}, the cluster monomials are parametrized by rigid representations.
+    \sayS{Update Theorem\ref{th:quantum cluster characters} to deal with cluster monomials}
+    If two cluster monomials have equal denominator vectors, then the dimension vectors of the two representations they correspond to are equal.
+    By rigidity, the orbits of each of these representations inside the moduli of representations with this dimension vector are both dense (see e.g.\ \cite[Corollary 2.2.5]{brion}).
+    But then the representations must be isomorphic and thus correspond to the same cluster monomial.
+  \end{proof}
+  \begin{proposition}
+    The denominator vectors of cluster variables in a seed form a $\ZZ$ basis of the root lattice
+  \end{proposition}
+  \begin{proof}
+    Observe that, if a given cluster contains the initial cluster variable $X_i$ then the rigid representation corresponding to any other cluster variable in that cluster is supported away from $i$ \cite{some-result}.
+    In particular the representations corresponding to non-initial cluster variables give a titling object for the induced subquiver and by \cite{some-other-result} a $\ZZ$-basis for the corresponding sublattice.
+    Adding negative simple roots for each initial cluster variable gives the desired basis.
+  \end{proof}
+  Using Theorem~\ref{th:d to g} we deduce immediately from the above properties 
+  \cite[Conjecture 7.10]{fomin-zelevinsky4} follows from the previous one.
+  \cite[Conjecture 7.2]{fomin-zelevinsky4} follows by degree (i.e. $\bfg$-vector) considerations
+
   \begin{corollary}
     The mutation of the initial cluster at a sink or a source vertex transforms denominator vectors according to the simple reflection associated to that vertex.
   \end{corollary}
@@ -293,20 +317,6 @@
       \begin{proof}
         Follows from sign coherence of $c$-vectors as in \cite[Proposition 4.2]{NZ12}.
       \end{proof}
-
-    \item
-      Cluster monomials are parametrized by $\bfd$-vectors \cite[Conjecture 7.6]{fomin-zelevinsky4} (use moduli spaces and dense subsets).
-      \begin{proposition}
-        Suppose two cluster monomials have the same denominator vector.  Then the cluster monomials lie in the same cluster and are equal.
-      \end{proposition}
-      \begin{proof}
-        By Theorem~\ref{???}, the cluster monomials are parametrized by rigid representations.
-        If the denominators of the cluster variables are equal, then the dimension vectors of these representations are equal.
-        By rigidity, the orbits of each of these representations inside the moduli of representations with this dimension vector are both dense (see e.g.\ \cite[Corollary 2.2.5]{brion}).
-        But then the representations must be isomorphic and thus correspond to the same cluster monomial.
-      \end{proof}
-      \cite[Conjecture 7.10]{fomin-zelevinsky4} follows from the previous one.
-      \cite[Conjecture 7.2]{fomin-zelevinsky4} follows by degree (i.e. $\bfg$-vector) considerations
 
     \item
       
