@@ -23,6 +23,9 @@
 \usepackage{bbm}
 \usepackage{tikz}
 
+\input xy
+\xyoption{all}
+
 % Commands for marginal notes below
 \usepackage[draft]{say}
 \newcommand{\sayD}[1]{\say[D]{#1}}
@@ -54,6 +57,8 @@
 \newcommand{\Gr}{\operatorname{Gr}}
 \newcommand{\half}{{\frac{1}{2}}}
 \newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\ZZ}{\mathbb{Z}}
 
@@ -174,6 +179,41 @@
     This proves \cite[Conj. 5.4]{fomin-zelevinsky4}.
     It immediately follows also that \cite[Conj. 5.5]{fomin-zelevinsky4} holds for acyclic initial seeds.
   \end{remark}
+  \begin{proposition}
+    \label{prop:g index}
+    The $\bfg$-vector $-{}^*\bfv$ of the cluster variable $x_\bfv$ is precisely the index of the rigid representation $V$ with dimension vector $\bfv$.
+  \end{proposition}
+  \begin{theorem}
+    Let $V$ and $V'$ be rigid representations of $(Q,D)$.
+    If $V\oplus V'$ is rigid, then the $\bfg$-vectors $-{}^*\bfv$ and $-{}^*\bfv'$ are sign-coherent.
+  \end{theorem}
+  \begin{proof}
+    We will show that $V\oplus V'$ cannot be rigid if the $\bfg$-vectors of $V$ and $V'$ are not sign-coherent.
+    Consider minimial injective copresentations
+    \[\xymatrix{0 \ar[r] & V \ar[r]^{\iota_0} & J_0 \ar[r] & J_1 \ar[r] & 0}\]
+    and
+    \[\xymatrix{0 \ar[r] & V' \ar[r] & J'_0 \ar[r] & J'_1 \ar[r] & 0}.\]
+    Assume that there exists an injective $I$ which is a summand of both $J_0$ and $J'_1$, i.e.\ by Proposition~\ref{prop:g index} we are assuming the $\bfg$-vectors are not sign-coherent.
+    Write $\iota_1:I\into J'_1$ and $\pi_0:J_0\onto I$ for the corresponding split inclusion and projection maps.
+    Since the injective copresentation of $V'$ is minimal, the upper pullback sequence below must be non-split:
+    \begin{equation}
+      \label{dia:I pullback}
+      \xymatrix{0\ar[r]& V'\ar[r]\ar@{=}[d]& F\ar[d]\ar[r]\ar@{}[dr]|<{\lrcorner}& I\ar[d]^{\iota_1}\ar[r]& 0\\ 0\ar[r]& V'\ar[r]& J'_0\ar[r]& J'_1\ar[r]& 0.}
+    \end{equation}
+    Taking pullbacks again and recalling that $\pi_0$ is a split epimorphism, we see that the upper sequence below is also non-split:
+    \begin{equation}
+      \label{dia:J_0 pullback}
+      \xymatrix{0\ar[r]& V'\ar[r]\ar@{=}[d]& E\ar[d]\ar[r]\ar@{}[dr]|<{\lrcorner}& J_0\ar[d]^{\pi_0}\ar[r]& 0\\ 0\ar[r]& V'\ar[r]& F\ar[r]& I\ar[r]& 0.}
+    \end{equation}
+    By minimality of the injective copresentation, the map $\iota_0:V\into J_0$ is left minimal and $J_0$ is the maximal essential extension of $V$.
+
+    Claim: These imply the upper pullback sequence below is not split:
+    \begin{equation}
+      \label{dia:V pullback}
+      \xymatrix{0\ar[r]& V'\ar[r]\ar@{=}[d]& \tilde E\ar[d]\ar[r]\ar@{}[dr]|<{\lrcorner}& V\ar[d]^{\iota_0}\ar[r]& 0\\ 0\ar[r]& V'\ar[r]& E\ar[r]& J_0\ar[r]& 0.}
+    \end{equation}
+  \end{proof}
+
 
   The connection between the representation theory of $(Q,D)$ and the cluster algebra is actually much stronger.  For a source (resp. sink) vertex $k$ in $Q$, write $\Sigma_k^-:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$ (resp. $\Sigma_k^+:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$) for the reflection functor as defined in \cite[Sec. 2]{dlab-ringel}.  
   In what follows, we will drop the adornment and simply write $\Sigma_k$ for both reflection functors, which functor to apply should be clear from context.
@@ -280,7 +320,6 @@
   \begin{enumerate}
     \item
       Try to prove \cite[Conj. 6.13]{fomin-zelevinsky4} (sign coherence of $\bfg$-vectors) by showing that two non sign coherent $\bfg$-vectors correspond to modules with an extension.
-    
     \item
       \cite[Con. 7.6]{fomin-zelevinsky4}/\cite[Conj. 3.22]{reading-speyer} ($\bfd$-vectors are a basis) follows from known representation theoretic statements.
       This then implies \cite[Conj. 7.10]{fomin-zelevinsky4} using Theorem~\ref{th:d to g}.
