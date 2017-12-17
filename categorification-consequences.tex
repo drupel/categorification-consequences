@@ -68,20 +68,11 @@
 
 \title{Some consequences of categorification}
 \author[Rupel]{Dylan Rupel}
-\address[Dylan Rupel]{
-University of Notre Dame\newline
-Department of Mathematics\newline
-Notre Dame, IN 46556\newline
-USA}
+\address[Dylan Rupel]{ University of Notre Dame, Department of Mathematics, Notre Dame, IN 46556, USA}
 \email{drupel@nd.edu}
 
 \author[Stella]{Salvatore Stella}
-\address[Salvatore Stella]{
-University of Haifa\newline
-Departments of Mathematics and Computer Sciences\newline
-Haifa, Mount Carmel, 31905\newline
-Israel
-}
+\address[Salvatore Stella]{University of Haifa, Departments of Mathematics, Haifa, Mount Carmel, 31905, Israel}
 \email{stella@math.haifa.ac.il}
 
 \begin{document}
@@ -245,7 +236,7 @@ Israel
     Since the $g$-vector of the cluster variable $x_\bfv$ is given by $-{}^*\bfv$, the result follows immediately from the definitions of $E$ and the operator ${}^*(-)$.
   \end{proof}
 
-  \begin{itemize}
+  \begin{enumerate}
     \item
       Try to prove \cite[Conj. 6.13]{fomin-zelevinsky4} (sign coherence of $\bfg$-vectors) by showing that two non sign coherent $\bfg$-vectors correspond to modules with an extension.
     
@@ -261,7 +252,7 @@ Israel
       \cite[Conj. 7.4]{fomin-zelevinsky4} (about $\bfd$-vectors) follows easily and implies \cite[Conj. 7.5]{fomin-zelevinsky4}
 
     \item
-      \cite[Conj. 3.9]{reading-speyer} (subgraph containing given cluster variable is connected)  should follow from known tilting theory (see \cite[Cor. 3]{caldero-keller2}).
+      \cite[Conj. 3.9, 3.10]{reading-speyer} (subgraph containing given cluster variable(s) is connected)  should follow from known tilting theory (see \cite[Cor. 3]{caldero-keller2}).
 
     \item
       \cite[Conjecture 5.4]{fomin-zelevinsky4} ($F$-polynomials have constant term 1)
@@ -294,128 +285,24 @@ Israel
       \cite[Conjecture 7.10]{fomin-zelevinsky4} follows from the previous one.
       \cite[Conjecture 7.2]{fomin-zelevinsky4} follows by degree (i.e. $\bfg$-vector) considerations
 
-  \end{itemize}
+    \item
+      
+      \begin{conjecture}[{\cite[Conjecture 4.7]{fomin-zelevinsky4}}]
+        In a cluster algebra with principal coefficients any cluster is uniquely determined by its exchange matrix and $c$-vectors.
+      \end{conjecture}
+      \begin{proof}
+        By \cite{NZ12} $g$-vectors are the the dual basis of the Langland's dual cluster algebra (which also has acylic initial seed). 
+        Then use the fact that cluster monomials are parametrized by $g$-vectors.
+        
+        See also \cite[Conjectures 3.11 and 3.12]{reading-speyer}
+      \end{proof}
+
+  \end{enumerate}
 
 
 % bibliography
 \bibliographystyle{amsalpha}
 \bibliography{bibliography}
-
-
-
-\section{Conjectures in the wild}
-
-
-\begin{conjecture}[{\cite[Conjecture 4.7]{fomin-zelevinsky4}}]
-  In a cluster algebra with principal coefficients any cluster is uniquely determined by its exchange matrix and $c$-vectors.
-\end{conjecture}
-\begin{proof}
-  By \cite{NZ12} $g$-vectors are the the dual basis of the Langland's dual cluster algebra (which also has acylic initial seed). 
-  Then use the fact that cluster monomials are parametrized by $g$-vectors.
-\end{proof}
-
-
-  \section{TODO list}
-  \begin{itemize}
-    \item
-      Track down the conjectures we will prove:
-		
-		\begin{itemize}
-      \item RSp framework for cluster algebras
-        \begin{itemize}
-          \item   C 3.9		seeds containing one cluster variable form a connected graph
-          \item   C 3.10		seeds containing given set of c.v. form a connected graph
-          \item   C 3.11 3.12	seed determined by c-vectors
-          \item   C 3.21		The one we want!
-        \end{itemize}
-    \end{itemize}
-
-
-To say:
-	d-vectors form a Z-basis (use titling)
-	therefore g-vectors form a Z-basis (use RSp 3.21)
-
-
-
-    \item
-      Write result needed in [RSW]
-
-    \item
-      Decide on how much background to give
-
-  \end{itemize}
-
-
-
-%  \begin{thebibliography}{99}
-%
-%  \bibitem[BFZ]{berenstein-fomin-zelevinsky}
-%
-%  \bibitem[BZ]{berenstein-zelevinsky}
-%  A. Berenstein and A. Zelevinsky, ``Quantum cluster algebras.''   {\em Advances in Mathematics}, vol. 195, {\bf 2} (2005), pp.~405--455.
-%
-%  \bibitem[BMRRT]{buan-marsh-reineke-reiten-todorov}
-%  A. Buan, R. Marsh, I. Reiten, M. Reineke, G. Todorov, ``Tilting theory and cluster combinatorics.'' {\em Adv. Math.} \textbf{204} (2006), no. 2, pp.~572–-618.
-%
-%  \bibitem[CC]{caldero-chapoton}
-%  P. Caldero and F. Chapoton, ``Cluster algebras as Hall algebras of quiver representations.'' {\em Comment. Math. Helv.} \textbf{81} (2006), no. 3, pp.~595--616.
-%
-%  \bibitem[CCS]{caldero-chapoton-schiffler}
-%
-%  \bibitem[CK]{caldero-keller}
-%  P. Caldero and B. Keller, ``From triangulated categories to cluster algebras.''  {\em Invent. Math.} \textbf{172} (2008), no. 1, pp.~169-–211.
-%
-%  \bibitem[CK2]{caldero-keller2}
-%
-%  \bibitem[CKLP]{cerulliirelli-keller-labardinifragoso-plamondon}
-%
-%  \bibitem[D]{demonet}
-%
-%  \bibitem[DWZ]{derksen-weyman-zelevinsky}
-%
-%  \bibitem[DR]{dlab-ringel}
-%  V. Dlab and C. Ringel, ``Indecomposable Representations of Graphs and Algebras.'' {\em Mem.~Amer. Math. Soc.} \textbf{173} (1976).
-%
-%  \bibitem[FZ03]{FZ03} S. Fomin and A. Zelevinsky, ``Cluster algebras: Notes for the CDM-03 conference'', in: {\em CDM 2003: Current Developments in Mathematics}, International Press (2004).
-%
-%  \bibitem[FZ07]{fomin-zelevinsky4} S. Fomin and A. Zelevinsky. ``Cluster algebras. IV. Coefficients.`` {\em Compos. Math.}, \textbf{143}(1):112–164 (2007).
-%
-%
-%  \bibitem[FZ]{fomin-zelevinsky4}
-%
-%  \bibitem[GLS]{geiss-leclerc-schroer}
-%
-%  \bibitem[GSV]{gekhtman-shapiro-vainshtein}
-%
-%  \bibitem[MRZ]{marsh-reineke-zelevinsky}
-%
-%  \bibitem[NZ12]{NZ12} T. Nakanishi and A. Zelevinsky. ``On tropical dualities in cluster algebras''. In {\em Algebraic groups and quantum groups}, volume 565 of {\em Contemp. Math.}, pages 217–226. Amer. Math. Soc., Providence, RI, (2012).
-%
-%  \bibitem[Pa]{palu}
-%
-%  \bibitem[Pl]{plamondon}
-%
-%  \bibitem[Q]{qin}
-%  F. Qin, ``Quantum cluster variables via Serre polynomials.''  {\em J. Reine Angew. Math.} \textbf{668} (2012), pp.~149--190.
-%
-%  \bibitem[RSp]{reading-speyer}
-%  N. Reading and D. Speyer, ``Cambrian fans.'' {\em J. Eur. Math. Soc.} \textbf{11} (2009), no. 2, pp.~407--447.
-%
-%  \bibitem[RSt]{reading-stella}
-%  N. Reading and S. Stella, ``Initial-seed recursions and dualities for $d$-vectors.'' Preprint: arXiv:1409.4723.
-%   
-%  \bibitem[R1]{rupel1}
-%  D. Rupel, ``On a quantum analogue of the Caldero-Chapoton formula.'' {\em Int. Math. Res. Not.} (2011), no. 14, pp.~3207--3236.
-%
-%  \bibitem[R2]{rupel2}
-%  D. Rupel, ``Quantum cluster characters.'' {\em Trans. Amer. Math. Soc.} (2015). DOI: 10.1090/S0002-9947-2015-06251-5.
-%
-%  \bibitem[W]{wolf}
-%  S. Wolf, ``A geometric version of BGP reflection functors''
-%
-%\end{thebibliography}
-
-
 
 
 \end{document}
