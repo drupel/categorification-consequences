@@ -107,11 +107,16 @@
     More precisely, using the bar-invariant monomial basis $X^\bfa$, $\bfa\in\ZZ^m$, of $\cT$ given by
     \[X^\bfa=q^{-\half\sum\limits_{i<j}\lambda_{ij}a_ia_j}X_1^{a_1}\cdots X_m^{a_m},\]
     we may write the exchange relation as $X'_k=X^{\bfb_+^k-\varepsilon_k}+X^{\bfb_-^k-\varepsilon_k}$, where $\varepsilon_k$ denotes the standard basis vector of $\ZZ^m$ and the $k^{th}$ column of $\tilde B$ decomposes as $\bfb^k=\bfb^k_+-\bfb^k_-$ for minimal positive vectors $\bfb^k_+,\bfb^k_-\in\ZZ_{\ge0}^m$.
-    \item Each cluster $\bfX'$ obtainable from $\bfX$ by a sequence of mutations should again generate a quantum torus, i.e. consist of $q$-commuting variables, and this forces a compatibility condition (see below) of the commutation matrix $\Lambda$ with the exchange matrix $\tilde B$.
-    This compatibility naturally reproduces under mutations.
+    \item Each cluster $\bfX'$ obtainable from $\bfX$ by a sequence of mutations should again generate a quantum torus, i.e. consist of $q$-commuting variables.
+      This forces the compatibility condition $\tilde B^T\Lambda=\big[\,D\ \boldsymbol{0}\,\big]$ on the commutation matrix $\Lambda$ and the exchange matrix $\tilde B$.
+    An easy calculation shows that this compatibility naturally reproduces under mutations.
   \end{itemize}
   Note that the final compatibility condition is identical to the condition required of a compatible Poisson structure.
   
+  Assume the pair $(\tilde B,\Lambda)$ is compatible.
+  Let $\cF_\Lambda$ denote the skew-field of fractions of $\cT_\Lambda$ (cf. \cite{berenstein-zelevinsky}).
+
+
   By work of Berenstein and Zelevinsky \cite{berenstein-zelevinsky}, the famous Laurent phenomenon holds in this adapted setting and one may ask how to describe the initial cluster Laurent expansions of non-initial quantum cluster variables.  
   The answer will be given using the representation theory of valued quivers in the following section.
 
@@ -291,6 +296,15 @@
 
     \item
       Cluster monomials are parametrized by $\bfd$-vectors \cite[Conjecture 7.6]{fomin-zelevinsky4} (use moduli spaces and dense subsets).
+      \begin{proposition}
+        Suppose two cluster monomials have the same denominator vector.  Then the cluster monomials lie in the same cluster and are equal.
+      \end{proposition}
+      \begin{proof}
+        By Theorem~\ref{???}, the cluster monomials are parametrized by rigid representations.
+        If the denominators of the cluster variables are equal, then the dimension vectors of these representations are equal.
+        By rigidity, the orbits of each of these representations inside the moduli of representations with this dimension vector are both dense (see e.g.\ \cite[Corollary 2.2.5]{brion}).
+        But then the representations must be isomorphic and thus correspond to the same cluster monomial.
+      \end{proof}
       \cite[Conjecture 7.10]{fomin-zelevinsky4} follows from the previous one.
       \cite[Conjecture 7.2]{fomin-zelevinsky4} follows by degree (i.e. $\bfg$-vector) considerations
 
