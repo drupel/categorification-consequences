@@ -92,18 +92,39 @@
   The categorification of skew-symmetric cluster algebras using representations of quivers was initiated by Marsh, Reineke, and Zelevinsky \cite{marsh-reineke-zelevinsky} for Dynkin quivers.  
   With the advent of cluster characters \cite{caldero-chapoton}, the subject has exploded as an industry all its own, leading to the publication of numerous articles including \cite{caldero-chapoton-schiffler,buan-marsh-reineke-reiten-todorov,derksen-weyman-zelevinsky,geiss-leclerc-schroer,caldero-keller,caldero-keller2,plamondon,palu,rupel1,qin,rupel2} just to name a few.  
 
-  The main idea is to interpret the combinatorics of cluster mutations in terms of a category of representations of a quiver, and in particular to obtain an interpretation of the initial cluster Laurent expansions of non-initial cluster variables as generating functions for certain geometric invariants (e.g. Euler characteristics, point counts over finite fields, Poincar\'e polynomials, etc.) of varieties of subrepresentations in a given quiver representation.
+  The main idea is to understand the combinatorics of cluster mutations in terms of a category of representations of a quiver, and in particular to obtain an interpretation of Laurent expansions of non-initial cluster variables as cluster characters.
+ These are generating functions for certain geometric invariants (e.g. Euler characteristics, point counts over finite fields, Poincar\'e polynomials, etc.) of varieties of subrepresentations in an associated quiver representation.
   
-  In the case of skew-symmetric cluster algebras, the rich structure present in the cluster characters defining the categorification has led to proofs of many conjectures relating to the structure of cluster algebras \cite{cerulliirelli-keller-labardinifragoso-plamondon} and the resolution of conjectures describing the internal structure of individual cluster variables as well as providing a tool which governs the combinatorics of mutations.
-  The main goal of this note is to observe that the categorification of acyclic skew-symmetrizable (quantum) cluster algebras \cite{rupel1,rupel2} naturally leads to proofs of many of the same conjectures as well as providing proofs of some conjectures not obtainable from the standard quiver (with potential) approach.  
+  Using categorification, many structural conjectures on skew-symmetric cluster algebras, their cluster variables and the associated combinatorics of mutations hae been established.
+  The main goal of this note is to observe that the categorification of acyclic skew-symmetrizable (quantum) cluster algebras \cite{rupel1,rupel2} naturally leads to proofs of many of the same conjectures.
+  \sayS{commented out ``as well as providing proofs of some conjectures not obtainable from the standard quiver (with potential) approach'' because I do not understand it.}  
 
-  Alternative approaches to categorification of skew-symmetrizable cluster algebras using quivers with automorphism or group species with potential have been introduced by Demonet \cite{demonet1,demonet2}.
-  These formalisms have allowed Demonet to prove many conjectures on cluster algebras that we thus omit here.
-  However, since the appearance of these works, new conjectures on cluster algebras, particularly ones related to denominator vectors, have been made and our goal here is to resolve several of these conjectures.
-  The proofs of some results are direct translations of proofs from the skew-symmetric case, while others lie entirely in the realm of the valued quiver approach.
+  Alternative approaches to categorification of skew-symmetrizable cluster algebras using quivers with automorphism or group species with potential have been introduced by Demonet \cite{demonet1,demonet2}. 
+  \sayS{Shall we cite Daniel?}
+  These formalisms have allowed him to prove many conjectures on cluster algebras that we thus omit here even though they should be deducible in our setting.
 
-  \section{Cluster  Algebras and Quantum Cluster Algebras} Let $\cA(\bfx,\tilde B)$ be an acyclic cluster algebra \cite{berenstein-fomin-zelevinsky}, i.e. the principal submatrix of $\tilde B$ is acyclic.  
-  When the exchange matrix $\tilde B$ has full rank, the algebra $\cA(\bfx,\tilde B)$ admits a log-canonical Poisson structure compatible with mutations \cite{gekhtman-shapiro-vainshtein} and one may obtain a quantum cluster algebra via a remarkably simple deformation quantization.  
+  Since the appearance of Demonet's works, new conjectures on cluster algebras, particularly ones related to denominator vectors, have been made and our goal here is to resolve several of these.
+  In some cases our proofs will follow by direct translation of arguments given in the skew-symmetric case. 
+  \sayS{most instead of some?}
+  \sayS{Commented out old text}
+  % The proofs of some results are direct translations of proofs from the skew-symmetric case, while others lie entirely in the realm of the valued quiver approach.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+  \textsc{Acknowledgments}
+  We are grateful to Giovanni Cerulli-Irelly for some insight on references.
+  D.R. was partially supported by an AMS-Simons Travel Grant; S.S. was supported by ISF grant 1144/16.
+
+  \section{Quantum Cluster Algebras and Quantum Cluster Characters}
+  
+  In the interest of brevity we will assume that the reader is familiar with the basic notions in the theory of cluster algebras and refer to \cite{fomin-zelevinsky4} for background material.
+
+  Let $B$ be a $n\times $ skew-symmetrizable integer matrix and assume that it is \neword{acyclic} (i.e. up to a simultaneous permutation of rows and columns $B$ has only non-negative entries above the diagonal).
+  Let $\widetilde{B}$ be the matrix obtained by stacking a $n\times n$ identity matrix below $B$ and write $\cA(\bfx,\widetilde{B})$ for the associated cluster algebra; it a cluster algebra with \newword{principal coefficients}.
+
+  Since $\widetilde{B}$ has full rank, the algebra $\cA(\bfx,\widetilde{B})$ admits a log-canonical Poisson structure compatible with mutations \cite{gekhtman-shapiro-vainshtein} and one may obtain a quantum cluster algebra via a remarkably simple deformation quantization.  
+
+
+
   More intuitively, for an indeterminate $q$, the definition of the quantum cluster algebra $\cA_q(\bfX,\tilde B)$ can be obtained from that of $\cA(\bfx,\tilde B)$ via the following modifications:
   \begin{itemize}
     \item The initial cluster $\bfX$ consists of $q$-commuting variables, i.e. there exists a skew-symmetric matrix $\Lambda=(\lambda_{ij})$ so that $X_iX_j=q^{\lambda_{ij}}X_jX_i$.  
