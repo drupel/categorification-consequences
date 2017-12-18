@@ -181,6 +181,7 @@
   A representation $V$ is called \emph{rigid} if $\Ext(V,V)=0$.  
   \begin{theorem}\cite{rupel1,rupel2}
     \label{th:quantum cluster characters}\mbox{}
+    \sayD{Upgrade to include cluster monomials.}
     \begin{enumeratea}
       \item For each rigid indecomposable $V\in\rep_\FF(Q,D)$, the quantum cluster character $X_V$ is a quantum cluster variable of $\cA_{|\FF|}(\bfX,\tilde B)$.  
       Moreover, every non-initial cluster variable of $\cA_{|\FF|}(\bfX,\tilde B)$ arises in this way.
@@ -345,13 +346,16 @@
   \end{proof}
 
   The next result establishes \cite[Conj. 3.9, 3.10]{reading-speyer}.
-  This result has appeared as \cite[Cor. 3]{caldero-keller2} for acyclic skew-symmetric cluster algebras.
+  A special case of this result has appeared as \cite[Cor. 3]{caldero-keller2} for acyclic skew-symmetric cluster algebras.
   \begin{theorem}
-    The subgraph of the exchange graph consisting of seeds containing any fixed given cluster variable is connected.
+    The subgraph of the exchange graph consisting of seeds containing any fixed collection of cluster variables is connected.
   \end{theorem}
   \begin{proof}
     The proof given in \cite{caldero-keller2} is written in terms of arbitrary hereditary abelian categories.
     In particular, their proof applies in our situation.
+    More generally, one may replace the rigid indecomposable representation appearing in \cite[Section 5.4]{caldero-keller2} by an arbitrary partial tilting representation (cf. \cite[Prop. 3]{happel-rickard-schofield}).
+    Then running a similar argument as in the proof of \cite[Thm. 6]{caldero-keller2} proves the general case.
+    These constructions are closely related to the Iyama-Yoshino reduction of triangulated categories (cf. \cite[Sec. 4]{iyama-yoshino} or \cite[Sec. 7.2]{keller}).
   \end{proof}
 
   \begin{enumerate}
