@@ -139,9 +139,15 @@
       \]
       we may write the mutated variables as $X'_k=X^{\bfb_+^k-\varepsilon_k}+X^{\bfb_-^k-\varepsilon_k}$, where $\varepsilon_k$ denotes the standard basis vector of $\ZZ^{2n}$ and the $k^{th}$ column of $\widetilde{B}$ decomposes as $\bfb^k=\bfb^k_+-\bfb^k_-$ for minimal positive vectors $\bfb^k_+,\bfb^k_-\in\ZZ_{\ge0}^{2n}$.
 
-    \item Each cluster $\bfX'$ obtainable from $\bfX$ by a sequence of mutations should again generate a quantum torus, i.e. consist of $q$-commuting variables.
+    \item 
+      Each cluster $\bfX'$ obtainable from $\bfX$ by a sequence of mutations should again generate a quantum torus, i.e. consist of $q$-commuting variables.
       This forces the compatibility condition $\tilde B^T\Lambda=\big[\,D\ \boldsymbol{0}\,\big]$ on the commutation matrix $\Lambda$ and the exchange matrix $\tilde B$.
     An easy calculation shows that this compatibility naturally reproduces under mutations.
+
+
+  Fix a choice of diagonal symmetrizing matrix $D=\diag(d_1,\ldots,d_n)$ with $d_i\in\ZZ_{>0}$, i.e. such that $DB$ is skew-symmetric.
+  Let $\Lambda$ be a skew-symmetric $2n\times2n$ matrix compatible with $\tilde B$, e.g. given any $n\times n$ skew-symmetric matrix $\Lambda_0$ we may take $\Lambda=\left[\begin{array}{cc}\Lambda_0 & -\Lambda_0B-D\\ -B^T\Lambda_0+D & B^T\Lambda_0B+B^TD\end{array}\right]$ so that $\tilde B^T\Lambda=\big[\,D\ \boldsymbol{0}\,\big]$ (this is the required compatibility condition).
+
   \end{itemize}
   Note that the final compatibility condition is identical to the condition required of a compatible Poisson structure.
   
@@ -153,10 +159,6 @@
   The answer will be given using the representation theory of valued quivers in the following section.
 
   By work of Tran \cite{tran} which extends the theory of $F$-polynomials from \cite{fomin-zelevinsky4} to the quantum case, it suffices to consider the principal coefficients cluster algebras defined as follows.  
-  Consider an $n\times n$ skew-symmetrizable matrix $B$ and write $\tilde B=\left[\begin{array}{c}B\\ I_n\end{array}\right]$ for the corresponding principalized exchange matrix.  
-  Fix a choice of diagonal symmetrizing matrix $D=\diag(d_1,\ldots,d_n)$ with $d_i\in\ZZ_{>0}$, i.e. such that $DB$ is skew-symmetric.
-  Let $\Lambda$ be a skew-symmetric $2n\times2n$ matrix compatible with $\tilde B$, e.g. given any $n\times n$ skew-symmetric matrix $\Lambda_0$ we may take $\Lambda=\left[\begin{array}{cc}\Lambda_0 & -\Lambda_0B-D\\ -B^T\Lambda_0+D & B^T\Lambda_0B+B^TD\end{array}\right]$ so that $\tilde B^T\Lambda=\big[\,D\ \boldsymbol{0}\,\big]$ (this is the required compatibility condition).
-
   \sayD{Add something about $F$-polynomials and $g$-vectors here.}
 
   \section{Quantum Cluster Characters}
