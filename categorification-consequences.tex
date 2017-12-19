@@ -289,6 +289,7 @@
   This immediately implies \cite[Conjecture 6.11]{fomin-zelevinsky4} using \cite[Proposition 7.16]{fomin-zelevinsky4}.  
   From Proposition~\ref{prop:denominators}, we deduce this weakening of \cite[Conjecture 7.4]{fomin-zelevinsky4} in the acyclic case.
   \begin{corollary}
+    \label{cor:sign_coherence}
     Let $\bfv$ be the denominator vector of a non-initial cluster variable $x_\bfv$ in $\cA(\bfx,\widetilde{B})$.
     Then:
     \begin{enumerate}
@@ -315,37 +316,32 @@
   The key difference in the above corollary compared to the original statement of the conjecture is that in point (3) we do not claim independence from the seed containing $x_i$.
   Nonetheless the corollary immediately implies the weaker statements \cite[Conjecture 7.5]{fomin-zelevinsky4} and \cite[Conjecture~2.9]{reading-stella}.
 
-  \begin{corollary}[{\cite[Conjecture 7.6]{fomin-zelevinsky4}}
-  \end{corollary}
-
-
-  \begin{corollary}
-    The denominator vectors of cluster variables in a seed form a $\ZZ$-basis of $\cQ$.%the root lattice.
+  \begin{corollary}[{\cite[Conjecture 7.6]{fomin-zelevinsky4}} for acyclic initial exchange matrices]
+    In $\cA(\bfx,\widetilde{B})$ different cluster monomials have different $\bfd$-vectors.
+    Moreover, the $\bfd$-vectors of the cluster variables of any given cluster form a $\ZZ$-basis of $\cQ$.
   \end{corollary}
   \begin{proof}
-    Observe that, if a given cluster contains the initial cluster variable $X_i$ then the rigid representation corresponding to any other cluster variable in that cluster is supported away from $i$ \cite{some-result}.
-    In particular the representations corresponding to non-initial cluster variables give a titling object for the induced subquiver and by \cite{some-other-result} a $\ZZ$-basis for the corresponding sublattice.
-    Adding negative simple roots for each initial cluster variable gives the desired basis.
-  \end{proof}
-
-
-
-
-
-
-
-  From the fact that cluster monomials are parametrized by rigid representations we deduce \cite[Conjecture 7.6]{fomin-zelevinsky4} as follows.
-  \begin{proposition}
-    Suppose two cluster monomials have the same denominator vector.
-    Then the cluster monomials lie in the same cluster and are equal.
-  \end{proposition}
-  \begin{proof}
-    By Theorem~\ref{th:quantum cluster characters}, the cluster monomials are parametrized by rigid representations.
-    \sayS{Update Theorem\ref{th:quantum cluster characters} to deal with cluster monomials}
-    If two cluster monomials have equal denominator vectors, then the dimension vectors of the two representations they correspond to are equal.
+    By Corollary \ref{cor:sign_coherence}, if a cluster monomial contains initial cluster variables this can be detected in the $\bfd$-vector.
+    Therefore we can assume that we are dealing with cluster monomials not containing initial cluster variables.
+    By Theorem~\ref{th:quantum cluster characters}, these are parametrized by rigid representations.
+    If the two cluster monomials have equal denominator vectors, then the dimension vectors of the two representations they correspond to are equal.
     By rigidity, the orbits of each of these representations inside the moduli of representations with this dimension vector are both dense (see e.g.\ \cite[Corollary 2.2.5]{brion}).
-    But then the representations must be isomorphic and thus correspond to the same cluster monomial.
+    But then the representations must be isomorphic and thus they correspond to the same cluster monomial.
+
+    Each seed of $\cA(\bfx,\widetilde{B})$ corresponds to a local tilting representation $T$.
+    By \cite[Lemma 4.3 and Theorem 4.5]{happel-ringel} the dimension vectors of the summands of $T$ provide a $\ZZ$-basis for the sublattice on which they are supported.
+    Negative simples corresponding to vertices outside the support complete this basis to a $\ZZ$-basis of $\cQ$.
   \end{proof}
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
   Using Theorem~\ref{th:d to g} we deduce immediately from the above properties 
   \cite[Conjecture 7.10]{fomin-zelevinsky4} follows from the previous one.
   \cite[Conjecture 7.2]{fomin-zelevinsky4} follows by degree (i.e. $\bfg$-vector) considerations
@@ -404,10 +400,6 @@
       This then implies \cite[Conj. 7.10]{fomin-zelevinsky4} using Theorem~\ref{th:d to g}.
       Then following \cite[Rem. 7.11]{fomin-zelevinsky4}, we obtain \cite[Con. 7.2]{fomin-zelevinsky4}.
     
-    \item
-      \cite[Conj. 7.4]{fomin-zelevinsky4} (about $\bfd$-vectors) follows easily and implies \cite[Conj. 7.5]{fomin-zelevinsky4}
-
-
     \item
       
       \begin{conjecture}[{\cite[Conjecture 4.7]{fomin-zelevinsky4}}]
