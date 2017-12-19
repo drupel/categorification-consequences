@@ -210,6 +210,8 @@
   Note that $\widetilde{B}\bfe={}^*\bfe-\bfe^*$ and, for $j\in[1,n]$, we have ${}^*\alpha_j=\alpha_j+\sum\limits_{i=1}^{n}\min(b_{ij},0)\alpha_i$.
   \sayS{I was really tempred to use $[\cdot]_+$ here but I fear it is going to generate confusion with classes.}
 
+  A representation $V\in\rep_\FF(Q,D)$ is \newword{rigid} if $\Ext^1(V,V)=0$.
+  If there exists a rigid representation with dimension vector $\bfv\in\cQ$ for the finite field $\FF$, then there exists a rigid representation of $(Q,D)$ with dimension vector $\bfv$ over any finite field and thus we refer to the dimension vector $\bfv$ as being \newword{rigid} in this case.
   \begin{theorem}\cite{rupel1,rupel2}
     \label{th:quantum cluster characters}
     Let $B$ be any acyclic skew-symmetrizable matrix with symmetrizer $D$ and let $(Q,D)$ be the associated valued quiver.
@@ -219,13 +221,12 @@
         Moreover, every cluster monomial of $\cA_{|\FF|}(\bfX,\widetilde{B})$ not involving initial cluster variables arises in this way, the decomposition of $V$ into indecomposables mirroring the factorization of the cluster monomial into cluster variables.
       
       \item 
-        For each rigid representation $V\in\rep_\FF(Q,D)$ and each $\bfe\in\cQ$, there exists a polynomial $P_{\bfv,\bfe}(q)$, depending only on the dimension vector $\bfv$ of $V$, so that $\big|Gr_\bfe(V)\big|=P_{\bfv,\bfe}\big(|\FF|\big)$.
+        For all dimension vectors $\bfv,\bfe\in\cQ$ with $\bfv$ rigid, there exists a polynomial $P_{\bfv,\bfe}(q)$ so that for any finite field $\FF$ and rigid representation $V\in\rep_\FF(Q,D)$, we have $\big|Gr_\bfe(V)\big|=P_{\bfv,\bfe}\big(|\FF|\big)$.
         These polynomials give a ``generic'' quantum cluster character 
         \[
           X_\bfv=\sum\limits_{\bfe\in\cQ} q^{-\half\langle\bfe,\bfv-\bfe\rangle}P_{\bfv,\bfe}(q)X^{\widetilde{B}\bfe-{}^*\bfv}
         \]
-        which computes the cluster variables of $\cA_q(\bfX,\widetilde{B})$ with arbitrary parameter $q$.
-        \sayS{I do not know how to extend this to cluster monomials without knowing thet cluster expansions are unique.}
+        which computes the cluster monomials not involving initial cluster variables of $\cA_q(\bfX,\widetilde{B})$ with arbitrary parameter $q$.
     \end{enumeratea}
   \end{theorem}
   An analogous result was obtained for acyclic skew-symmetric quantum cluster algebras by Qin~\cite{qin} using representations of acyclic quivers and with counting polynomials replaced by Poincar\'e polynomials.
