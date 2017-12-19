@@ -204,91 +204,66 @@
     \end{cases}
   \]
   For $\bfe\in\cQ$, define ${}^*\bfe=\sum\limits_{i=1}^n\frac{1}{d_i}\langle\alpha_i,\bfe\rangle\alpha_i\in\cQ$ and $\bfe^*=\sum\limits_{j=1}^{2n}\frac{1}{d_j}\langle\bfe,\alpha_j\rangle\alpha_j\in\widetilde{\cQ}$, noting that these do not depend on the choice of symmetrizing matrix $D$. 
-  Then the \newword{quantum cluster character} of a representation $V\in\rep_\FF(Q,D)$ with $[V]=:\bfv$ is given by 
+  Then the \newword{quantum cluster character} of a representation $V\in\rep_\FF(Q,D)$ with $[V]=:\bfv$ is the element of $\cT_\Lambda$  given by 
   \[
     X_V
     :=
-    \sum\limits_{\bfe\in\cQ} |\FF|^{-\half\langle\bfe,\bfv-\bfe\rangle}\big|\!\Gr_\bfe(V)\big|X^{\widetilde{B}\bfe-{}^*\bfv}\in\cT_\Lambda,
+    \sum\limits_{\bfe\in\cQ} |\FF|^{-\half\langle\bfe,\bfv-\bfe\rangle}\big|\!\Gr_\bfe(V)\big|X^{\widetilde{B}\bfe-{}^*\bfv},
   \] 
   where $\Gr_\bfe(V)$ denotes the set of all subrepresentations $E\subset V$ with isomorphism class $[E]=\bfe$.  
-  Note that $\widetilde{B}\bfe={}^*\bfe-\bfe^*$ and, for $j\in[1,n]$, we have ${}^*\alpha_j=\alpha_j+\sum\limits_{i:b_{ij}<0}b_{ij}\alpha_i$.
+  Note that $\widetilde{B}\bfe={}^*\bfe-\bfe^*$ and, for $j\in[1,n]$, we have ${}^*\alpha_j=\alpha_j+\sum\limits_{i=1}^{n}\min(b_{ij},0)\alpha_i$.
+  \sayS{I was really tempred to use $[\cdot]_+$ here but I fear it is going to generate confusion with classes.}
 
-  A representation $V$ is called \emph{rigid} if $\Ext(V,V)=0$.  
   \begin{theorem}\cite{rupel1,rupel2}
-    \label{th:quantum cluster characters}\mbox{}
-    \sayD{Upgrade to include cluster monomials.}
+    \label{th:quantum cluster characters}
+    Let $B$ be any acyclic skew-symmetrizable matrix with symmetrizer $D$ and let $(Q,D)$ be the associated valued quiver.
     \begin{enumeratea}
-      \item For each rigid representation $V\in\rep_\FF(Q,D)$, the quantum cluster character $X_V$ is a quantum cluster monomial of $\cA_{|\FF|}(\bfX,\widetilde{B})$.  
-      Moreover, every non-initial cluster variable of $\cA_{|\FF|}(\bfX,\widetilde{B})$ arises in this way from a rigid indecomposable representation.
-      \item For each $\bfe\in\cQ$ and each positive root $\bfv\in\cQ$, there exists a polynomial $P_{\bfv,\bfe}(q)$ such that for any rigid indecomposable $V\in\rep_\FF(Q,D)$ with isomorphism class $\bfv$, we have $\big|Gr_\bfe(V)\big|=P_{\bfv,\bfe}\big(|\FF|\big)$.  These polynomials give a ``generic'' quantum cluster character 
-      \[X_\bfv=\sum\limits_{\bfe\in\cQ} q^{-\half\langle\bfe,\bfv-\bfe\rangle}P_{\bfv,\bfe}(q)X^{\widetilde{B}\bfe-{}^*\bfv}\]
-      which computes the cluster variables of $\cA_q(\bfX,\widetilde{B})$ with arbitrary parameter $q$.
+      \item 
+        For each rigid representation $V\in\rep_\FF(Q,D)$, the quantum cluster character $X_V$ is a quantum cluster monomial of $\cA_{|\FF|}(\bfX,\widetilde{B})$.  
+        Moreover, every non-initial cluster variable of $\cA_{|\FF|}(\bfX,\widetilde{B})$ arises in this way from a rigid indecomposable representation.
+      
+      \item 
+        For each $\bfe\in\cQ$ and each positive root \sayS{Schur?} $\bfv\in\cQ$, there exists a polynomial $P_{\bfv,\bfe}(q)$ such that for any rigid indecomposable $V\in\rep_\FF(Q,D)$ with isomorphism class $\bfv$, we have $\big|Gr_\bfe(V)\big|=P_{\bfv,\bfe}\big(|\FF|\big)$.
+        These polynomials give a ``generic'' quantum cluster character 
+        \[
+          X_\bfv=\sum\limits_{\bfe\in\cQ} q^{-\half\langle\bfe,\bfv-\bfe\rangle}P_{\bfv,\bfe}(q)X^{\widetilde{B}\bfe-{}^*\bfv}
+        \]
+        which computes the cluster variables of $\cA_q(\bfX,\widetilde{B})$ with arbitrary parameter $q$.
+        \sayS{I do not know how to extend this to cluster monomials without knowing thet cluster expansions are unique.}
     \end{enumeratea}
   \end{theorem}
-  An analogous result was obtained for acyclic skew-symmetric quantum cluster algebras by Qin \cite{qin} using representations of acyclic quivers and with counting polynomials replaced by Poincar\'e polynomials.  Setting $q=1$ in Theorem~\ref{th:quantum cluster characters}(b) gives the following result from which we will deduce the main results of this note.
+  An analogous result was obtained for acyclic skew-symmetric quantum cluster algebras by Qin~\cite{qin} using representations of acyclic quivers and with counting polynomials replaced by Poincar\'e polynomials.
+  Setting $q=1$ in the formula for generic quantum cluster characters from Theorem~\ref{th:quantum cluster characters} gives the following corollary from which we will deduce the main results of this note.
   \begin{corollary}
     \label{cor:classical cluster characters}
-    All non-initial cluster variables of the cluster algebra $\cA(\widetilde{B})$ are computed by the cluster characters
-    \[x_\bfv=x^{-{}^*\bfv}\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)x^{\widetilde{B}\bfe}\]
-    as $\bfv$ ranges over all positive roots in the root system of the Cartan companion of $B$.
-    In particular, the $g$-vector is given by $-{}^*\bfv$ and the $F$-polynomial is $\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)y^\bfe$.
-    %Moreover, $F$-polynomials have constant term 1 and all coefficients are positive.
+    All non-initial cluster variables of the cluster algebra $\cA(\bfx,\widetilde{B})$ are computed by the cluster characters
+    \[
+      x_\bfv
+      =
+      x^{-{}^*\bfv}\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)x^{\widetilde{B}\bfe}
+    \]
+    as $\bfv$ ranges over all positive \sayS{Schur?} roots in the root system of the Cartan companion of $B$.
+    In particular, the cluster variable $x_\bfv$ has $\bfg$-vector given by $-{}^*\bfv$ and its $F$-polynomial is $\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)y^\bfe$.
+  \sayS{Lift this also to cluster monomials?}
   \end{corollary}
-  {\color{lightgray}
-  \begin{remark}
-    It immediately follows that the $F$-polynomials have constant term 1 since $P_{\bfv,0}\equiv1$ for any $\bfv\in\cQ$.
-    This proves \cite[Conj. 5.4]{fomin-zelevinsky4}.
-    It immediately follows also that \cite[Conj. 5.5]{fomin-zelevinsky4} holds for acyclic initial seeds.
-  \end{remark}
-}
-  \begin{proposition}
-    \label{prop:g index}
-    The $\bfg$-vector $-{}^*\bfv$ of the cluster variable $x_\bfv$ is precisely the index of the rigid representation $V$ with dimension vector $\bfv$.
-  \end{proposition}
-  {\color{lightgray}
-  \begin{theorem}
-    Let $V$ and $V'$ be rigid representations of $(Q,D)$.
-    If $V\oplus V'$ is rigid, then the $\bfg$-vectors $-{}^*\bfv$ and $-{}^*\bfv'$ are sign-coherent.
-  \end{theorem}
-  \begin{proof}
-    We will show that $V\oplus V'$ cannot be rigid if the $\bfg$-vectors of $V$ and $V'$ are not sign-coherent.
-    Consider minimial injective copresentations
-    \[\xymatrix{0 \ar[r] & V \ar[r]^{\iota_0} & J_0 \ar[r] & J_1 \ar[r] & 0}\]
-    and
-    \[\xymatrix{0 \ar[r] & V' \ar[r] & J'_0 \ar[r] & J'_1 \ar[r] & 0}.\]
-    Assume that there exists an injective $I$ which is a summand of both $J_0$ and $J'_1$, i.e.\ by Proposition~\ref{prop:g index} we are assuming the $\bfg$-vectors are not sign-coherent.
-    Write $\iota_1:I\into J'_1$ and $\pi_0:J_0\onto I$ for the corresponding split inclusion and projection maps.
-    Since the injective copresentation of $V'$ is minimal, the upper pullback sequence below must be non-split:
-    \begin{equation}
-      \label{dia:I pullback}
-      \xymatrix{0\ar[r]& V'\ar[r]\ar@{=}[d]& F\ar[d]\ar[r]\ar@{}[dr]|<{\lrcorner}& I\ar[d]^{\iota_1}\ar[r]& 0\\ 0\ar[r]& V'\ar[r]& J'_0\ar[r]& J'_1\ar[r]& 0.}
-    \end{equation}
-    Taking pullbacks again and recalling that $\pi_0$ is a split epimorphism, we see that the upper sequence below is also non-split:
-    \begin{equation}
-      \label{dia:J_0 pullback}
-      \xymatrix{0\ar[r]& V'\ar[r]\ar@{=}[d]& E\ar[d]\ar[r]\ar@{}[dr]|<{\lrcorner}& J_0\ar[d]^{\pi_0}\ar[r]& 0\\ 0\ar[r]& V'\ar[r]& F\ar[r]& I\ar[r]& 0.}
-    \end{equation}
-    By minimality of the injective copresentation, the map $\iota_0:V\into J_0$ is left minimal and $J_0$ is the maximal essential extension of $V$.
 
-    Claim: These imply the upper pullback sequence below is not split:
-    \begin{equation}
-      \label{dia:V pullback}
-      \xymatrix{ & & 0\ar[d] & 0\ar[d] &\\ 0\ar[r]& V'\ar[r]\ar@{=}[d]& \widetilde{E}\ar[d]\ar[r]\ar@{}[dr]|<{\lrcorner}& V\ar[d]^{\iota_0}\ar[r]& 0\\ 0\ar[r]& V'\ar[r]& E\ar[r]\ar[d]& J_0\ar[r]\ar[d]& 0\\ & & J_1\ar[d]\ar@{=}[r] & J_1\ar[d] &\\ & & 0 & 0 &.}
-    \end{equation}
-  \end{proof}
-}
-
-  The connection between the representation theory of $(Q,D)$ and the cluster algebra is actually much stronger.  For a source (resp. sink) vertex $k$ in $Q$, write $\Sigma_k^-:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$ (resp. $\Sigma_k^+:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$) for the reflection functor as defined in \cite[Sec. 2]{dlab-ringel}.  
-  In what follows, we will drop the adornment and simply write $\Sigma_k$ for both reflection functors, which functor to apply should be clear from context.
-  For $1\le k\le n$, write $\rep_\FF^{\langle k\rangle}(Q,D)\subset\rep_\FF(Q,D)$ for the full subcategory consisting of representations which contain no summands isomorphic to the simple representation $S_k$.
+  The connection between the representation theory of $(Q,D)$ and the cluster algebra is actually much stronger.
+  For a source (resp. sink) vertex $k$ in $Q$, write $\Sigma_k^-:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$ (resp. $\Sigma_k^+:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$) for the reflection functor as defined in \cite[Sec. 2]{dlab-ringel}.  
+  In what follows, we will drop the adornment and simply write $\Sigma_k$ for both reflection functors, which one to apply should be clear from context.
+  Write $\rep_\FF^{\langle k\rangle}(Q,D)\subset\rep_\FF(Q,D)$ for the full subcategory consisting of representations which contain no summands isomorphic to the simple representation $S_k$.
   \begin{theorem}\cite{rupel1}
     \label{th:reflection functor}
-    Let $k$ be a sink or a source in $Q$ and write $(\bfX',\widetilde{B}')=\mu_k(\bfX,\widetilde{B})$.  
+    Let $k$ be a sink or a source in $Q$ and write $(\bfX',\widetilde{B}')=\mu_k(\bfX,\widetilde{B})$ for the mutation in direction $k$ of the seed $(\bfX,\widetilde{B})$.  
     For any representation $V\in\rep_\FF^{\langle k\rangle}(Q,D)$ we have $X_V=X'_{\Sigma_kV}$, where $X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_\FF(\mu_kQ,D)$ in the variables $\bfX'$.
   \end{theorem}
 
   \section{Deducing the Conjectures}
-  Introduce $g$-vectors and $F$-polynomials?
+  Do we need this?
+  \begin{proposition}
+    \label{prop:g index}
+    The $\bfg$-vector $-{}^*\bfv$ of the cluster variable $x_\bfv$ is precisely the index of the rigid representation $V$ with dimension vector $\bfv$.
+  \end{proposition}
+
 
   \begin{proposition}
     \label{prop:principal F-polynomials}
