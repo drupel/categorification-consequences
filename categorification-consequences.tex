@@ -222,7 +222,7 @@
         Moreover, every cluster monomial of $\cA_{|\FF|}(\bfX,\widetilde{B})$ not involving initial cluster variables arises in this way, the decomposition of $V$ into indecomposables mirroring the factorization of the cluster monomial into cluster variables.
       
       \item 
-        For all dimension vectors $\bfv,\bfe\in\cQ$ with $\bfv$ rigid, there exists a polynomial $P_{\bfv,\bfe}(q)$ so that for any finite field $\FF$ and rigid representation $V\in\rep_\FF(Q,D)$, we have $\big|Gr_\bfe(V)\big|=P_{\bfv,\bfe}\big(|\FF|\big)$.
+        For all dimension vectors $\bfv,\bfe\in\cQ$ with $\bfv$ rigid, there exists a polynomial $P_{\bfv,\bfe}(q)$ so that for any finite field $\FF$ and rigid representation $V\in\rep_\FF(Q,D)$ of dimension vector $\bfv$, we have~$\big|Gr_\bfe(V)\big|=P_{\bfv,\bfe}\big(|\FF|\big)$.
         These polynomials give a ``generic'' quantum cluster character 
         \[
           X_\bfv=\sum\limits_{\bfe\in\cQ} q^{-\half\langle\bfe,\bfv-\bfe\rangle}P_{\bfv,\bfe}(q)X^{\widetilde{B}\bfe-{}^*\bfv}
@@ -234,15 +234,14 @@
   Setting $q=1$ in the formula for generic quantum cluster characters from Theorem~\ref{th:quantum cluster characters} gives the following corollary from which we will deduce the main results of this note.
   \begin{corollary}
     \label{cor:classical cluster characters}
-    All non-initial cluster variables of the cluster algebra $\cA(\bfx,\widetilde{B})$ are computed by the cluster characters
+    All cluster monomials of the cluster algebra $\cA(\bfx,\widetilde{B})$ not involving initial cluster variables are computed by the cluster characters
     \[
       x_\bfv
       =
       x^{-{}^*\bfv}\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)x^{\widetilde{B}\bfe}
     \]
-    as $\bfv$ ranges over all positive \sayS{Schur?} roots in the root system of the Cartan companion of $B$.
+    as $\bfv$ ranges over all rigid dimension vectors in $\cQ$.
     In particular, the cluster variable $x_\bfv$ has $\bfg$-vector given by $-{}^*\bfv$ and its $F$-polynomial is $\sum\limits_{\bfe\in\cQ} P_{\bfv,\bfe}(1)y^\bfe$.
-  \sayS{Lift this also to cluster monomials?}
   \end{corollary}
 
   The connection between the representation theory of $(Q,D)$ and the cluster algebra is actually much stronger.
