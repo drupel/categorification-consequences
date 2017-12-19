@@ -112,6 +112,7 @@
   D.R. was partially supported by an AMS-Simons Travel Grant; S.S. was supported by ISF grant 1144/16.
 
 \section{Quantum Cluster Algebras and Quantum Cluster Characters}
+\label{sec:qca}
   
   In the interest of brevity we will assume that the reader is familiar with the basic notions in the theory of cluster algebras and refer to \cite{fomin-zelevinsky4} for background material.
 
@@ -254,40 +255,11 @@
     For any representation $V\in\rep_\FF^{\langle k\rangle}(Q,D)$ we have $X_V=X'_{\Sigma_kV}$, where $X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_\FF(\mu_kQ,D)$ in the variables $\bfX'$.
   \end{theorem}
 
-  \section{Deducing the Conjectures}
-  Do we need this?
-  \begin{proposition}
-    \label{prop:g index}
-    The $\bfg$-vector $-{}^*\bfv$ of the cluster variable $x_\bfv$ is precisely the index of the rigid representation $V$ with dimension vector $\bfv$.
-  \end{proposition}
 
-
-  \begin{proposition}
-    \label{prop:principal F-polynomials}
-    Let $B$ be an $n\times n$ acyclic exchange matrix.
-    Assume $k$ is a sink for $B$ and write $B'=\mu_k B$ for the mutation in direction $k$.
-    Consider the tropical evaluation of the $F$-polynomials for $(B')_{prin}$ at the frozen variables corresponding to $c$-vectors of $\mu_k B_{prin}$.
-    This evaluation gives the value 1 for all $F$-polynomials except for the one obtained by mutating in direction $k$.
-  \end{proposition}
-  \begin{proof}
-    The terms of the $F$-polynomial are labeled by subrepresentations of the given rigid representation and the claim is that each of these monomials produces only non-negative exponents when evaluated at the given frozen variables.
-    By definition of the $c$-vectors for $\mu_k B_{prin}$, it is only the exponent of $y_k$ that could end up being negative.
-    However, observe that the total exponent is given by applying the simple reflection $s_k$ to the dimension vector of the subrepresentation.
-    Since vertex 1 is a source, the simple $S_k$ cannot be a summand of any subrepresentation (assuming we were not talking about $x_{k;t_0}$).
-    It follows that applying the simple reflection on dimension vectors corresponds to applying the corresponding reflection functor on quiver representations, in particular the reflected dimension vector is still a dimension vector and thus a negative exponent will never appear.
-    This gives the claim.
-  \end{proof}
-
-  The following establishes \cite[Conjecture 7.17]{fomin-zelevinsky4}
-  \begin{proposition}
-    The denominator vector of $x_V$ is the exponent vector of the monomial obtained evaluating tropically the corresponding $F$-polynomial at $y_k^{-1}$.
-  \end{proposition}
-  \begin{proof}
-    It is enough to observe that the $F$-polynomial has a unique monomial of maximal degree and this monomial is divisible by all other monomials.
-    Indeed this is the monomial corresponding to the full subrepresentation.
-  \end{proof}
-  This immediately implies \cite[Conj. 6.11]{fomin-zelevinsky4} using \cite[Prop. 7.16]{fomin-zelevinsky4}.  
-   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Deducing the Conjectures}
+  In this section, we apply the results of Section~\ref{sec:qca} to deduce several conjectures related to cluster algebras.
+  \sayD{Fill this out a little.}
 
   The following, in particular, proves \cite[Conj. 2.9]{reading-stella} in the case of an acyclic initial exchange matrix.
    \begin{proposition}
@@ -308,6 +280,17 @@
     \[\frac{1}{d_i}\langle E,S_i\rangle+\frac{1}{d_i}\langle S_i,V/E\rangle=\frac{1}{d_i}\langle E,I_i\rangle+\frac{1}{d_i}\langle P_i,V/E\rangle=e_i+(v_i-e_i)=v_i\]
     as desired.
   \end{proof}
+
+  The following establishes \cite[Conjecture 7.17]{fomin-zelevinsky4}
+  \begin{corollary}
+    The denominator vector of $x_V$ is the exponent vector of the monomial obtained evaluating tropically the corresponding $F$-polynomial at $y_k^{-1}$.
+  \end{corollary}
+  \begin{proof}
+    It is enough to observe that the $F$-polynomial has a unique monomial of maximal degree and this monomial is divisible by all other monomials.
+    Indeed this is the monomial corresponding to the full subrepresentation.
+  \end{proof}
+  This immediately implies \cite[Conj. 6.11]{fomin-zelevinsky4} using \cite[Prop. 7.16]{fomin-zelevinsky4}.  
+   
 
   From the fact that cluster monomials are parametrized by rigid representations we deduce \cite[Conjecture 7.6]{fomin-zelevinsky4} as follows.
   \begin{proposition}
@@ -350,6 +333,22 @@
   \end{theorem}
   \begin{proof}
     Since the $g$-vector of the cluster variable $x_\bfv$ is given by $-{}^*\bfv$, the result follows immediately from the definitions of $E$ and the operator ${}^*(-)$.
+  \end{proof}
+
+  \begin{proposition}
+    \label{prop:principal F-polynomials}
+    Let $B$ be an $n\times n$ acyclic exchange matrix.
+    Assume $k$ is a sink for $B$ and write $B'=\mu_k B$ for the mutation in direction $k$.
+    Consider the tropical evaluation of the $F$-polynomials for $(B')_{prin}$ at the frozen variables corresponding to $c$-vectors of $\mu_k B_{prin}$.
+    This evaluation gives the value 1 for all $F$-polynomials except for the one obtained by mutating in direction $k$.
+  \end{proposition}
+  \begin{proof}
+    The terms of the $F$-polynomial are labeled by subrepresentations of the given rigid representation and the claim is that each of these monomials produces only non-negative exponents when evaluated at the given frozen variables.
+    By definition of the $c$-vectors for $\mu_k B_{prin}$, it is only the exponent of $y_k$ that could end up being negative.
+    However, observe that the total exponent is given by applying the simple reflection $s_k$ to the dimension vector of the subrepresentation.
+    Since vertex 1 is a source, the simple $S_k$ cannot be a summand of any subrepresentation (assuming we were not talking about $x_{k;t_0}$).
+    It follows that applying the simple reflection on dimension vectors corresponds to applying the corresponding reflection functor on quiver representations, in particular the reflected dimension vector is still a dimension vector and thus a negative exponent will never appear.
+    This gives the claim.
   \end{proof}
 
   The next result establishes \cite[Conj. 3.9, 3.10]{reading-speyer}.
