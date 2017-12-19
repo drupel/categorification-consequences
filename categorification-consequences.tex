@@ -260,7 +260,6 @@
   In this section, we apply the results of Section~\ref{sec:qca} to deduce several conjectures related to cluster algebras.
   \sayD{Fill this out a little.}
 
-  The following, in particular, proves \cite[Conj. 2.9]{reading-stella} in the case of an acyclic initial exchange matrix.
    \begin{proposition}
     \label{prop:denominators}
     The denominator vector of $X_V$ is precisely the dimension vector $\bfv$ of $V$.
@@ -279,6 +278,34 @@
     \[\frac{1}{d_i}\langle E,S_i\rangle+\frac{1}{d_i}\langle S_i,V/E\rangle=\frac{1}{d_i}\langle E,I_i\rangle+\frac{1}{d_i}\langle P_i,V/E\rangle=e_i+(v_i-e_i)=v_i\]
     as desired.
   \end{proof}
+
+  From the above we deduce this weakening of \cite[Conjecture 7.4]{fomin-zelevinsky4} in the acyclic case.
+  \begin{corollary}
+    Let $\bfv$ be the denominator vector of a non-initial cluster variable $x_\bfv$ in $\cA(\bfx,\widetilde{B})$.
+    Then:
+    \begin{enumerate}
+      \item
+        all entries in $\bfv$ are non-negative;
+        
+      \item
+        $v_i=0$ if and only if there is a seed containing both $x_\bfv$ and the initial cluster variable $x_i$;
+
+      \item
+        $v_i$ depends only on $x_\bfv$ and $x_i$ but not the seed containing $x_\bfv$.
+        \sayS{This might be independent also of the acyclic initial seed containing $x_i$}
+    \end{enumerate}
+  \end{corollary}
+  \begin{proof}
+    By Proposition~\ref{prop:denominators}, the denominator vector of any non-initial cluster variable is a dimension vector and therefore it has non-negative entries.
+    Moreover, its coordinates are independent of the seed containing the cluster variable. 
+    This proves points (1) and (3).
+
+    By the categorification construction \cite{rupel2}, seeds in $\cA(\bfx,\widetilde{B})$ are in bijection with local tilting representations $T$.
+    The seed corresponding to $T$ contains the $i$-th initial cluster variable precisely when vertex $i$ is not in the support of $T$.
+    Any rigid indecomposable representation can be completed to a local tilting representation with the same support and this establish part (2).
+  \end{proof}
+  The key difference in the above corollary compared to the original statement of the conjecture is that in point (3) we do not claim independence from the seed containing $x_i$.
+  Nonetheless the corollary immediately implies the weaker statements \cite[Conjecture 7.5]{fomin-zelevinsky4} and \cite[Conjecture~2.9]{reading-stella}.
 
   The following establishes \cite[Conjecture 7.17]{fomin-zelevinsky4}
   \begin{corollary}
