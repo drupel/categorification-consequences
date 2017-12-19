@@ -279,7 +279,15 @@
     as desired.
   \end{proof}
 
-  From the above we deduce this weakening of \cite[Conjecture 7.4]{fomin-zelevinsky4} in the acyclic case.
+  \begin{corollary}[{\cite[Conjecture 7.17]{fomin-zelevinsky4} for acyclic initial exchange matrices}]
+    The denominator vector of $x_\bfv$ is the exponent vector of the monomial obtained by tropically evaluating the corresponding $F$-polynomial at $y_1^{-1},\dots,y_n^{-1}$.
+  \end{corollary}
+  \begin{proof}
+    It is enough to observe that the $F$-polynomial has a unique monomial of maximal degree and this monomial is divisible by all other monomials.
+    Indeed, this is the monomial corresponding to the full subrepresentation and hence it has exponent vector $\bfv$.
+  \end{proof}
+  This immediately implies \cite[Conjecture 6.11]{fomin-zelevinsky4} using \cite[Proposition 7.16]{fomin-zelevinsky4}.  
+  From Proposition~\ref{prop:denominators}, we deduce this weakening of \cite[Conjecture 7.4]{fomin-zelevinsky4} in the acyclic case.
   \begin{corollary}
     Let $\bfv$ be the denominator vector of a non-initial cluster variable $x_\bfv$ in $\cA(\bfx,\widetilde{B})$.
     Then:
@@ -307,16 +315,24 @@
   The key difference in the above corollary compared to the original statement of the conjecture is that in point (3) we do not claim independence from the seed containing $x_i$.
   Nonetheless the corollary immediately implies the weaker statements \cite[Conjecture 7.5]{fomin-zelevinsky4} and \cite[Conjecture~2.9]{reading-stella}.
 
-  The following establishes \cite[Conjecture 7.17]{fomin-zelevinsky4}
+  \begin{corollary}[{\cite[Conjecture 7.6]{fomin-zelevinsky4}}
+  \end{corollary}
+
+
   \begin{corollary}
-    The denominator vector of $x_V$ is the exponent vector of the monomial obtained evaluating tropically the corresponding $F$-polynomial at $y_k^{-1}$.
+    The denominator vectors of cluster variables in a seed form a $\ZZ$-basis of $\cQ$.%the root lattice.
   \end{corollary}
   \begin{proof}
-    It is enough to observe that the $F$-polynomial has a unique monomial of maximal degree and this monomial is divisible by all other monomials.
-    Indeed this is the monomial corresponding to the full subrepresentation.
+    Observe that, if a given cluster contains the initial cluster variable $X_i$ then the rigid representation corresponding to any other cluster variable in that cluster is supported away from $i$ \cite{some-result}.
+    In particular the representations corresponding to non-initial cluster variables give a titling object for the induced subquiver and by \cite{some-other-result} a $\ZZ$-basis for the corresponding sublattice.
+    Adding negative simple roots for each initial cluster variable gives the desired basis.
   \end{proof}
-  This immediately implies \cite[Conj. 6.11]{fomin-zelevinsky4} using \cite[Prop. 7.16]{fomin-zelevinsky4}.  
-   
+
+
+
+
+
+
 
   From the fact that cluster monomials are parametrized by rigid representations we deduce \cite[Conjecture 7.6]{fomin-zelevinsky4} as follows.
   \begin{proposition}
@@ -329,14 +345,6 @@
     If two cluster monomials have equal denominator vectors, then the dimension vectors of the two representations they correspond to are equal.
     By rigidity, the orbits of each of these representations inside the moduli of representations with this dimension vector are both dense (see e.g.\ \cite[Corollary 2.2.5]{brion}).
     But then the representations must be isomorphic and thus correspond to the same cluster monomial.
-  \end{proof}
-  \begin{proposition}
-    The denominator vectors of cluster variables in a seed form a $\ZZ$ basis of the root lattice
-  \end{proposition}
-  \begin{proof}
-    Observe that, if a given cluster contains the initial cluster variable $X_i$ then the rigid representation corresponding to any other cluster variable in that cluster is supported away from $i$ \cite{some-result}.
-    In particular the representations corresponding to non-initial cluster variables give a titling object for the induced subquiver and by \cite{some-other-result} a $\ZZ$-basis for the corresponding sublattice.
-    Adding negative simple roots for each initial cluster variable gives the desired basis.
   \end{proof}
   Using Theorem~\ref{th:d to g} we deduce immediately from the above properties 
   \cite[Conjecture 7.10]{fomin-zelevinsky4} follows from the previous one.
