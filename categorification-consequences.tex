@@ -209,7 +209,6 @@
   \] 
   where $\Gr_\bfe(V)$ denotes the set of all subrepresentations $E\subset V$ with isomorphism class $[E]=\bfe$.  
   Note that $\widetilde{B}\bfe={}^*\bfe-\bfe^*$ and, for $j\in[1,n]$, we have ${}^*\alpha_j=\alpha_j+\sum\limits_{i=1}^{n}\min(b_{ij},0)\alpha_i$.
-  \sayS{I was really tempted to use $[\cdot]_+$ here but I fear it is going to generate confusion with classes.}
 
   A representation $V\in\rep_\FF(Q,D)$ is \newword{rigid} if $\Ext^1(V,V)=0$.
   If there exists a rigid representation with dimension vector $\bfv\in\cQ$ for the finite field $\FF$, then there exists a rigid representation of $(Q,D)$ with dimension vector $\bfv$ over any finite field and thus we refer to the dimension vector $\bfv$ as being \newword{rigid} in this case.
@@ -257,18 +256,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Deducing the Conjectures}
-  In this section, we apply the results of Section~\ref{sec:qca} to deduce several conjectures related to cluster algebras.
-  \sayD{Fill this out a little.}
+In this section, we apply the results of Section~\ref{sec:qca} to deduce the conjectures in Theorem~\ref{thm:main}.
 
    \begin{proposition}
     \label{prop:denominators}
-    The denominator vector of $X_V$ is precisely the dimension vector $\bfv$ of $V$.
-    \sayS{This proposition has not been cleaned yet.}
+    For any rigid dimension vector $\bfv\in\cQ$, the denominator vector of $x_\bfv$ is precisely  $\bfv$.
   \end{proposition}
   \begin{proof}
     The proof is identical to that of \cite[Sec. 4, Cor. 2]{caldero-keller} with appropriate modifications in the valued quiver setting, we recall the details here for convenience of the reader.  
 
-    First note that for any representation $W$ with $[W]=\bfw$ we have $\frac{1}{d_i}\langle W,I_i\rangle=w_i=\frac{1}{d_i}\langle P_i,W\rangle$ where $I_i$ and $P_i$ denote respectively the injective hull and projective cover of the vertex simple $S_i$.  Next using the injective resolution of $S_i$ we see that $\langle W,S_i\rangle\le\langle W,I_i\rangle$ while using the projective resolution gives $\langle S_i,W\rangle\le\langle P_i,W\rangle$.  Now consider a subrepresentation $E\subset V$ with $[E]=\bfe$, applying the above considerations we see that the $i^{th}$ component of $\bfe^*+{}^*(\bfv-\bfe)$ is bounded by the $i^{th}$ component of $\bfv$:
+    First note that for any representation $W$ with $[W]=\bfw$ we have $\frac{1}{d_i}\langle W,I_i\rangle=w_i=\frac{1}{d_i}\langle P_i,W\rangle$ where $I_i$ and $P_i$ denote respectively the injective hull and projective cover of the vertex simple $S_i$.
+    Next using the injective resolution of $S_i$ we see that $\langle W,S_i\rangle\le\langle W,I_i\rangle$ while using the projective resolution gives $\langle S_i,W\rangle\le\langle P_i,W\rangle$.  Now consider a subrepresentation $E\subset V$ with $[E]=\bfe$, applying the above considerations we see that the $i$-th component of $\bfe^*+{}^*(\bfv-\bfe)$ is bounded by the $i$-th component of $\bfv$:
     \[\frac{1}{d_i}\langle E,S_i\rangle+\frac{1}{d_i}\langle S_i,V/E\rangle\le\frac{1}{d_i}\langle E,I_i\rangle+\frac{1}{d_i}\langle P_i,V/E\rangle=e_i+(v_i-e_i)=v_i.\]
 
     To finish the proof, for each $1\le i\le n$ we must exhibit a subrepresentation $E\subset V$ which realizes this bound.  
@@ -395,11 +393,11 @@
 
   We turn now our attention towards results dealing with the exchange graph of $\cA(\bfx,\widetilde{B})$.
 
-  \begin{proposition}[{\cite[Conjecture 3.10]{reading-speyer}} for acyclic initial exchange matrices]
-    \sayS{We could probably formulate this for any initial exchange matrix mutationally equivalent to an acyclic one but notation would be bad, and the results can be deduced in half a line if needed}
-    The induced subgraph of the exchange graph of $\cA(\bfx,\widetilde{B})$ consisting of all the seeds containing any fixed collection of cluster variables is connected.
+  \begin{proposition}[{\cite[Conjecture 3.10]{reading-speyer}} in the acyclic case]
+    Given a cluster algebra having an acyclic seed, the induced subgraph of its exchange graph consisting of all the seeds containing any fixed collection of cluster variables is connected.
   \end{proposition}
   \begin{proof}
+    Since the exchange graph of a cluster algebra with principal coefficients covers the exchange graph of any cluster algebra with the same mutation pattern (cf. \cite{fomin-zelevinsky4}), it suffices to establish the claim for $\cA(\bfx,\widetilde{B})$.
     The proof given in \cite[Corollary 3]{caldero-keller2} for the weaker statement \cite[Conjecture 4.14(3)]{FZ03} is written in terms of arbitrary hereditary abelian categories.
     In particular, their proof applies in our situation.
     More generally, one may replace the rigid indecomposable representation appearing in \cite[Section 5.4]{caldero-keller2} by an arbitrary partial tilting representation (cf. \cite[Proposition 3]{happel-rickard-schofield}).
@@ -413,9 +411,6 @@
   \begin{proof}
     The proof of the analogous statement for acyclic skew-symmetric cluster algebras given in \cite[Corollary 4]{caldero-keller2} is also written in terms of arbitrary hereditary abelian categories and thus it applies in our situation as well.
   \end{proof}
-  
-  \sayS{Try to prove that $\bfc$-vectors are roots following the same procedure of Najera-Chavez}
-
 
 % bibliography
 \bibliographystyle{amsalpha}
