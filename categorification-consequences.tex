@@ -87,7 +87,7 @@
   These include conjectures of Fomin-Zelevinsky, Reading-Speyer, and Reading-Stella related to $\bfd$-vectors, $\bfg$-vectors, and $F$-polynomials.
 \end{abstract}
 \maketitle
-
+\vspace{-5ex}
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
   The categorification of skew-symmetric cluster algebras using representations of quivers was initiated by Marsh, Reineke, and Zelevinsky \cite{marsh-reineke-zelevinsky} for Dynkin quivers.  
@@ -112,7 +112,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \textsc{Acknowledgments}
-  We are grateful to Giovanni Cerulli-Irelli for some insight on references.
+  We are grateful to Giovanni Cerulli-Irelli for help with references.
   D.R. was partially supported by an AMS-Simons Travel Grant; S.S. was supported by ISF grant 1144/16.
 
 \section{Quantum Cluster Algebras and Quantum Cluster Characters}
@@ -171,11 +171,8 @@
 
   To the matrix $B$ is associated a quiver $Q$ with vertices $\{1,\ldots,n\}$ and $\gcd(b_{ij},b_{ji})$ arrows $i\longrightarrow j$ whenever $b_{ij}<0$; by our assumption this quiver is acyclic.
   Write $\widetilde{Q}$ for the quiver obtained from $Q$ by attaching to each vertex $i$ an additional vertex $n+i$ via a single arrow $i\to n+i$. 
-  Write $\widetilde{D}$ for the matrix 
-  \[
-    \widetilde{D}=\left[\begin{array}{cc}D&0\\0&D\end{array}\right];
-  \]
-  we will be interested in the representation theories of the valued quivers $(Q,D)$ and  $(\widetilde{Q},\widetilde{D})$.
+  Let~$\widetilde{D}=\mathrm{diag}(D,D)$.
+  We will be interested in the representation theories of the valued quivers~$(Q,D)$ and  $(\widetilde{Q},\widetilde{D})$.
 
   Let $\FF$ be a finite field and fix an algebraic closure $\overline{\FF}$ of $\FF$.  
   Write $\FF^{\langle d\rangle}$ for the degree $d$ extension of $\FF$ inside $\overline{\FF}$.
@@ -304,7 +301,6 @@ In this section, we apply the results of Section~\ref{sec:qca} to deduce the con
 
       \item
         $v_i$ depends only on $x_\bfv$ and $x_i$ but not the seed containing $x_\bfv$.
-        \sayS{This might be independent also of the acyclic initial seed containing $x_i$}
     \end{enumerate}
   \end{corollary}
   \begin{proof}
