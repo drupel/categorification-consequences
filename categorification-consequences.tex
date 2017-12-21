@@ -16,7 +16,8 @@
 \usepackage{verbatim}
 \usepackage[margin=1in,marginparwidth=0.8in, marginparsep=0.1in]{geometry}
 \renewcommand{\baselinestretch}{1.2} % changes page formatting
-\usepackage[pagebackref, bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
+% removed the option pagebackref to make the reference fit in 2 pages
+\usepackage[bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
 \usepackage{newtxtext} % changes font appearance, replaces times
 \usepackage{stmaryrd}
 \usepackage{accents}
@@ -413,8 +414,161 @@ In this section, we apply the results of Section~\ref{sec:qca} to deduce the con
   \end{proof}
 
 % bibliography
-\bibliographystyle{amsalpha}
-\bibliography{bibliography}
+% because of conflicts some keys needs to be fixed by hand.
+% to regenerate the bibliography delete the one below, uncomment the following two lines and recompile, comment the two lines again, edit monomialminors.bbl as needed and paste its content here
+%\bibliographystyle{amsalpha}
+%\bibliography{bibliography}
 
+%%%% delete from here
+\newcommand{\etalchar}[1]{$^{#1}$}
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{BMR{\etalchar{+}}06}
+
+\bibitem[BMR{\etalchar{+}}06]{buan-marsh-reineke-reiten-todorov}
+Aslak~Bakke Buan, Robert Marsh, Markus Reineke, Idun Reiten, and Gordana
+  Todorov, \emph{Tilting theory and cluster combinatorics}, Adv. Math.
+  \textbf{204} (2006), no.~2, 572--618. \MR{2249625}
+
+\bibitem[Bri]{brion}
+Michel Brion, \emph{Representations of quivers},
+  \url{https://www-fourier.ujf-grenoble.fr/~mbrion/notes_quivers_rev.pdf}.
+
+\bibitem[BZ05]{berenstein-zelevinsky}
+Arkady Berenstein and Andrei Zelevinsky, \emph{Quantum cluster algebras}, Adv.
+  Math. \textbf{195} (2005), no.~2, 405--455. \MR{2146350}
+
+\bibitem[CC06]{caldero-chapoton}
+Philippe Caldero and Fr\'ed\'eric Chapoton, \emph{Cluster algebras as {H}all
+  algebras of quiver representations}, Comment. Math. Helv. \textbf{81} (2006),
+  no.~3, 595--616. \MR{2250855}
+
+\bibitem[CCS06]{caldero-chapoton-schiffler}
+Philippe Caldero, Fr\'ed\'eric Chapoton, and Ralf Schiffler, \emph{Quivers with
+  relations arising from clusters ({$A_n$} case)}, Trans. Amer. Math. Soc.
+  \textbf{358} (2006), no.~3, 1347--1364. \MR{2187656}
+
+\bibitem[CK06]{caldero-keller2}
+Philippe Caldero and Bernhard Keller, \emph{From triangulated categories to
+  cluster algebras. {II}}, Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{39} (2006),
+  no.~6, 983--1009. \MR{2316979}
+
+\bibitem[CK08]{caldero-keller}
+\bysame, \emph{From triangulated categories to cluster algebras}, Invent. Math.
+  \textbf{172} (2008), no.~1, 169--211. \MR{2385670}
+
+\bibitem[Dem10]{demonet2}
+Laurent Demonet, \emph{Mutations of group species with potentials and their
+  representations. applications to cluster algebras.}
+
+\bibitem[Dem11]{demonet1}
+\bysame, \emph{Categorification of skew-symmetrizable cluster algebras},
+  Algebr. Represent. Theory \textbf{14} (2011), no.~6, 1087--1162. \MR{2844757}
+
+\bibitem[DR76]{dlab-ringel}
+Vlastimil Dlab and Claus~Michael Ringel, \emph{Indecomposable representations
+  of graphs and algebras}, Mem. Amer. Math. Soc. \textbf{6} (1976), no.~173,
+  v+57. \MR{0447344}
+
+\bibitem[DWZ08]{derksen-weyman-zelevinsky}
+Harm Derksen, Jerzy Weyman, and Andrei Zelevinsky, \emph{Quivers with
+  potentials and their representations. {I}. {M}utations}, Selecta Math. (N.S.)
+  \textbf{14} (2008), no.~1, 59--119. \MR{2480710}
+
+\bibitem[FZ03]{FZ03}
+Sergey Fomin and Andrei Zelevinsky, \emph{Cluster algebras: notes for the
+  {CDM}-03 conference}, Current developments in mathematics, 2003, Int. Press,
+  Somerville, MA, 2003, pp.~1--34. \MR{2132323}
+
+\bibitem[FZ07]{fomin-zelevinsky4}
+\bysame, \emph{Cluster algebras. {IV}. {C}oefficients}, Compos. Math.
+  \textbf{143} (2007), no.~1, 112--164. \MR{2295199}
+
+\bibitem[GLS05]{geiss-leclerc-schroer}
+Christof Geiss, Bernard Leclerc, and Jan Schr\"oer, \emph{Semicanonical bases
+  and preprojective algebras}, Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{38}
+  (2005), no.~2, 193--253. \MR{2144987}
+
+\bibitem[GSV10]{gekhtman-shapiro-vainshtein}
+Michael Gekhtman, Michael Shapiro, and Alek Vainshtein, \emph{Cluster algebras
+  and {P}oisson geometry}, Mathematical Surveys and Monographs, vol. 167,
+  American Mathematical Society, Providence, RI, 2010. \MR{2683456}
+
+\bibitem[HR82]{happel-ringel}
+Dieter Happel and Claus~Michael Ringel, \emph{Tilted algebras}, Trans. Amer.
+  Math. Soc. \textbf{274} (1982), no.~2, 399--443. \MR{675063}
+
+\bibitem[HRS88]{happel-rickard-schofield}
+Dieter Happel, Jeremy Rickard, and Aidan Schofield, \emph{Piecewise hereditary
+  algebras}, Bull. London Math. Soc. \textbf{20} (1988), no.~1, 23--28.
+  \MR{916069}
+
+\bibitem[IY08]{iyama-yoshino}
+Osamu Iyama and Yuji Yoshino, \emph{Mutation in triangulated categories and
+  rigid {C}ohen-{M}acaulay modules}, Invent. Math. \textbf{172} (2008), no.~1,
+  117--168. \MR{2385669}
+
+\bibitem[Kel10]{keller}
+Bernhard Keller, \emph{Cluster algebras, quiver representations and
+  triangulated categories}, Triangulated categories, London Math. Soc. Lecture
+  Note Ser., vol. 375, Cambridge Univ. Press, Cambridge, 2010, pp.~76--160.
+  \MR{2681708}
+
+\bibitem[LFZ16]{labardini-zelevinsky}
+Daniel Labardini-Fragoso and Andrei Zelevinsky, \emph{Strongly primitive
+  species with potentials {I}: mutations}, Bol. Soc. Mat. Mex. (3) \textbf{22}
+  (2016), no.~1, 47--115. \MR{3473752}
+
+\bibitem[MRZ03]{marsh-reineke-zelevinsky}
+Robert Marsh, Markus Reineke, and Andrei Zelevinsky, \emph{Generalized
+  associahedra via quiver representations}, Trans. Amer. Math. Soc.
+  \textbf{355} (2003), no.~10, 4171--4186. \MR{1990581}
+
+\bibitem[Pal08]{palu}
+Yann Palu, \emph{Cluster characters for 2-{C}alabi-{Y}au triangulated
+  categories}, Ann. Inst. Fourier (Grenoble) \textbf{58} (2008), no.~6,
+  2221--2248. \MR{2473635}
+
+\bibitem[Pla11]{plamondon}
+Pierre-Guy Plamondon, \emph{Cluster characters for cluster categories with
+  infinite-dimensional morphism spaces}, Adv. Math. \textbf{227} (2011), no.~1,
+  1--39. \MR{2782186}
+
+\bibitem[Qin12]{qin}
+Fan Qin, \emph{Quantum cluster variables via {S}erre polynomials}, J. Reine
+  Angew. Math. \textbf{668} (2012), 149--190, With an appendix by Bernhard
+  Keller. \MR{2948875}
+
+\bibitem[RSp16]{reading-speyer}
+Nathan Reading and David~E Speyer, \emph{Combinatorial frameworks for cluster
+  algebras}, Int. Math. Res. Not. IMRN (2016), no.~1, 109--173. \MR{3514060}
+
+\bibitem[RSt17]{reading-stella-2}
+Nathan Reading and Salvatore Stella, \emph{{An affine almost positive roots
+  model}}, ArXiv math.CO/1707.00340 (2017).
+
+\bibitem[RSt18]{reading-stella}
+\bysame, \emph{Initial-seed recursions and dualities for d-vectors}, Pacific J.
+  Math. \textbf{293} (2018), no.~1, 179--206. \MR{3724242}
+
+\bibitem[RSW17]{rupel-stella-williams}
+Dylan Rupel, Salvatore Stella, and Harold Williams, \emph{Affine cluster
+  monomials are generalized minors}, In preparation (2017).
+
+\bibitem[Rup11]{rupel1}
+Dylan Rupel, \emph{On a quantum analog of the {C}aldero-{C}hapoton formula},
+  Int. Math. Res. Not. IMRN (2011), no.~14, 3207--3236. \MR{2817677}
+
+\bibitem[Rup15]{rupel2}
+\bysame, \emph{Quantum cluster characters for valued quivers}, Trans. Amer.
+  Math. Soc. \textbf{367} (2015), no.~10, 7061--7102. \MR{3378824}
+
+\end{thebibliography}
+%%%% delete to here
 
 \end{document}
