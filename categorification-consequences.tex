@@ -16,8 +16,7 @@
 \usepackage{verbatim}
 \usepackage[margin=1in,marginparwidth=0.8in, marginparsep=0.1in]{geometry}
 \renewcommand{\baselinestretch}{1.2} % changes page formatting
-% removed the option pagebackref to make the reference fit in 2 pages
-\usepackage[bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
+\usepackage[pagebackref, bookmarks=true, bookmarksopen=true, bookmarksdepth=3,bookmarksopenlevel=2, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, menucolor=blue, urlcolor=blue]{hyperref}
 \usepackage{newtxtext} % changes font appearance, replaces times
 \usepackage{stmaryrd}
 \usepackage{accents}
@@ -351,24 +350,12 @@ In this section, we apply the results of Section~\ref{sec:qca} to deduce the con
     Since the $\bfg$-vector of the cluster monomial $x_\bfv$ is given by $-{}^*\bfv$, the result follows immediately from the definitions of $E$ and the operator ${}^*(-)$.
   \end{proof}
   
-  \begin{corollary}[{\cite[Conjectures 7.2 and 7.10]{fomin-zelevinsky4}} for acyclic initial exchange matrices]
-    \sayD{We should be able to upgrade this to include any initial seed mutation equivalent to an acyclic one.}
-    Different cluster monomials in $\cA(\bfx,\widetilde{B})$ have different $\bfg$-vectors.
-    Moreover, the $\bfg$-vectors of the cluster variables of any given cluster form a $\ZZ$-basis of $\ZZ^n$.
-    Finally cluster monomials are linearly independent.
-  \end{corollary} 
-  \begin{proof}
-    Proposition \ref{prop:d to g} can easily be extended to cover initial cluster variables by replacing the matrix~$E$ with the piecewise linear map $\nu_c$ given in \cite{reading-stella-2}.
-    The first two claims then follow immediately from Corollary \ref{cor:d_vect basis}.
-    The last follows as explained in \cite[Remark 7.11]{fomin-zelevinsky4}.
-  \end{proof} 
-  
   \begin{corollary}[{\cite[Conjecture 2.8]{reading-stella}} for acyclic initial exchange matrices]
     The mutation of the initial cluster of $\cA(\bfx,\widetilde{B})$ at a sink or a source vertex transforms denominator vectors of non-initial cluster variables according to the simple reflection associated to that vertex.
   \end{corollary}
   \begin{proof}
     By Theorem~\ref{th:reflection functor}, the initial cluster mutation at a sink or a source vertex transforms cluster characters according to the associated reflection functor on $\rep_{\FF}(Q,D)$.
-    The result then follows from \cite[Prop. 2.1]{dlab-ringel} and Proposition~\ref{prop:denominators}.
+    The result then follows from \cite[Proposition 2.1]{dlab-ringel} and Proposition~\ref{prop:denominators}.
   \end{proof}
 
   From this corollary, following \cite[Proposition 2.10]{reading-stella}, we also get \cite[Conjecture 2.7]{reading-stella} for acyclic initial exchange matrices.
