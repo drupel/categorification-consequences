@@ -90,6 +90,7 @@
 
 \thispagestyle{empty}
 \vspace{-2.9ex}
+
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
   The categorification of skew-symmetric cluster algebras using representations of quivers was initiated by Marsh, Reineke, and Zelevinsky \cite{marsh-reineke-zelevinsky} for Dynkin quivers.  
@@ -117,6 +118,8 @@
   We are grateful to Giovanni Cerulli Irelli for his help with references.
   D.R. was partially supported by an AMS-Simons Travel Grant; S.S. was supported by ISF grant 1144/16.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quantum Cluster Algebras and Quantum Cluster Characters}
 \label{sec:qca}
   
@@ -250,10 +253,8 @@
   Write $\rep_\FF^{\langle k\rangle}(Q,D)\subset\rep_\FF(Q,D)$ for the full subcategory consisting of representations which contain no summands isomorphic to the simple $S_k$.
   \begin{theorem}\cite{rupel1}
     \label{th:reflection functor}
-    %Let $k$ be a sink or a source in $Q$ and write $(\bfX',\widetilde{B}')=\mu_k(\bfX,\widetilde{B})$ for the mutation in direction $k$ of the seed $(\bfX,\widetilde{B})$.  
-    %Let $k$ be a sink or a source in $Q$ and write $\bfX'$ for the cluster obtained mutating~$\bfX$ in direction $k$.
-    Let $k$ be a sink or a source in $Q$ and let $\bfX'$ be the cluster obtained mutating the initial cluster $\bfX$ in direction $k$.
-    For any representation $V\in\rep_\FF^{\langle k\rangle}(Q,D)$ we have $X_V=X'_{\Sigma_kV}$, where~$X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_\FF(\mu_kQ,D)$ in the variables $\bfX'$.
+    Let $k$ be a sink or a source in $Q$ and let $\bfX'$ be the cluster obtained by mutating the initial cluster $\bfX$ in direction $k$.
+    For any representation $V\in\rep_\FF^{\langle k\rangle}(Q,D)$, we have $X_V=X'_{\Sigma_kV}$, where~$X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_\FF(\mu_kQ,D)$ in the variables $\bfX'$.
   \end{theorem}
 
 
@@ -261,7 +262,7 @@
 \section{Deducing the Conjectures}
 In this section, we apply the results of Section~\ref{sec:qca} to deduce the conjectures in Theorem~\ref{thm:main}.
 
-   \begin{proposition}
+  \begin{proposition}
     \label{prop:denominators}
     For any rigid dimension vector $\bfv\in\cQ$, the denominator vector of $x_\bfv$ is precisely  $\bfv$.
   \end{proposition}
