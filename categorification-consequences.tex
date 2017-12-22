@@ -26,11 +26,6 @@
 \input xy
 \xyoption{all}
 
-% Commands for marginal notes below
-\usepackage[draft]{say}
-\newcommand{\sayD}[1]{\say[D]{#1}}
-\newcommand{\sayS}[1]{\say[S]{#1}}
-
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -62,13 +57,6 @@
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\newword}[1]{\textbf{\emph{#1}}}
-%\renewcommand{\thesubsection}{\arabic{subsection}}
-%\makeatletter
-%\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
-%   {\csname the#1\endcsname\quad}%       default
-%   {\csname #1@cntformat\endcsname}}%    enable individual control
-%\newcommand\section@cntformat{}
-%\makeatother
 
 \newenvironment{enumeratea}{\begin{enumerate}[\upshape (a)]}{\end{enumerate}}
 
@@ -91,7 +79,7 @@
 \thispagestyle{empty}
 \vspace{-2.9ex}
 
-%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
   The categorification of skew-symmetric cluster algebras using representations of quivers was initiated by Marsh, Reineke, and Zelevinsky \cite{marsh-reineke-zelevinsky} for Dynkin quivers.  
   With the advent of cluster characters \cite{caldero-chapoton}, the subject has exploded as an industry all its own, leading to the publication of numerous articles including \cite{caldero-chapoton-schiffler,buan-marsh-reineke-reiten-todorov,derksen-weyman-zelevinsky,geiss-leclerc-schroer,caldero-keller,caldero-keller2,plamondon,palu,rupel1,qin,rupel2}, just to name a few.  
@@ -113,13 +101,12 @@
     The following conjectures on cluster algebras are true in the acyclic case: Conjectures 4.14(3-4) from \cite{FZ03}; Conjectures 6.11, 7.4(1-2), 7.5, 7.6, and 7.17 from \cite{fomin-zelevinsky4}; Conjectures 3.10 and 3.21 from \cite{reading-speyer}; Conjectures 2.7, 2.8, and 2.9 from \cite{reading-stella}.
   \end{theorem}
 
-%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textsc{Acknowledgments}
   We are grateful to Giovanni Cerulli Irelli for his help with references.
   D.R. was partially supported by an AMS-Simons Travel Grant; S.S. was supported by ISF grant 1144/16.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quantum Cluster Algebras and Quantum Cluster Characters}
 \label{sec:qca}
   
@@ -257,8 +244,7 @@
     For any representation $V\in\rep_\FF^{\langle k\rangle}(Q,D)$, we have $X_V=X'_{\Sigma_kV}$, where~$X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_\FF(\mu_kQ,D)$ in the variables $\bfX'$.
   \end{theorem}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Deducing the Conjectures}
 In this section, we apply the results of Section~\ref{sec:qca} to deduce the conjectures in Theorem~\ref{thm:main}.
 
@@ -405,6 +391,7 @@ In this section, we apply the results of Section~\ref{sec:qca} to deduce the con
     The proof of the analogous statement for skew-symmetric cluster algebras given in \cite[Corollary 4]{caldero-keller2} is also written in terms of arbitrary hereditary abelian categories and thus it applies in our situation as well.
   \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % bibliography
 % because of conflicts some keys needs to be fixed by hand.
 % to regenerate the bibliography delete the one below, uncomment the following two lines and recompile, comment the two lines again, edit monomialminors.bbl as needed and paste its content here
