@@ -89,7 +89,7 @@
 \maketitle
 
 \thispagestyle{empty}
-
+\vspace{-2.9ex}
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
   The categorification of skew-symmetric cluster algebras using representations of quivers was initiated by Marsh, Reineke, and Zelevinsky \cite{marsh-reineke-zelevinsky} for Dynkin quivers.  
@@ -114,7 +114,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \textsc{Acknowledgments}
-  We are grateful to Giovanni Cerulli-Irelli for his help with references.
+  We are grateful to Giovanni Cerulli Irelli for his help with references.
   D.R. was partially supported by an AMS-Simons Travel Grant; S.S. was supported by ISF grant 1144/16.
 
 \section{Quantum Cluster Algebras and Quantum Cluster Characters}
@@ -160,7 +160,7 @@
         \right]
       \]
       and thus $\widetilde{B}^T\Lambda=\big[\,D\ \boldsymbol{0}\,\big]$.
-      An easy calculation shows that this compatibility naturally reproduces under mutations.
+      An easy calculation shows that this condition naturally reproduces under mutations.
       Note that this compatibility condition is identical to the one required to define a compatible Poisson structure.
 
   \end{itemize}
@@ -219,7 +219,7 @@
     \begin{enumeratea}
       \item 
         For each rigid representation $V\in\rep_\FF(Q,D)$, the quantum cluster character $X_V$ is a quantum cluster monomial of $\cA_{|\FF|}(\bfX,\widetilde{B})$.  
-        Moreover, every cluster monomial of $\cA_{|\FF|}(\bfX,\widetilde{B})$ not involving initial cluster variables arises in this way, the decomposition of $V$ into indecomposables mirroring the factorization of the cluster monomial into cluster variables.
+        Moreover, every quantum cluster monomial of $\cA_{|\FF|}(\bfX,\widetilde{B})$ not involving initial cluster variables arises in this way, the decomposition of $V$ into indecomposables mirroring the factorization of the quantum cluster monomial into quantum cluster variables.
       
       \item 
         For all dimension vectors $\bfv,\bfe\in\cQ$ with $\bfv$ rigid, there exists a polynomial $P_{\bfv,\bfe}(q)$ so that for any finite field $\FF$ and rigid representation $V\in\rep_\FF(Q,D)$ of dimension vector $\bfv$, we have~$\big|Gr_\bfe(V)\big|=P_{\bfv,\bfe}\big(|\FF|\big)$.
@@ -227,7 +227,7 @@
         \[
           X_\bfv=\sum\limits_{\bfe\in\cQ} q^{-\half\langle\bfe,\bfv-\bfe\rangle}P_{\bfv,\bfe}(q)X^{\widetilde{B}\bfe-{}^*\bfv}
         \]
-        which computes the cluster monomials not involving initial cluster variables of $\cA_q(\bfX,\widetilde{B})$ with arbitrary parameter $q$.
+        which computes the quantum cluster monomials not involving initial quantum cluster variables of $\cA_q(\bfX,\widetilde{B})$ with arbitrary parameter $q$.
     \end{enumeratea}
   \end{theorem}
   An analogous result was obtained for acyclic skew-symmetric quantum cluster algebras by Qin~\cite{qin} using representations of acyclic quivers and with counting polynomials replaced by Poincar\'e polynomials.
@@ -247,11 +247,13 @@
   The connection between the representation theory of $(Q,D)$ and the cluster algebra is actually much stronger.
   For a source (resp. sink) vertex $k$ in $Q$, write $\Sigma_k^-:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$ (resp. $\Sigma_k^+:\rep_\FF(Q,D)\to\rep_\FF(\mu_kQ,D)$) for the reflection functor as defined in \cite[Sec. 2]{dlab-ringel}.  
   In what follows, we will drop the adornment and simply write $\Sigma_k$ for both reflection functors, which one to apply should be clear from context.
-  Write $\rep_\FF^{\langle k\rangle}(Q,D)\subset\rep_\FF(Q,D)$ for the full subcategory consisting of representations which contain no summands isomorphic to the simple representation $S_k$.
+  Write $\rep_\FF^{\langle k\rangle}(Q,D)\subset\rep_\FF(Q,D)$ for the full subcategory consisting of representations which contain no summands isomorphic to the simple $S_k$.
   \begin{theorem}\cite{rupel1}
     \label{th:reflection functor}
-    Let $k$ be a sink or a source in $Q$ and write $(\bfX',\widetilde{B}')=\mu_k(\bfX,\widetilde{B})$ for the mutation in direction $k$ of the seed $(\bfX,\widetilde{B})$.  
-    For any representation $V\in\rep_\FF^{\langle k\rangle}(Q,D)$ we have $X_V=X'_{\Sigma_kV}$, where $X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_\FF(\mu_kQ,D)$ in the variables $\bfX'$.
+    %Let $k$ be a sink or a source in $Q$ and write $(\bfX',\widetilde{B}')=\mu_k(\bfX,\widetilde{B})$ for the mutation in direction $k$ of the seed $(\bfX,\widetilde{B})$.  
+    %Let $k$ be a sink or a source in $Q$ and write $\bfX'$ for the cluster obtained mutating~$\bfX$ in direction $k$.
+    Let $k$ be a sink or a source in $Q$ and let $\bfX'$ be the cluster obtained mutating the initial cluster $\bfX$ in direction $k$.
+    For any representation $V\in\rep_\FF^{\langle k\rangle}(Q,D)$ we have $X_V=X'_{\Sigma_kV}$, where~$X'_{\Sigma_kV}$ denotes the quantum cluster character of $\Sigma_kV\in\rep_\FF(\mu_kQ,D)$ in the variables $\bfX'$.
   \end{theorem}
 
 
@@ -270,7 +272,7 @@ In this section, we apply the results of Section~\ref{sec:qca} to deduce the con
     Next using the injective resolution of $S_i$ we see that $\langle W,S_i\rangle\le\langle W,I_i\rangle$ while using the projective resolution gives $\langle S_i,W\rangle\le\langle P_i,W\rangle$.  Now consider a subrepresentation $E\subset V$ with $[E]=\bfe$, applying the above considerations we see that the $i$-th component of $\bfe^*+{}^*(\bfv-\bfe)$ is bounded by the $i$-th component of $\bfv$:
     \[\frac{1}{d_i}\langle E,S_i\rangle+\frac{1}{d_i}\langle S_i,V/E\rangle\le\frac{1}{d_i}\langle E,I_i\rangle+\frac{1}{d_i}\langle P_i,V/E\rangle=e_i+(v_i-e_i)=v_i.\]
 
-    To finish the proof, for each $1\le i\le n$ we must exhibit a subrepresentation $E\subset V$ which realizes this bound.  
+    To finish the proof, for each $i\in[1, n]$ we must exhibit a subrepresentation $E\subset V$ which realizes this bound.  
     To construct such a subrepresentation, let $J_i$ be the set of all vertices $j$ in $Q$ for which there exists a path (possibly trivial) beginning at $i$ and ending at $j$.  
     Now set $E_j=V_j$ for $j\in J_i$ and $E_j=0$ for $j\notin J_i$.  
     Recall that in the injective coresolution $0\longrightarrow S_i\longrightarrow I_i\longrightarrow I\longrightarrow 0$ the injective representation $I$ has nonzero components only at vertices $j$ which admit a nontrivial path \emph{to} vertex $i$, while in the projective resolution $0\longrightarrow P\longrightarrow P_i\longrightarrow S_i\longrightarrow 0$ the projective representation $P$ has nonzero components only at vertices $j$ which admit a nontrivial path \emph{from} vertex $i$.  
@@ -338,20 +340,21 @@ In this section, we apply the results of Section~\ref{sec:qca} to deduce the con
     e_{ij}
     =
     \begin{cases} 
-      -1 & \text{if $i=j$;}\\ 
-      \max(-b_{ij},0) & \text{if $i\ne j$.}
+      1 & \text{if $i=j$;}\\ 
+      \min(b_{ij},0) & \text{if $i\ne j$.}
     \end{cases}
   \]
   Combining Corollary \ref{cor:classical cluster characters} and Proposition \ref{prop:denominators} we immediately get the following.
   \begin{proposition}[{\cite[Conjecture 3.21]{reading-speyer}}]
     \label{prop:d to g}
     Let $\bfv\in\cQ$ be a rigid dimension vector.
-    Then the $\bfg$-vector of $x_\bfv$ is $E\bfv$.
+    Then the $\bfg$-vector of $x_\bfv$ is $-E\bfv$.
   \end{proposition}
   \begin{proof}
     Since the $\bfg$-vector of the cluster monomial $x_\bfv$ is given by $-{}^*\bfv$, the result follows immediately from the definitions of $E$ and the operator ${}^*(-)$.
   \end{proof}
-  
+  Replacing $E$ with its piecewise linear counterpart $\nu_c$ defined in \cite{reading-stella-2}, the last result extends to cover all cluster variables in $\cA(\bfx,\widetilde{B})$.
+
   \begin{corollary}[{\cite[Conjecture 2.8]{reading-stella}} for acyclic initial exchange matrices]
     The mutation of the initial cluster of $\cA(\bfx,\widetilde{B})$ at a sink or a source vertex transforms denominator vectors of non-initial cluster variables according to the simple reflection associated to that vertex.
   \end{corollary}
@@ -373,7 +376,7 @@ In this section, we apply the results of Section~\ref{sec:qca} to deduce the con
     Let $V$ be a rigid indecomposable representation with $[V]=\bfv$.
     The terms of the $F$-polynomial~$F_\bfv(y)$ are labeled by subrepresentations of $[V]$ and the claim is that each of these monomials produces only non-negative exponents when evaluated at the given $y_j'$.
 
-    Since vertex $k$ is a source in $B$, we have $b_{kj}\leq 0$ for $j\in[1,n]$ and therefore only the exponent of $y_k$ could end up being negative in the tropical evaluation.
+    Since vertex $k$ is a source in $B$, we have $b_{kj}\leq 0$ for $j\in[1,n]$ and therefore only the exponent of~$y_k$ could end up being negative in the tropical evaluation.
     However, observe that the total exponent of any monomial in $F_\bfv(y')$ is given by applying the simple reflection $s_k$ to the dimension vector of the subrepresentation it corresponds to.
     In particular, this implies that the only possibility to have a negative exponent is that $S_k$ is a subrepresentation of $V$.
 
