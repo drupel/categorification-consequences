@@ -67,8 +67,8 @@ Affiliations: California Institute of Technology, Department of Physics Mathemat
 \email{drupel@nd.edu}
 
 \author[Stella]{Salvatore Stella}
-\address[Salvatore Stella]{University of Haifa, Departments of Mathematics, Haifa, Mount Carmel, 31905, Israel}
-\email{stella@math.haifa.ac.il}
+\address[Salvatore Stella]{Università degli studi di Roma ``La Sapienza'', Dipartimento di Matematica ``G. Castelnuovo'', P.le Aldo Moro, 5 – 00185 Rome , Italy}
+\email{stella@mat.uniroma1.it}
 
 \begin{document}
 \begin{abstract}
@@ -104,7 +104,7 @@ Affiliations: California Institute of Technology, Department of Physics Mathemat
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \textsc{Acknowledgments}
-  We are grateful to Giovanni Cerulli Irelli for his help with references.
+  We are grateful to Giovanni Cerulli Irelli for his help with references and to an anonymous referee for pointing out a flaw in the original proof of Corollary~\ref{cor:d_vect basis}. 
   D.R. was partially supported by an AMS-Simons Travel Grant; S.S. was supported by ISF grant 1144/16.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -323,7 +323,7 @@ In this section, we apply the results of Section~\ref{sec:qca} to deduce the con
   \begin{proof}
     Since the $\bfg$-vector of the cluster monomial $x_\bfv$ is given by $-{}^*\bfv$, the result follows immediately from the definitions of $E$ and the operator ${}^*(-)$.
   \end{proof}
-  Replacing $E$ with its piecewise linear counterpart $\nu_c$ defined in \cite{reading-stella-2}, the last result extends to cover all cluster variables in $\cA(\bfx,\widetilde{B})$.
+  Replacing $E$ with its piecewise linear counterpart $\nu_c$ defined in \cite{reading-stella-2}, the last result extends to cover all cluster monomials in $\cA(\bfx,\widetilde{B})$.
 
   \begin{corollary}[{\cite[Conjecture 7.6]{fomin-zelevinsky4}} for acyclic initial exchange matrices]
     \label{cor:d_vect basis}
@@ -331,10 +331,10 @@ In this section, we apply the results of Section~\ref{sec:qca} to deduce the con
     Moreover, the denominator vectors of the cluster variables of any given cluster form a $\ZZ$-basis of $\cQ$.
   \end{corollary}
   \begin{proof}
-    By \cite[Proposition 11.6]{demonet2}, different cluster monomials of $\cA(\bfx,\widetilde{B})$ have different $\bfg$-vectors.
-    Since $Q$ is acyclic, there exists a simultaneous permutation of the rows and columns of $E$ making it upper-unitriangular.
-    In particular, $E$ is invertible and the first claim follows from Proposition~\ref{prop:d to g}.
+    Since $B$ is acyclic, by \cite[Remark 7.2 and Proposition 11.6]{demonet2}, different cluster monomials of $\cA(\bfx,\widetilde{B})$ have different $\bfg$-vectors.
+    Moreover the map $\nu_c$ is invertible over $\ZZ$ --- in each cluster it is given by a triangular matrix with all the diagonal entries equal to $-1$ --- and the first claim follows from Proposition~\ref{prop:d to g}.
 
+    By the same argument, the second claim is a direct consequence of \cite[proposition 11.5]{demonet2} but can also be deduced as follows.
     Each seed of $\cA(\bfx,\widetilde{B})$ corresponds to a local tilting representation $T$.
     By \cite[Lemma 4.3 and Theorem 4.5]{happel-ringel}, the dimension vectors of the summands of $T$ provide a $\ZZ$-basis for the sublattice on which they are supported.
     Negative simples corresponding to vertices outside the support complete this basis to a $\ZZ$-basis of $\cQ$.
@@ -528,7 +528,7 @@ Nathan Reading and David~E Speyer, \emph{Combinatorial frameworks for cluster
 
 \bibitem[RSt17]{reading-stella-2}
 Nathan Reading and Salvatore Stella, \emph{{An affine almost positive roots
-  model}}, arXiv math.CO/1707.00340 (2017).
+model}}, J. Comb. Algebra (to appear) arXiv math.CO/1707.00340 (2017).
 
 \bibitem[RSt18]{reading-stella}
 \bysame, \emph{Initial-seed recursions and dualities for d-vectors}, Pacific J.
@@ -536,7 +536,8 @@ Nathan Reading and Salvatore Stella, \emph{{An affine almost positive roots
 
 \bibitem[RSW17]{rupel-stella-williams}
 Dylan Rupel, Salvatore Stella, and Harold Williams, \emph{Affine cluster
-  monomials are generalized minors}, In preparation (2017).
+monomials are generalized minors}, Compos. Math. \mathbf{155} (2019), no. 7, 1301-1326.
+\MR{3963490}
 
 \bibitem[Rup11]{rupel1}
 Dylan Rupel, \emph{On a quantum analog of the {C}aldero-{C}hapoton formula},
